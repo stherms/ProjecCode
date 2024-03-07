@@ -1,0 +1,6 @@
+public class preuba {
+    public static void main(String[] args){
+        System.out.println("HOLA PEPITO");
+        System.out.println("HOLAaa JOSE");
+    }
+}
