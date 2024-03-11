@@ -20,11 +20,11 @@ public class B1_SocioEstandar extends B0_Socio {
      * @param precio   El precio del seguro contratado.
      */
 
-    public B1_SocioEstandar(int numSocio, String nombre, String nif, tipoSeguro tipo, Double precio) {
+    public B1_SocioEstandar(int numSocio, String nombre, String nif, C0_Seguro.tipoSeguro tipoSeguro, float precioSeguro) {
 
         super(numSocio, nombre);
         this.nif = nif;
-        this.seguro = new C0_Seguro(tipo,precio);
+        this.seguro = new C0_Seguro(tipoSeguro, precioSeguro);
     }
 
     /**

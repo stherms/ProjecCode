@@ -1,3 +1,3 @@
-public class D0_Inscripciones {
+public class F0_Inscripciones {
     
 }
