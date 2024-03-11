@@ -16,8 +16,8 @@ public class B1_SocioEstandar extends B0_Socio {
      * @param numSocio El número del Socio Estandar.
      * @param nombre   El nombre del Socio Estandar.
      * @param nif      El nif del Socio Estandar.
-     * @param tipo     El tipo de seguro contratado (BASICO o COMPLETO).
-     * @param precio   El precio del seguro contratado.
+     * @param tipoSeguro     El tipo de seguro contratado (BASICO o COMPLETO).
+     * @param precioSeguro   El precio del seguro contratado.
      */
 
     public B1_SocioEstandar(int numSocio, String nombre, String nif, C0_Seguro.tipoSeguro tipoSeguro, float precioSeguro) {
