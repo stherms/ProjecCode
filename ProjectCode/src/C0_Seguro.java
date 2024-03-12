@@ -1,7 +1,7 @@
 public class C0_Seguro {
     //ATRIBUTOS
     private tipoSeguro tipoSeguro;
-    private float precioSeguro;
+    private double precioSeguro;
 
     //ENUM Tipo de seguro
     public enum tipoSeguro{
