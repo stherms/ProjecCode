@@ -9,6 +9,8 @@ public class E0_Excursiones {
     private int numDias;
     private double precio;
 
+    
+
     public Excursiones(String codigo, String descripcion, LocalDate fecha, int numDias, double precio) {
         this.codigo = codigo;
         this.descripcion = descripcion;
