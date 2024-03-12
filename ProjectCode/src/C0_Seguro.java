@@ -1,7 +1,7 @@
 public class C0_Seguro {
     //ATRIBUTOS
     private tipoSeguro tipoSeguro;
-    private float precioSeguro;
+    private double precioSeguro;
 
     //ENUM Tipo de seguro
     public enum tipoSeguro{
@@ -14,7 +14,7 @@ public class C0_Seguro {
      * @param tipoSeguro
      * @param precioSeguro
      */
-    public C0_Seguro(tipoSeguro tipoSeguro, float precioSeguro) {
+    public C0_Seguro(tipoSeguro tipoSeguro, double precioSeguro) {
         this.tipoSeguro = tipoSeguro;
         this.precioSeguro = precioSeguro;
     }
@@ -41,14 +41,14 @@ public class C0_Seguro {
      * 
      * @param precioSeguro
      */
-    public void setPrecioSeguro(float precioSeguro){
+    public void setPrecioSeguro(double precioSeguro){
         this.precioSeguro = precioSeguro;
     }
     /**
      * 
-     * @return float
+     * @return double
      */
-    public float getPrecioSeguro(){
+    public double getPrecioSeguro(){
         return precioSeguro;
     }
 }
