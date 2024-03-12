@@ -2,7 +2,7 @@ package modelo;
 
 import java.time.LocalDate;
 
-public class Excursiones {
+public class E0_Excursiones {
     private String codigo;
     private String descripcion;
     private LocalDate fecha;
@@ -18,7 +18,7 @@ public class Excursiones {
      * @param numDias duración en días
      * @param precio precio de la excursión
     **/
-    public Excursiones(String codigo, String descripcion, LocalDate fecha, int numDias, double precio) {
+    public E0_Excursiones(String codigo, String descripcion, LocalDate fecha, int numDias, double precio) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.fecha = fecha;
