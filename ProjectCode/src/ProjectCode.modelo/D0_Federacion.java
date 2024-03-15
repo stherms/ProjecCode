@@ -1,5 +1,3 @@
-package modelo;
-
 public class D0_Federacion {
     private String codigo;
     private String nombre;

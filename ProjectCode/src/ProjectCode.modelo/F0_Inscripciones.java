@@ -1,9 +1,7 @@
-package modelo;
-
 public class F0_Inscripciones {
     private int numInscripcion;
-    private Socio socio;
-    private Excursiones excursion;
+    private B0_Socio socio;
+    private E0_Excursiones excursion;
 
     /**
      * constructor clase inscripciones
@@ -11,7 +9,7 @@ public class F0_Inscripciones {
      * @param socio socio que se inscribe
      * @param excursion excursión en que se inscribe
      */
-    public F0_Inscripciones(int numInscripcion, Socio socio, Excursiones excursion) {
+    public F0_Inscripciones(int numInscripcion, B0_Socio socio, E0_Excursiones excursion) {
         this.numInscripcion = numInscripcion;
         this.socio = socio;
         this.excursion = excursion;
@@ -37,7 +35,7 @@ public class F0_Inscripciones {
      * getter socio que se inscribe
      * @return socio
      */
-    public Socio getSocio() {
+    public B0_Socio getSocio() {
         return socio;
     }
 
@@ -45,7 +43,7 @@ public class F0_Inscripciones {
      * setter socio que se incribe
      * @param socio: datos del socio que se inscribe
      */
-    public void setSocio(Socio socio) {
+    public void setSocio(B0_Socio socio) {
         this.socio = socio;
     }
 
@@ -53,7 +51,7 @@ public class F0_Inscripciones {
      * getter para obtener la excursión asociada a una excursión 
      * @return excursion
      */
-    public Excursiones getExcursion() {
+    public E0_Excursiones getExcursion() {
         return excursion;
     }
 
@@ -61,7 +59,7 @@ public class F0_Inscripciones {
      * setter para asignar una inscripción a una excursión
      * @param excursion: excursión asignada
      */
-    public void setExcursion(Excursiones excursion) {
+    public void setExcursion(E0_Excursiones excursion) {
         this.excursion = excursion;
     }
 
