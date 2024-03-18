@@ -30,23 +30,23 @@ public class A_MenuInicial {
         controlador.cargarFederaciones();
         controlador.cargarSeguros();
 
-        if(menuInicial.size()<=0){
+        if (menuInicial.size() <= 0) {
             addMenuInicial();
         }
         StringBuilder mensajeInicio = new StringBuilder();
-            
-        for(int i=0; i < menuInicial.size(); i++){
-                mensajeInicio.append((i + 1) + ") " + menuInicial.get(i) + "\n");
+
+        for (int i = 0; i < menuInicial.size(); i++) {
+            mensajeInicio.append((i + 1) + ") " + menuInicial.get(i) + "\n");
         }
-        System.out.println("====================\n  MENU INICIAL\n"+mensajeInicio.toString()+"====================");
+        System.out.println("====================\n  MENU INICIAL\n" + mensajeInicio.toString() + "====================");
         int eleccion = teclado.nextInt();
-            teclado.nextLine();
-        while(eleccion<=0||eleccion>menuInicial.size()){
-            System.out.println("====================\n  MENU INICIAL\n"+mensajeInicio.toString()+"====================");
+        teclado.nextLine();
+        while (eleccion <= 0 || eleccion > menuInicial.size()) {
+            System.out.println("====================\n  MENU INICIAL\n" + mensajeInicio.toString() + "====================");
             eleccion = teclado.nextInt();
             teclado.nextLine();
         }
-        switch(eleccion){
+        switch (eleccion) {
             case 1:
                 menuExcursiones();
                 break;
@@ -62,14 +62,14 @@ public class A_MenuInicial {
         }
     }
 
-    public void addMenuInicial(){
+    public void addMenuInicial() {
         menuInicial.add("Excursiones");
         menuInicial.add("Socios");
         menuInicial.add("Inscripciones");
         menuInicial.add("Salir");
     }
 
-    public void addMenuExcursiones(){
+    public void addMenuExcursiones() {
         menuExcursiones.add("Mostrar excursiones");
         menuExcursiones.add("Añadir excursion");
         menuExcursiones.add("Eliminar excursion");
@@ -77,7 +77,7 @@ public class A_MenuInicial {
         menuExcursiones.add("Salir");
     }
 
-    public void addMenuSocios(){
+    public void addMenuSocios() {
         menuSocios.add("Mostrar Socios");
         menuSocios.add("Añadir socio Federado");
         menuSocios.add("Añadir socio Infantil");
@@ -89,7 +89,7 @@ public class A_MenuInicial {
         menuSocios.add("Salir");
     }
 
-    public void addSubMenuSocios(){
+    public void addSubMenuSocios() {
         submenuSocios.add("Mostrar todos los Socios");
         submenuSocios.add("Mostrar socios estandar");
         submenuSocios.add("Mostrar sociocios Federados");
@@ -99,7 +99,7 @@ public class A_MenuInicial {
         submenuSocios.add("Salir");
     }
 
-    public void addMenuInscripciones(){
+    public void addMenuInscripciones() {
         menuInscripciones.add("Mostrar Inscripciones");
         menuInscripciones.add("Añadir inscripcion");
         menuInscripciones.add("Eliminar inscripcion");
@@ -107,32 +107,70 @@ public class A_MenuInicial {
         menuInscripciones.add("Salir");
     }
 
-    private void menuExcursiones(){
-        if(menuExcursiones.size()<=0){
+    private void menuExcursiones() {
+        if (menuExcursiones.size() <= 0) {
             addMenuExcursiones();
         }
         StringBuilder mensajeExcursiones = new StringBuilder();
-            
-        for(int i=0; i < menuExcursiones.size(); i++){
+
+        for (int i = 0; i < menuExcursiones.size(); i++) {
             mensajeExcursiones.append((i + 1) + ") " + menuExcursiones.get(i) + "\n");
         }
 
-        System.out.println("====================\n  MENU EXCURSIONES\n"+mensajeExcursiones.toString()+"====================");
+        System.out.println("====================\n  MENU EXCURSIONES\n" + mensajeExcursiones.toString() + "====================");
         int eleccion = teclado.nextInt();
-            teclado.nextLine();
+        teclado.nextLine();
 
-        while(eleccion<=0||eleccion>menuExcursiones.size()){
-            System.out.println("====================\n  MENU EXCURSIONES\n"+mensajeExcursiones.toString()+"====================");
+        while (eleccion <= 0 || eleccion > menuExcursiones.size()) {
+            System.out.println("====================\n  MENU EXCURSIONES\n" + mensajeExcursiones.toString() + "====================");
             eleccion = teclado.nextInt();
             teclado.nextLine();
         }
-        
-        switch(eleccion){
+
+        switch (eleccion) {
             case 1:
-                System.out.println("funcion MostrarExcursiones()");
+                LocalDate fechaIni = null;
+                LocalDate fechaFin = null;
+                boolean formatoFecha = false;
+                boolean fechasCorrectas = true;
+
+                do {
+                    fechaIni = obtenerFecha(teclado, "FechaIni");
+                    fechaFin = obtenerFecha(teclado, "FechaFin");
+
+                    //La fecha de inicio debe ser anterior o igual a la de fin
+                    if (fechaIni.isAfter(fechaFin)) {
+                        System.out.println("La fecha de inicio no puede ser posterior a la fecha de fin");
+                        fechasCorrectas = false;
+                    } else {
+                        fechasCorrectas = true;
+                    }
+                } while (!fechasCorrectas);
+
+
+                ArrayList<E0_Excursiones> excusiones = controlador.filtrarExcursiones(fechaIni, fechaFin);
+
+                mostrar(excusiones);
+                menuExcursiones();
+
+
                 break;
             case 2:
-                System.out.println("funcion CrearExcursion()");
+
+                System.out.println("introduce el codigo");
+                String codigo = this.teclado.nextLine();
+                System.out.println("introduce la descripción");
+                String descr = this.teclado.nextLine();
+                LocalDate fecha = obtenerFecha(teclado, "");// llama al método validar fecha correcta
+                System.out.println("introduce el numero de dias");
+                int dias = this.teclado.nextInt();
+                teclado.nextLine();
+                System.out.println("introduce el precio");
+                double precio = this.teclado.nextDouble();
+                teclado.nextLine();
+
+                controlador.añadirExcursion(codigo, descr, fecha, dias, precio);
+                menuExcursiones();
                 break;
             case 3:
                 System.out.println("funcion EliminarExcursion()");
@@ -146,27 +184,27 @@ public class A_MenuInicial {
         }
     }
 
-    private void menuSocios(){
-        if(menuSocios.size()<=0){
+    private void menuSocios() {
+        if (menuSocios.size() <= 0) {
             addMenuSocios();
         }
         StringBuilder mensajeSocios = new StringBuilder();
-            
-        for(int i=0; i < menuSocios.size(); i++){
+
+        for (int i = 0; i < menuSocios.size(); i++) {
             mensajeSocios.append((i + 1) + ") " + menuSocios.get(i) + "\n");
         }
 
-        System.out.println("====================\n  MENU SOCIOS\n"+mensajeSocios.toString()+"====================");
+        System.out.println("====================\n  MENU SOCIOS\n" + mensajeSocios.toString() + "====================");
         int eleccion = teclado.nextInt();
-            teclado.nextLine();
+        teclado.nextLine();
 
-        while(eleccion<=0||eleccion>menuSocios.size()){
-            System.out.println("====================\n  MENU SOCIOS\n"+mensajeSocios.toString()+"====================");
+        while (eleccion <= 0 || eleccion > menuSocios.size()) {
+            System.out.println("====================\n  MENU SOCIOS\n" + mensajeSocios.toString() + "====================");
             eleccion = teclado.nextInt();
             teclado.nextLine();
         }
 
-        switch(eleccion){
+        switch (eleccion) {
             case 1:
                 menusubSocios();
                 break;
@@ -197,27 +235,27 @@ public class A_MenuInicial {
         }
     }
 
-    private void menusubSocios(){
-        if(submenuSocios.size()<=0){
+    private void menusubSocios() {
+        if (submenuSocios.size() <= 0) {
             addSubMenuSocios();
         }
         StringBuilder mensajesubSocios = new StringBuilder();
-            
-        for(int i=0; i < submenuSocios.size(); i++){
+
+        for (int i = 0; i < submenuSocios.size(); i++) {
             mensajesubSocios.append((i + 1) + ") " + submenuSocios.get(i) + "\n");
         }
 
-        System.out.println("====================\n MENU SOCIOS\n"+mensajesubSocios.toString()+"====================");
+        System.out.println("====================\n MENU SOCIOS\n" + mensajesubSocios.toString() + "====================");
         int eleccion = teclado.nextInt();
-            teclado.nextLine();
+        teclado.nextLine();
 
-        while(eleccion<=0||eleccion>submenuSocios.size()){
-            System.out.println("====================\n  MENU SOCIOS\n"+mensajesubSocios.toString()+"====================");
+        while (eleccion <= 0 || eleccion > submenuSocios.size()) {
+            System.out.println("====================\n  MENU SOCIOS\n" + mensajesubSocios.toString() + "====================");
             eleccion = teclado.nextInt();
             teclado.nextLine();
         }
 
-        switch(eleccion){
+        switch (eleccion) {
             case 1:
                 System.out.println("funcion MostrarSocios");
                 break;
@@ -242,32 +280,32 @@ public class A_MenuInicial {
         }
     }
 
-    private void menuInscripciones(){
-        if(menuInscripciones.size()<=0){
+    private void menuInscripciones() {
+        if (menuInscripciones.size() <= 0) {
             addMenuInscripciones();
         }
         StringBuilder mensajeInscripciones = new StringBuilder();
-            
-        for(int i=0; i < menuInscripciones.size(); i++){
+
+        for (int i = 0; i < menuInscripciones.size(); i++) {
             mensajeInscripciones.append((i + 1) + ") " + menuInscripciones.get(i) + "\n");
         }
 
-        System.out.println("====================\n MENU INSCRIPCIONES\n"+mensajeInscripciones.toString()+"====================");
+        System.out.println("====================\n MENU INSCRIPCIONES\n" + mensajeInscripciones.toString() + "====================");
         int eleccion = teclado.nextInt();
-            teclado.nextLine();
+        teclado.nextLine();
 
-        while(eleccion<=0||eleccion>menuInscripciones.size()){
-            System.out.println("====================\n  MENU INSCRIPCIONES\n"+mensajeInscripciones.toString()+"====================");
+        while (eleccion <= 0 || eleccion > menuInscripciones.size()) {
+            System.out.println("====================\n  MENU INSCRIPCIONES\n" + mensajeInscripciones.toString() + "====================");
             eleccion = teclado.nextInt();
             teclado.nextLine();
         }
-        
-        switch(eleccion){
+
+        switch (eleccion) {
             case 1:
                 System.out.println("funcion MostrarInscripciones()");
                 break;
             case 2:
-                System.out.println("funcion CrearInscripciones()");   
+                System.out.println("funcion CrearInscripciones()");
                 break;
             case 3:
                 System.out.println("funcion EliminarInscripciones()");
@@ -280,4 +318,41 @@ public class A_MenuInicial {
                 break;
         }
     }
+
+    /**
+     * Metodo que comprueba si una fecha cumple con el formato AAA-MM-DD
+     *
+     * @param teclado
+     * @return una fecha validada
+     */
+    public static LocalDate obtenerFecha(Scanner teclado, String tipo) {
+        LocalDate fecha = null;
+        boolean formatoFecha = false;
+
+        do {
+            try {
+                System.out.println("Introduce la fecha de " + tipo + " en formato AAAA-MM-DD:");
+                fecha = LocalDate.parse(teclado.nextLine());
+                formatoFecha = true;
+            } catch (DateTimeParseException e) {
+                System.out.println("Error: Formato de fecha incorrecto. Debe ser AAAA-MM-DD.");
+            }
+        } while (!formatoFecha);
+
+        return fecha;
+    }
+
+    /**
+     * Este metodo muestra por pantalla el contenido del ArrayList pasado como parametro
+     * @param datosMostrar El Array list a mostrar
+     * @param <T> cualquier elemento
+     */
+    public <T> void mostrar(ArrayList<T> datosMostrar) {
+        for (T elemento : datosMostrar) {
+
+            System.out.println(elemento.toString());
+
+        }
+    }
 }
+
