@@ -1,3 +1,5 @@
+package src.ProjectCode.modelo;
+
 public class F0_Inscripciones {
     private int numInscripcion;
     private B0_Socio socio;

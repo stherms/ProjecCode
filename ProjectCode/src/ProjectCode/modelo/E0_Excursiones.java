@@ -1,3 +1,5 @@
+package src.ProjectCode.modelo;
+
 import java.time.LocalDate;
 
 public class E0_Excursiones {

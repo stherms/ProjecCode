@@ -1,3 +1,5 @@
+package src.ProjectCode.modelo;
+
 public class C0_Seguro {
     //ATRIBUTOS
     private tipoSeguro tipoSeguro;

@@ -1,3 +1,5 @@
+package src.ProjectCode.modelo;
+
 /**
  *
  * La clase SocioEstandar representa un Socio Estandar que hereda de la clase Padre Socio, con atributos propios nif

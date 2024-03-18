@@ -1,3 +1,5 @@
+package src.ProjectCode.modelo;
+
 /**
  *
  * La clase SocioInfantil representa un Socio Infantil que hereda de la clase Padre Socio, con atributos propios

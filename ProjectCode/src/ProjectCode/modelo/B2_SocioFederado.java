@@ -1,3 +1,5 @@
+package src.ProjectCode.modelo;
+
 /**
  *
  * La clase SocioFederado representa un Socio Federado que hereda de la clase Padre Socio, con atributos propios nif
@@ -7,7 +9,7 @@
  *@author ProjectCode
  *@version 1.0
  */
-public class B2_SocioFederado extends B0_Socio{
+public class B2_SocioFederado extends B0_Socio {
 
     private String nif;
     private final double DES_CUOTA_MENSUAL  = 5.0;

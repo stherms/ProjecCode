@@ -1,3 +1,5 @@
+package src.ProjectCode.modelo;
+
 /**
  *
  * La clase Socio representa una clases Abstracta con datos comunes de todos los socios, que son el numero de socio
