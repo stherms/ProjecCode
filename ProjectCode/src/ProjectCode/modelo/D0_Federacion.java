@@ -1,4 +1,4 @@
-package src.ProjectCode.modelo;
+package ProjectCode.modelo;
 
 public class D0_Federacion {
     private String codigo;

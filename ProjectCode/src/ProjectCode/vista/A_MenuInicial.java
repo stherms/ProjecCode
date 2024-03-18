@@ -1,8 +1,8 @@
-package src.ProjectCode.vista;
+package ProjectCode.vista;
 
 
-import src.ProjectCode.controlador.Controlador;
-import src.ProjectCode.modelo.E0_Excursiones;
+import ProjectCode.controlador.Controlador;
+import ProjectCode.modelo.E0_Excursiones;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -25,7 +25,7 @@ public class A_MenuInicial {
         this.teclado = new Scanner(System.in);
     }
 
-    
+
     public void inicio() {
         controlador.cargarFederaciones();
         controlador.cargarSeguros();

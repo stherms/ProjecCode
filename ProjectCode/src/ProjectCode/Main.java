@@ -1,9 +1,9 @@
-package src.ProjectCode;
+package ProjectCode;
 
 
-import src.ProjectCode.controlador.Controlador;
-import src.ProjectCode.modelo.Datos;
-import src.ProjectCode.vista.A_MenuInicial;
+import ProjectCode.controlador.Controlador;
+import ProjectCode.modelo.Datos;
+import ProjectCode.vista.A_MenuInicial;
 
 
 
