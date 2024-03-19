@@ -3,6 +3,7 @@ package ProjectCode.vista;
 
 import ProjectCode.controlador.Controlador;
 import ProjectCode.modelo.B2_SocioFederado;
+import ProjectCode.modelo.Datos;
 import ProjectCode.modelo.E0_Excursiones;
 
 import java.time.LocalDate;
@@ -30,6 +31,11 @@ public class A_MenuInicial {
     public void inicio() {
         controlador.cargarFederaciones();
         controlador.cargarSeguros();
+        controlador.cargaInicialSociosEstandar();
+        controlador.cargaInicialSociosFederados();
+        controlador.cargaInicialSociosInfantiles();
+        controlador.cargaInicialExcursiones();
+        controlador.cargaInicialInscripciones();
 
         if (menuInicial.size() <= 0) {
             addMenuInicial();
@@ -129,10 +135,11 @@ public class A_MenuInicial {
         }
 
         switch (eleccion) {
+            //MOSTRAR EXCURSION POR FILTRO DE FECHA
             case 1:
                 LocalDate fechaIni = null;
                 LocalDate fechaFin = null;
-                boolean formatoFecha = false;
+
                 boolean fechasCorrectas = true;
 
                 do {
@@ -157,7 +164,7 @@ public class A_MenuInicial {
 
                 break;
             case 2:
-
+                //AÑADIR EXCURSIÓN
                 System.out.println("introduce el codigo");
                 String codigo = this.teclado.nextLine();
                 System.out.println("introduce la descripción");
@@ -169,7 +176,6 @@ public class A_MenuInicial {
                 System.out.println("introduce el precio");
                 double precio = this.teclado.nextDouble();
                 teclado.nextLine();
-
                 controlador.añadirExcursion(codigo, descr, fecha, dias, precio);
                 menuExcursiones();
                 break;
