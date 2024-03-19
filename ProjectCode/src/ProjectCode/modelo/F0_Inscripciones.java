@@ -18,7 +18,7 @@ public class F0_Inscripciones {
     }
 
     /**
-     * getter numero de inscripción
+     * getter número de inscripción
      * @return numInscripcion
      */
     public int getNumInscripcion() {
