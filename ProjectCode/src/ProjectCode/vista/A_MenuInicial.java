@@ -2,6 +2,7 @@ package ProjectCode.vista;
 
 
 import ProjectCode.controlador.Controlador;
+import ProjectCode.modelo.B2_SocioFederado;
 import ProjectCode.modelo.E0_Excursiones;
 
 import java.time.LocalDate;
@@ -209,7 +210,8 @@ public class A_MenuInicial {
                 menusubSocios();
                 break;
             case 2:
-                System.out.println("funcion CrearSocioFederado()");
+                B2_SocioFederado socioFederado = new B2_SocioFederado();
+                socioFederado.CrearSocioFederado();
                 break;
             case 3:
                 System.out.println("funcion CrearSocioInfantil()");
@@ -355,4 +357,3 @@ public class A_MenuInicial {
         }
     }
 }
-

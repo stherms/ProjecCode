@@ -28,6 +28,10 @@ public abstract class B0_Socio {
         this.nombre = nombre;
     }
 
+    //Constructor vacio
+    public B0_Socio() {
+
+    }
     /**
      * Obtiene el número de socio.
      *
