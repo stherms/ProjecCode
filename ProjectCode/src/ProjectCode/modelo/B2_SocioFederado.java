@@ -42,10 +42,12 @@ public class B2_SocioFederado extends B0_Socio {
 
     @Override
     public String toString() {
-        return "SOCIO: \n - Numero socio: " + getNumSocio() 
-            +"\n - Nombre: " + getNombre() 
-            + "\n - Nif: " + nif 
-            + "\n"+getFederacion() +
-            "=========================================";
+        return "\n  DATOS ESENCIALES:"
+            + "\n      - Numero socio: " + getNumSocio() 
+            + "\n      - Nombre: " + getNombre() 
+            + "\n      - Nif: " + nif 
+            + "\n  DATOS FEDERACION:"
+            + "\n"+getFederacion();
+
     }
 }

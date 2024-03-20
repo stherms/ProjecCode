@@ -81,19 +81,11 @@ public class B1_SocioEstandar extends B0_Socio {
 
     @Override
     public String toString() {
-        StringBuilder mensajeEstandar = new StringBuilder();
-    
-        for(int i = 0; i < SociosEstandar.size(); i++) {
-            mensajeEstandar.append("SOCIO ESTANDAR NUMERO <<").append(i+1).append(">>\n");
-            mensajeEstandar.append("    DATOS ESENCIALES\n");
-            mensajeEstandar.append("    - Num socio: ").append(SociosEstandar.get(i).getNumSocio()).append("\n");
-            mensajeEstandar.append("    - Nombre: ").append(SociosEstandar.get(i).getNombre()).append("\n");
-            mensajeEstandar.append("    - Nif: ").append(SociosEstandar.get(i).getNif()).append("\n");
-            mensajeEstandar.append("    DATOS SEGURO\n");
-            mensajeEstandar.append(SociosEstandar.get(i).getSeguro()).append("\n");
-            mensajeEstandar.append("===========================================================\n");
-        }
-    
-        return mensajeEstandar.toString();
+        return " \n  DATOS ESENCIALES:" 
+        + "\n       - Numero socio: " +getNumSocio()
+        + "\n       - Nombre: " + getNombre()
+        + "\n       - Nif: " + getNif()
+        + "\n  DATOS SEGURO"
+        + getSeguro();
     }
 }

@@ -69,18 +69,10 @@ public class B3_SocioInfantil extends B0_Socio {
 
     @Override
     public String toString() {
-        StringBuilder mensajeInfantil = new StringBuilder();
-        
-        for(int i = 0; i < SociosInfantiles.size(); i++) {
-            mensajeInfantil.append("SOCIO INFANTIL\n");
-            mensajeInfantil.append("    DATOS ESENCIALES\n");
-            mensajeInfantil.append("    - Num socio: ").append(SociosInfantiles.get(i).getNumSocio()).append("\n");
-            mensajeInfantil.append("    - Nombre: ").append(SociosInfantiles.get(i).getNombre()).append("\n");
-            mensajeInfantil.append("    DATOS CODIGO FAMILIAR\n");
-            mensajeInfantil.append("    - Num socio familiar: ").append(SociosInfantiles.get(i).getNumSocioPadre()).append("\n");
-            mensajeInfantil.append("===========================================================\n");
-        }
-
-        return mensajeInfantil.toString();
+        return "    DATOS ESENCIALES"
+        +"\n        - Num socio: "+ getNumSocio()
+        +"\n        - Nombre: " + getNombre()
+        +"\n    DATOS CODIGO FAMILIAR:"
+        +"\n        - Num socio familiar: " + getNumSocioPadre() +"\n";
     }
 }
