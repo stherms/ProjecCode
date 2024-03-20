@@ -57,7 +57,7 @@ public class C0_Seguro {
     }
 
     public String toString() {
-        return "    - Tipo seguro: "+getTipoSeguro()
-                +"  \n    - Precio: " + getPrecioSeguro() + "e";
+        return "    \n       - Tipo seguro: "+getTipoSeguro()
+                +"  \n       - Precio: " + getPrecioSeguro() + "e";
     }
 }

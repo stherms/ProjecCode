@@ -52,8 +52,7 @@ public class D0_Federacion {
      */
     @Override
     public String toString() {
-        return "FEDERACION:\n" +
-                " - Codigo: " + codigo + '\n' +
-                " - Nombre: " + nombre + '\n' ;
+        return  "      - Codigo: " + codigo + '\n' +
+                "      - Nombre: " + nombre + '\n' ;
     }
 }

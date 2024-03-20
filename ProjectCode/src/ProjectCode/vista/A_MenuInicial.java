@@ -338,19 +338,22 @@ public class A_MenuInicial {
             //VER SOCIOS ESTANDAR
             case 2:
                 ArrayList<B1_SocioEstandar> socioEstandar = controlador.mostrarSocioEstandar();
+                System.out.println("LISTADO DE SOCIOS ESTANDAR:");
                 mostrar(socioEstandar);
                 inicio();
                 break;
             //VER SOCIOS FEDERADOS
             case 3:
                 ArrayList<B2_SocioFederado> socioFederados = controlador.mostrarSocioFederados();
+                System.out.println("LISTADO DE SOCIOS FEDERADOS:");
                 mostrar(socioFederados);
                 inicio();
                 break;
             case 4:
 //(REVISAR ESTE FRAGMENTO)
-                //ArrayList<B3_SocioInfantil> socioInfantil = controlador.mostrarSocioInfantil();
-                //mostrar(socioInfantil);
+                ArrayList<B3_SocioInfantil> socioInfantil = controlador.mostrarSocioInfantil();
+                System.out.println("LISTADO DE SOCIOS INFANTILES:");
+                mostrar(socioInfantil);
                 break;
             case 5:
                 inicio();
