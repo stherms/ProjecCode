@@ -146,6 +146,16 @@ public class Controlador {
         return  excursiones;
     }
 
+    /**
+     * Interactua con el metodo de datos de la clase Datos del modelo para eliminar una excursion.
+     * @param codigoExcursion El codigo de la excursion a eliminar
+     */
+    public void eliminarExcursion(String codigoExcursion){
+
+        datos.eliminarExcursion(codigoExcursion);
+
+    }
+
     //METODOS SOCIOS
     //METODOS SOCIOS FEDERADOS
 

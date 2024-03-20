@@ -184,7 +184,11 @@ public class A_MenuInicial {
                 menuExcursiones();
                 break;
             case 3:
-                System.out.println("funcion EliminarExcursion()");
+                //ELIMINAR EXCURSION
+                System.out.println("Introduce el codigo de la excursión a eliminar");
+                String codigoEliminar = this.teclado.nextLine();
+                controlador.eliminarExcursion(codigoEliminar);
+                menuExcursiones();
                 break;
             case 4:
                 inicio();
