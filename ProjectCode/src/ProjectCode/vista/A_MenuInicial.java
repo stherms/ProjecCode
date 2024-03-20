@@ -32,14 +32,6 @@ public class A_MenuInicial {
 
 
     public void inicio() {
-        controlador.cargarFederaciones();
-        controlador.cargarSeguros();
-        controlador.cargaInicialSociosEstandar();
-        controlador.cargaInicialSociosFederados();
-        controlador.cargaInicialSociosInfantiles();
-        controlador.cargaInicialExcursiones();
-        controlador.cargaInicialInscripciones();
-
         if (menuInicial.size() <= 0) {
             addMenuInicial();
         }
@@ -444,5 +436,15 @@ public class A_MenuInicial {
 
             System.out.println(elemento.toString());
         }
+    }
+
+    public void cargadatos(){
+        controlador.cargarFederaciones();
+        controlador.cargarSeguros();
+        controlador.cargaInicialSociosEstandar();
+        controlador.cargaInicialSociosFederados();
+        controlador.cargaInicialSociosInfantiles();
+        controlador.cargaInicialExcursiones();
+        controlador.cargaInicialInscripciones();
     }
 }
