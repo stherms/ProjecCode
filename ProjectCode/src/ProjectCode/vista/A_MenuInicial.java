@@ -2,6 +2,7 @@ package ProjectCode.vista;
 
 
 import ProjectCode.controlador.Controlador;
+import ProjectCode.modelo.B1_SocioEstandar;
 import ProjectCode.modelo.B2_SocioFederado;
 import ProjectCode.modelo.Datos;
 import ProjectCode.modelo.E0_Excursiones;
@@ -223,7 +224,8 @@ public class A_MenuInicial {
                 System.out.println("funcion CrearSocioInfantil()");
                 break;
             case 4:
-                System.out.println("funcion CrearSocioEstandar()");
+                B1_SocioEstandar socioEstandar = new B1_SocioEstandar();
+                socioEstandar.crearSocioEstandar();
                 break;
             case 5:
                 System.out.println("funcion EliminarSocio()");

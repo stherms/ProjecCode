@@ -1,5 +1,8 @@
 package ProjectCode.modelo;
 
+import java.util.Scanner;
+import java.util.ArrayList;
+
 /**
  *
  * La clase SocioInfantil representa un Socio Infantil que hereda de la clase Padre Socio, con atributos propios
@@ -23,6 +26,9 @@ public class B3_SocioInfantil extends B0_Socio {
     public B3_SocioInfantil(int numSocio, String nombre, int numSocioPadre) {
         super(numSocio, nombre);
         this.numSocioPadre = numSocioPadre;
+    }
+    public B3_SocioInfantil() {
+        System.out.println("prueba socio infantil");
     }
 
     /**
@@ -66,5 +72,9 @@ public class B3_SocioInfantil extends B0_Socio {
                 "numSocioPadre=" + numSocioPadre +
                 ", DESCUENTO=" + DESCUENTO +
                 '}';
+    }
+
+    public void crearSocioInfantil(){
+        System.out.println("PRUEBA DE CODIGO");
     }
 }

@@ -20,7 +20,9 @@ public class C0_Seguro {
         this.tipoSeguro = tipoSeguro;
         this.precioSeguro = precioSeguro;
     }
-    
+    public C0_Seguro() {
+
+    }
     //METODO_TipoSeguro
     /**
      * 
@@ -52,5 +54,10 @@ public class C0_Seguro {
      */
     public double getPrecioSeguro(){
         return precioSeguro;
+    }
+
+    public String toString() {
+        return "    - Tipo seguro: "+getTipoSeguro()
+                +"  \n    - Precio: " + getPrecioSeguro() + "e";
     }
 }

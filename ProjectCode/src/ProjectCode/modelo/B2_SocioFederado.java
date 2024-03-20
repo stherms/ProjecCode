@@ -7,13 +7,13 @@ public class B2_SocioFederado extends B0_Socio {
     private final double DES_CUOTA_MENSUAL = 5.0;
     private final double DES_PRECIO_EXCURSION = 10.0;
     private D0_Federacion federacion;
-    private static ArrayList<B2_SocioFederado> listaSociosFederados = new ArrayList<>();
+    private static ArrayList<B2_SocioFederado> SociosFederados = new ArrayList<>();
 
     public B2_SocioFederado(int numSocio, String nombre, String nif, String codigoFederacion, String nomFederacion) {
         super(numSocio, nombre);
         this.nif = nif;
         this.federacion = new D0_Federacion(codigoFederacion, nomFederacion);
-        listaSociosFederados.add(this);
+        SociosFederados.add(this);
     }
 
     public B2_SocioFederado() {
@@ -53,13 +53,13 @@ public class B2_SocioFederado extends B0_Socio {
         System.out.println(" - Numero Socio: ");
         int numSocio = teclado.nextInt();
         teclado.nextLine(); 
-        System.out.println("\n- Nombre: ");
+        System.out.println("- Nombre: ");
         String nombre = teclado.nextLine();
-        System.out.println("\n- Nif: ");
+        System.out.println("- Nif: ");
         String nif = teclado.nextLine();
-        System.out.println("\n- Codigo Federacion: ");
+        System.out.println("- Codigo Federacion: ");
         String codigoFederacion = teclado.nextLine();
-        System.out.println("\n- Nombre Federacion: ");
+        System.out.println("- Nombre Federacion: ");
         String nomFederacion = teclado.nextLine();
 
         B2_SocioFederado socioFederado = new B2_SocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion);
@@ -68,8 +68,7 @@ public class B2_SocioFederado extends B0_Socio {
     }
 
     public static void mostrarSociosFederados(){
-        for(B2_SocioFederado socio : listaSociosFederados) {
-            
+        for(B2_SocioFederado socio : SociosFederados) {
             System.out.println(socio.toString());
         }
     }
