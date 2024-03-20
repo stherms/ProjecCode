@@ -45,31 +45,7 @@ public class B2_SocioFederado extends B0_Socio {
         return "SOCIO: \n - Numero socio: " + getNumSocio() 
             +"\n - Nombre: " + getNombre() 
             + "\n - Nif: " + nif 
-            + "\n"+getFederacion() ;
-    }
-
-    public void CrearSocioFederado(){
-        Scanner teclado = new Scanner(System.in); 
-        System.out.println(" - Numero Socio: ");
-        int numSocio = teclado.nextInt();
-        teclado.nextLine(); 
-        System.out.println("- Nombre: ");
-        String nombre = teclado.nextLine();
-        System.out.println("- Nif: ");
-        String nif = teclado.nextLine();
-        System.out.println("- Codigo Federacion: ");
-        String codigoFederacion = teclado.nextLine();
-        System.out.println("- Nombre Federacion: ");
-        String nomFederacion = teclado.nextLine();
-
-        B2_SocioFederado socioFederado = new B2_SocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion);
-        System.out.println("Se ha creado el Socio Federado:");
-        System.out.println(socioFederado.toString());
-    }
-
-    public static void mostrarSociosFederados(){
-        for(B2_SocioFederado socio : SociosFederados) {
-            System.out.println(socio.toString());
-        }
+            + "\n"+getFederacion() +
+            "=========================================";
     }
 }

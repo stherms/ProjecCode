@@ -1,5 +1,6 @@
 package ProjectCode.controlador;
 
+import ProjectCode.modelo.B2_SocioFederado;
 import ProjectCode.modelo.D0_Federacion;
 import ProjectCode.modelo.Datos;
 import ProjectCode.modelo.E0_Excursiones;
@@ -38,7 +39,7 @@ public class Controlador {
 
     }
 
-
+//METODOS CARGA DE DATOS
     public void cargarFederaciones() {
 
         datos.cargarFederaciones();
@@ -68,6 +69,8 @@ public class Controlador {
         datos.cargaInicialInscripciones();
     }
 
+
+//METODOS EXCURSIONES
     public void añadirExcursion(String codigo, String descr, LocalDate fecha, int dias, double precio){
 
         datos.añadirExcursion(codigo,descr,fecha,dias,precio);
@@ -81,4 +84,20 @@ public class Controlador {
 
         return  excursiones;
     }
+
+//METODOS CLIENTES
+    //METODOS CLIENTES FEDERADOS
+    public void CrearSocioFederado(int numSocio, String nombre, String nif, String codigoFederacion, String nomFederacion){
+
+        datos.CrearSocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion);
+    }
+
+    public ArrayList<B2_SocioFederado> mostrarSocioFederados(){
+        ArrayList<B2_SocioFederado> socioFederados = new ArrayList<>();
+        socioFederados = datos.mostrarsociosFederados();
+        return socioFederados;
+    }
+
+    //METODOS CLIENTES ESTANDAR
+    //METODOS CLIENTES INFANTILES
 }

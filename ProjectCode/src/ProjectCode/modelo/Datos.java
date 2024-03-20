@@ -24,7 +24,7 @@ public class Datos {
     this.sociosEstandars = new ArrayList<>();
     this.sociosFederados = new ArrayList<>();
     this.sociosInfantiles = new ArrayList<>();
-       this.cargaInscripciones = new ArrayList<>();
+    this.cargaInscripciones = new ArrayList<>();
 
 
     }
@@ -128,10 +128,16 @@ public class Datos {
 
     }
 
+//METODOS DE SOCIOS
+    //METODOS SOCIO FEDERADO
+    public void CrearSocioFederado(int numSocio, String nombre, String nif, String codigoFederacion, String nomFederacion){
 
+        sociosFederados.add(new B2_SocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion));
+    }
 
-
-
-
-
+    public ArrayList<B2_SocioFederado> mostrarsociosFederados(){
+        return sociosFederados;
+    }
+    //METODOS SOCIO ESTANDAR
+    //METODOS SOCIO INFANTIL
 }

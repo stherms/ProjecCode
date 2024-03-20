@@ -213,12 +213,25 @@ public class A_MenuInicial {
         }
 
         switch (eleccion) {
+            //MOSTRAR SOCIOS
             case 1:
                 menusubSocios();
                 break;
+            // CREAR SOCIO FEDERADO
             case 2:
-                B2_SocioFederado socioFederado = new B2_SocioFederado();
-                socioFederado.CrearSocioFederado();
+                System.out.println(" - Numero Socio: ");
+                int numSocio = teclado.nextInt();
+                    teclado.nextLine(); 
+                System.out.println("- Nombre: ");
+                String nombre = teclado.nextLine();
+                System.out.println("- Nif: ");
+                String nif = teclado.nextLine();
+                System.out.println("- Codigo Federacion: ");
+                String codigoFederacion = teclado.nextLine();
+                System.out.println("- Nombre Federacion: ");
+                String nomFederacion = teclado.nextLine();
+                controlador.CrearSocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion);
+                inicio();
                 break;
             case 3:
                 System.out.println("funcion CrearSocioInfantil()");
@@ -272,8 +285,11 @@ public class A_MenuInicial {
             case 2:
                 System.out.println("funcion MostrarSociosEstandar");
                 break;
+            //VER SOCIOS FEDERADOS
             case 3:
-                System.out.println("funcion MostrarSociosFederados");
+                ArrayList<B2_SocioFederado> socioFederados = controlador.mostrarSocioFederados();
+                mostrar(socioFederados);
+                inicio();
                 break;
             case 4:
                 System.out.println("funcion MostrarSociosInfantiles");
