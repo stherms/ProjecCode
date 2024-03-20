@@ -1,14 +1,19 @@
+/**
+ *
+ * Representa la vista del menu del usuario desde donde se interactua
+ * con la clase controlador para añadir y visualizar datos
+ *
+ *@author ProjectCode
+ *@version 1.0
+ */
 package ProjectCode.vista;
-
 
 import ProjectCode.controlador.Controlador;
 import ProjectCode.modelo.B1_SocioEstandar;
 import ProjectCode.modelo.B2_SocioFederado;
 import ProjectCode.modelo.B3_SocioInfantil;
 import ProjectCode.modelo.C0_Seguro;
-import ProjectCode.modelo.Datos;
 import ProjectCode.modelo.E0_Excursiones;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -23,7 +28,11 @@ public class A_MenuInicial {
     ArrayList<String> submenuSocios = new ArrayList<>();
     ArrayList<String> menuInscripciones = new ArrayList<>();
 
-
+    /**
+     * Constructor de la clase A_MenuIcial
+     *
+     * @param controlador Una instancia de la clase controlador
+     */
     public A_MenuInicial(Controlador controlador) {
 
         this.controlador = controlador;
@@ -153,7 +162,7 @@ public class A_MenuInicial {
 
                 ArrayList<E0_Excursiones> excusiones = controlador.filtrarExcursiones(fechaIni, fechaFin);
 
-                mostrar(excusiones);
+                mostrar(excusiones);//muestra por pantalla la lista de excursiones filtradas
                 menuExcursiones();
 
 
@@ -215,7 +224,7 @@ public class A_MenuInicial {
             case 2:
                 System.out.println(" - Numero Socio: ");
                 int numFederado = teclado.nextInt();
-                    teclado.nextLine(); 
+                    teclado.nextLine();
                 System.out.println("- Nombre: ");
                 String nombreFederado = teclado.nextLine();
                 System.out.println("- Nif: ");
