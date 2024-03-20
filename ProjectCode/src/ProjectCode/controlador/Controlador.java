@@ -2,6 +2,7 @@ package ProjectCode.controlador;
 
 import ProjectCode.modelo.B1_SocioEstandar;
 import ProjectCode.modelo.B2_SocioFederado;
+import ProjectCode.modelo.B3_SocioInfantil;
 import ProjectCode.modelo.C0_Seguro;
 import ProjectCode.modelo.D0_Federacion;
 import ProjectCode.modelo.Datos;
@@ -113,4 +114,14 @@ public class Controlador {
     }
 
     //METODOS CLIENTES INFANTILES
+    public void CrearSocioInfantil(int numSocio, String nombre, int numSocioPadre){
+
+        datos.CrearSocioInfantil(numSocio,  nombre, numSocioPadre);
+    }
+
+    public ArrayList<B3_SocioInfantil> mostrarSocioInfantil(){
+        ArrayList<B3_SocioInfantil> socioInfantil = new ArrayList<>();
+        socioInfantil = datos.mostrarSocioInfantil();
+        return socioInfantil;
+    }
 }

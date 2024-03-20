@@ -15,6 +15,7 @@ public class B3_SocioInfantil extends B0_Socio {
 
     private int numSocioPadre;
     private final double DESCUENTO = 50.0;
+    private static ArrayList<B3_SocioInfantil> SociosInfantiles = new ArrayList<>();
 
     /**
      *
@@ -68,13 +69,18 @@ public class B3_SocioInfantil extends B0_Socio {
 
     @Override
     public String toString() {
-        return "B3_SocioInfantil{" +
-                "numSocioPadre=" + numSocioPadre +
-                ", DESCUENTO=" + DESCUENTO +
-                '}';
-    }
+        StringBuilder mensajeInfantil = new StringBuilder();
+        
+        for(int i = 0; i < SociosInfantiles.size(); i++) {
+            mensajeInfantil.append("SOCIO INFANTIL\n");
+            mensajeInfantil.append("    DATOS ESENCIALES\n");
+            mensajeInfantil.append("    - Num socio: ").append(SociosInfantiles.get(i).getNumSocio()).append("\n");
+            mensajeInfantil.append("    - Nombre: ").append(SociosInfantiles.get(i).getNombre()).append("\n");
+            mensajeInfantil.append("    DATOS CODIGO FAMILIAR\n");
+            mensajeInfantil.append("    - Num socio familiar: ").append(SociosInfantiles.get(i).getNumSocioPadre()).append("\n");
+            mensajeInfantil.append("===========================================================\n");
+        }
 
-    public void crearSocioInfantil(){
-        System.out.println("PRUEBA DE CODIGO");
+        return mensajeInfantil.toString();
     }
 }

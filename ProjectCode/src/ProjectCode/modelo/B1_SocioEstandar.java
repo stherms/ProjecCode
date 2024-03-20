@@ -81,19 +81,19 @@ public class B1_SocioEstandar extends B0_Socio {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder mensajeEstandar = new StringBuilder();
     
         for(int i = 0; i < SociosEstandar.size(); i++) {
-            sb.append("SOCIO NUMERO <<").append(i+1).append(">>\n");
-            sb.append("    DATOS ESENCIALES\n");
-            sb.append("    - Num socio: ").append(SociosEstandar.get(i).getNumSocio()).append("\n");
-            sb.append("    - Nombre: ").append(SociosEstandar.get(i).getNombre()).append("\n");
-            sb.append("    - Nif: ").append(SociosEstandar.get(i).getNif()).append("\n");
-            sb.append("    DATOS SEGURO\n");
-            sb.append(SociosEstandar.get(i).getSeguro()).append("\n");
-            sb.append("===========================================================\n");
+            mensajeEstandar.append("SOCIO ESTANDAR NUMERO <<").append(i+1).append(">>\n");
+            mensajeEstandar.append("    DATOS ESENCIALES\n");
+            mensajeEstandar.append("    - Num socio: ").append(SociosEstandar.get(i).getNumSocio()).append("\n");
+            mensajeEstandar.append("    - Nombre: ").append(SociosEstandar.get(i).getNombre()).append("\n");
+            mensajeEstandar.append("    - Nif: ").append(SociosEstandar.get(i).getNif()).append("\n");
+            mensajeEstandar.append("    DATOS SEGURO\n");
+            mensajeEstandar.append(SociosEstandar.get(i).getSeguro()).append("\n");
+            mensajeEstandar.append("===========================================================\n");
         }
     
-        return sb.toString();
+        return mensajeEstandar.toString();
     }
 }

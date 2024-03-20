@@ -148,5 +148,14 @@ public class Datos {
     public ArrayList<B1_SocioEstandar> mostrarSocioEstandar(){
         return sociosEstandars;
     }
+
     //METODOS SOCIO INFANTIL
+    public void CrearSocioInfantil(int numSocio, String nombre, int numSocioPadre){
+
+        sociosInfantiles.add(new B3_SocioInfantil(numSocio, nombre, numSocioPadre));
+    }
+
+    public ArrayList<B3_SocioInfantil> mostrarSocioInfantil(){
+        return sociosInfantiles;
+    }
 }
