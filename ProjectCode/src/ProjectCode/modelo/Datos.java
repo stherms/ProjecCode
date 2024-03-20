@@ -138,6 +138,15 @@ public class Datos {
     public ArrayList<B2_SocioFederado> mostrarsociosFederados(){
         return sociosFederados;
     }
+
     //METODOS SOCIO ESTANDAR
+    public void CrearSocioEstandar(int numSocio, String nombre, String nif, C0_Seguro seguro){
+
+        sociosEstandars.add(new B1_SocioEstandar(numSocio, nombre,  nif, seguro));
+    }
+
+    public ArrayList<B1_SocioEstandar> mostrarSocioEstandar(){
+        return sociosEstandars;
+    }
     //METODOS SOCIO INFANTIL
 }

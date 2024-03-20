@@ -1,6 +1,8 @@
 package ProjectCode.controlador;
 
+import ProjectCode.modelo.B1_SocioEstandar;
 import ProjectCode.modelo.B2_SocioFederado;
+import ProjectCode.modelo.C0_Seguro;
 import ProjectCode.modelo.D0_Federacion;
 import ProjectCode.modelo.Datos;
 import ProjectCode.modelo.E0_Excursiones;
@@ -99,5 +101,16 @@ public class Controlador {
     }
 
     //METODOS CLIENTES ESTANDAR
+    public void CrearSocioEstandar(int numSocio, String nombre, String nif, C0_Seguro seguro){
+
+        datos.CrearSocioEstandar(numSocio,  nombre, nif, seguro);
+    }
+
+    public ArrayList<B1_SocioEstandar> mostrarSocioEstandar(){
+        ArrayList<B1_SocioEstandar> socioEstandars = new ArrayList<>();
+        socioEstandars = datos.mostrarSocioEstandar();
+        return socioEstandars;
+    }
+
     //METODOS CLIENTES INFANTILES
 }

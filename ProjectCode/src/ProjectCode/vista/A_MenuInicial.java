@@ -4,6 +4,7 @@ package ProjectCode.vista;
 import ProjectCode.controlador.Controlador;
 import ProjectCode.modelo.B1_SocioEstandar;
 import ProjectCode.modelo.B2_SocioFederado;
+import ProjectCode.modelo.C0_Seguro;
 import ProjectCode.modelo.Datos;
 import ProjectCode.modelo.E0_Excursiones;
 
@@ -220,25 +221,59 @@ public class A_MenuInicial {
             // CREAR SOCIO FEDERADO
             case 2:
                 System.out.println(" - Numero Socio: ");
-                int numSocio = teclado.nextInt();
+                int numFederado = teclado.nextInt();
                     teclado.nextLine(); 
                 System.out.println("- Nombre: ");
-                String nombre = teclado.nextLine();
+                String nombreFederado = teclado.nextLine();
                 System.out.println("- Nif: ");
-                String nif = teclado.nextLine();
+                String nifFederado = teclado.nextLine();
                 System.out.println("- Codigo Federacion: ");
                 String codigoFederacion = teclado.nextLine();
                 System.out.println("- Nombre Federacion: ");
                 String nomFederacion = teclado.nextLine();
-                controlador.CrearSocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion);
+                controlador.CrearSocioFederado(numFederado, nombreFederado, nifFederado, codigoFederacion, nomFederacion);
                 inicio();
                 break;
             case 3:
                 System.out.println("funcion CrearSocioInfantil()");
                 break;
-            case 4:
-                B1_SocioEstandar socioEstandar = new B1_SocioEstandar();
-                socioEstandar.crearSocioEstandar();
+            //CREAR SOCIO ESTANDAR
+            case 4:               
+                    System.out.println("- Numero Socio:");
+                    int numEstandar = teclado.nextInt();
+                    teclado.nextLine();
+                
+                    System.out.println("- Nombre: ");
+                    String nombreEstandar = teclado.nextLine();
+                
+                    System.out.println("- Nif:");
+                    String nifEstandar = teclado.nextLine();
+                
+                    System.out.println("- Tipo Seguro:");
+                    C0_Seguro.tipoSeguro[] tipos = C0_Seguro.tipoSeguro.values();
+                    for (int i = 0; i < tipos.length; i++) {
+                        System.out.println((i + 1) + ") " + tipos[i]);
+                    }
+                    int eleccionSeguro = teclado.nextInt();
+                    teclado.nextLine();
+                
+                    while (eleccionSeguro < 1 || eleccionSeguro > tipos.length) {
+                        for (int i = 0; i < tipos.length; i++) {
+                            System.out.println((i + 1) + ") " + tipos[i]);
+                        }
+                        eleccionSeguro = teclado.nextInt();
+                        teclado.nextLine();
+                    }
+                
+                    C0_Seguro.tipoSeguro tipoSeguro = tipos[eleccionSeguro - 1];
+            
+                    System.out.println("- Precio del seguro:");
+                    double precio =  teclado.nextDouble();
+            
+                    C0_Seguro seguro = new C0_Seguro(tipoSeguro, precio); 
+
+                    controlador.CrearSocioEstandar(numEstandar, nombreEstandar, nifEstandar, seguro);
+                    inicio();
                 break;
             case 5:
                 System.out.println("funcion EliminarSocio()");
@@ -282,8 +317,11 @@ public class A_MenuInicial {
             case 1:
                 System.out.println("funcion MostrarSocios");
                 break;
+            //VER SOCIOS ESTANDAR
             case 2:
-                System.out.println("funcion MostrarSociosEstandar");
+                ArrayList<B1_SocioEstandar> socioEstandar = controlador.mostrarSocioEstandar();
+                mostrar(socioEstandar);
+                inicio();
                 break;
             //VER SOCIOS FEDERADOS
             case 3:
