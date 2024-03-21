@@ -387,6 +387,14 @@ public class A_MenuInicial {
         switch (eleccion) {
             case 1:
                 System.out.println("funcion MostrarSocios");
+                ArrayList<B1_SocioEstandar> socioEstandarX = controlador.mostrarSocioEstandar();
+                ArrayList<B2_SocioFederado> socioFederadosX = controlador.mostrarSocioFederados();
+                ArrayList<B3_SocioInfantil> socioInfantilX = controlador.mostrarSocioInfantil();
+                System.out.println("FUNCIÓN MOSTRAR SOCIOS");
+                mostrar(socioEstandarX);
+                mostrar(socioFederadosX);
+                mostrar(socioInfantilX);
+                inicio();
                 break;
             //VER SOCIOS ESTANDAR
             case 2:
