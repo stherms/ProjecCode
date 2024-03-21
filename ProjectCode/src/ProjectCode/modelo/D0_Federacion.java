@@ -14,6 +14,9 @@ public class D0_Federacion {
         this.nombre = nombre;
     }
 
+    public D0_Federacion() {
+
+    }
     /**
      * getter del código
      * @return código

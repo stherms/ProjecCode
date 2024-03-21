@@ -8,6 +8,7 @@ import ProjectCode.modelo.B1_SocioEstandar;
 import ProjectCode.modelo.B2_SocioFederado;
 import ProjectCode.modelo.B3_SocioInfantil;
 import ProjectCode.modelo.C0_Seguro;
+import ProjectCode.modelo.D0_Federacion;
 import ProjectCode.modelo.Datos;
 import ProjectCode.modelo.E0_Excursiones;
 import ProjectCode.vista.A_MenuInicial;
@@ -156,7 +157,13 @@ public class Controlador {
 
     }
 
-    //METODOS SOCIOS
+
+//METODO FEDERACIONES
+    //Mostrar federaciones
+    public ArrayList<D0_Federacion> mostrarFederaciones(){
+        return datos.mostrarFederaciones();
+    }
+//METODOS SOCIOS
     //METODOS SOCIOS FEDERADOS
 
     /**

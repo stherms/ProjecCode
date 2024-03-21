@@ -200,7 +200,11 @@ public class Datos {
 
     }
 
-
+//METODO FEDERACIONES
+    //Ver federaciones
+    public ArrayList<D0_Federacion> mostrarFederaciones(){
+        return federaciones;
+    }
 
 
 
@@ -276,4 +280,3 @@ public class Datos {
         return sociosInfantiles;
     }
 }
-

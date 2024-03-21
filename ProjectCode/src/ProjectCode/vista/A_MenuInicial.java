@@ -13,6 +13,7 @@ import ProjectCode.modelo.B1_SocioEstandar;
 import ProjectCode.modelo.B2_SocioFederado;
 import ProjectCode.modelo.B3_SocioInfantil;
 import ProjectCode.modelo.C0_Seguro;
+import ProjectCode.modelo.D0_Federacion;
 import ProjectCode.modelo.E0_Excursiones;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -233,11 +234,32 @@ public class A_MenuInicial {
                 String nombreFederado = teclado.nextLine();
                 System.out.println("- Nif: ");
                 String nifFederado = teclado.nextLine();
-                System.out.println("- Codigo Federacion: ");
-                String codigoFederacion = teclado.nextLine();
-                System.out.println("- Nombre Federacion: ");
-                String nomFederacion = teclado.nextLine();
+                System.out.println("- Selecciona una Federacion:");
+                ArrayList<D0_Federacion> federaciones = controlador.mostrarFederaciones();
+
+                for(int b=0; b<federaciones.size();b++){
+                    System.out.println("    "+(b+1)+") "+federaciones.get(b).getNombre());
+                }
+
+                int eleccionFederacion = teclado.nextInt();
+                    teclado.nextLine();
+
+                while(eleccionFederacion<=0 || eleccionFederacion>federaciones.size()){
+                    for(int b=0; b<federaciones.size();b++){
+                        System.out.println("    "+(b+1)+") "+federaciones.get(b).getNombre());
+                    }
+    
+                    eleccionFederacion = teclado.nextInt();
+                        teclado.nextLine();
+                }
+
+                String nomFederacion = federaciones.get(eleccionFederacion-1).getNombre();
+                String codigoFederacion = federaciones.get(eleccionFederacion-1).getCodigo();
+
                 controlador.CrearSocioFederado(numFederado, nombreFederado, nifFederado, codigoFederacion, nomFederacion);
+
+                System.out.println("Socio federado " + nombreFederado + " con numero " + numFederado + " ha sido creado");
+
                 inicio();
                 break;
             //CREAR SOCIO INFANTIL
@@ -249,22 +271,34 @@ public class A_MenuInicial {
                 String nombreInfantil = teclado.nextLine();
 
                 ArrayList<B1_SocioEstandar> socioEstandar = controlador.mostrarSocioEstandar();
-                int a = 1; 
+
                 System.out.println("====================================="); 
                 System.out.println("Socios Estándar existentes:");
-
-                for (B1_SocioEstandar socio : socioEstandar) {
-                    System.out.println(a + ")"+socio.getNombre()+" - " + socio.getNumSocio());
-                    a++;
+                
+                for(int a = 0; a<socioEstandar.size(); a++){
+                    System.out.println("    "+ (a+1) + ") "+socioEstandar.get(a).getNombre()+" - " + socioEstandar.get(a).getNumSocio());
                 }
 
                 System.out.println("Cual es el padre o madre del socio infantil?");
                 int eleccion_padreInfantil = teclado.nextInt();
                     teclado.nextLine();
-                
+
+                while(eleccion_padreInfantil<=0 || eleccion_padreInfantil>socioEstandar.size()){
+                    for(int a = 0; a<socioEstandar.size(); a++){
+                        System.out.println("    "+ (a+1) + ") "+socioEstandar.get(a).getNombre()+" - " + socioEstandar.get(a).getNumSocio());
+                    }
+
+                    System.out.println("Cual es el padre o madre del socio infantil?");
+                    eleccion_padreInfantil = teclado.nextInt();
+                        teclado.nextLine();
+                }
+
                 int numSocioEstandarInfantil = socioEstandar.get(eleccion_padreInfantil-1).getNumSocio();
 
                 controlador.CrearSocioInfantil(numInfantil,nombreInfantil,numSocioEstandarInfantil);
+
+                System.out.println("Socio infantil " + nombreInfantil + " con numero " + numInfantil + " ha sido creado");
+
                 inicio();
                 break;
             //CREAR SOCIO ESTANDAR
@@ -297,13 +331,17 @@ public class A_MenuInicial {
                     }
                 
                 C0_Seguro.tipoSeguro tipoSeguro = tipos[eleccionSeguro - 1];
-            
+                
+                
                 System.out.println("- Precio del seguro:");
                 double precio =  teclado.nextDouble();
             
                 C0_Seguro seguro = new C0_Seguro(tipoSeguro, precio); 
 
                 controlador.CrearSocioEstandar(numEstandar, nombreEstandar, nifEstandar, seguro);
+                
+                System.out.println("Socio Estandar " + nombreEstandar + " con numero " + numEstandar + " ha sido creado");
+
                 inicio();
                 break;
             case 5:
@@ -363,10 +401,10 @@ public class A_MenuInicial {
                 inicio();
                 break;
             case 4:
-//(REVISAR ESTE FRAGMENTO)
                 ArrayList<B3_SocioInfantil> socioInfantil = controlador.mostrarSocioInfantil();
                 System.out.println("LISTADO DE SOCIOS INFANTILES:");
                 mostrar(socioInfantil);
+                inicio();
                 break;
             case 5:
                 inicio();
