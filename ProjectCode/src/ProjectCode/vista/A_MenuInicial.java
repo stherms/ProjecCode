@@ -336,7 +336,9 @@ public class A_MenuInicial {
                 double precios = seguros.get(eleccionSeguro-1).getPrecioSeguro();
                 
                 System.out.println("elemento escogido " + tipoSeguro + " con precio " + precios);
-                C0_Seguro seguro = new C0_Seguro(tipoSeguro, precios); 
+                C0_Seguro seguro = new C0_Seguro(tipoSeguro, precios);
+
+
                 
                 controlador.CrearSocioEstandar(numEstandar, nombreEstandar, nifEstandar, seguro);
                 
@@ -457,10 +459,12 @@ public class A_MenuInicial {
         }
     }
 
+    //EXCEPCIONES
     /**
-     * Metodo que comprueba si una fecha cumple con el formato AAA-MM-DD
+     * Devuelve una fecha validada con formato AAA-MM-DD corrrecto.
      *
-     * @param teclado
+     * @param teclado La entrada por Teclado
+     * @param tipo Un string con el nombre de la fecha ("fecha_inicio" por ejemplo)
      * @return una fecha validada
      */
     public static LocalDate obtenerFecha(Scanner teclado, String tipo) {
@@ -479,10 +483,10 @@ public class A_MenuInicial {
 
         return fecha;
     }
-
+    // OTROS METODOS
     /**
      * Este metodo muestra por pantalla el contenido del ArrayList pasado como parametro
-     * @param datosMostrar El Array list a mostrar
+     * @param datosMostrar El Arraylist a mostrar
      * @param <T> cualquier elemento
      */
     public <T> void mostrar(ArrayList<T> datosMostrar) {
@@ -492,6 +496,9 @@ public class A_MenuInicial {
         }
     }
 
+    /**
+     * Carga Inicial de datos con valores por defecto.
+     */
     public void cargadatos(){
         controlador.cargarFederaciones();
         controlador.cargarSeguros();

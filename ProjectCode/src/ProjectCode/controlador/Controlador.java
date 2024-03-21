@@ -49,7 +49,7 @@
      //METODOS CARGA DE DATOS
  
      /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para cargar las Federaciones
+      * Interactua con el metodo de datos de la clase Datos del modelo, para cargar las Federaciones
       * Este método se llama al inicio de la aplicación para cargar las federaciones disponibles por defecto
       *
       */
@@ -59,7 +59,7 @@
  
      }
      /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para cargar los seguros
+      * Interactua con el metodo de datos de la clase Datos del modelo, para cargar los seguros
       * Este método se llama al inicio de la aplicación para cargar los seguros disponibles por defecto
       *
       */
@@ -73,7 +73,7 @@
          datos.cargarSegurosArray();
      }
      /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para cargar los Socios Estandars
+      * Interactua con el metodo de datos de la clase Datos del modelo, para cargar los Socios Estandars
       * Este método se llama al inicio de la aplicación para cargar los Socios Estandars disponibles por defecto
       *
       */
@@ -82,7 +82,7 @@
          datos.cargaInicialSociosEstandar();
      }
      /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para cargar los Socios Federados
+      * Interactua con el metodo de datos de la clase Datos del modelo, para cargar los Socios Federados
       * Este método se llama al inicio de la aplicación para cargar los Socios Federados disponibles por defecto
       *
       */
@@ -92,7 +92,7 @@
          datos.cargaInicialSociosFederados();
      }
      /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para cargar los Socios Infantiles
+      * Interactua con el metodo de datos de la clase Datos del modelo, para cargar los Socios Infantiles
       * Este método se llama al inicio de la aplicación para cargar los Socios Infantiles disponibles por defecto
       *
       */
@@ -101,7 +101,7 @@
          datos.cargaInicialSociosInfantiles();
      }
      /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para cargar las Excursiones
+      * Interactua con el metodo de datos de la clase Datos del modelo, para cargar las Excursiones
       * Este método se llama al inicio de la aplicación para cargar las Excursiones disponibles por defecto
       *
       */
@@ -109,7 +109,7 @@
          datos.cargaInicialExcursiones();
      }
      /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para cargar las Inscripciones
+      * Interactua con el metodo de datos de la clase Datos del modelo, para cargar las Inscripciones
       * Este método se llama al inicio de la aplicación para cargar las Inscripciones disponibles por defecto
       *
       */
@@ -121,7 +121,7 @@
      //METODOS EXCURSIONES
  
      /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para añadir nuevas excursiones
+      * Interactua con el metodo de datos de la clase Datos del modelo, para añadir nuevas excursiones
       *
       * @param codigo El codigo de la excursion
       * @param descr Una descripcion
@@ -162,10 +162,15 @@
  
      }
  
- 
- //METODO FEDERACIONES
+     //METODO FEDERACIONES
      //Mostrar federaciones
+
+     /**
+      * Interactua con el metodo de datos de la clase Datos del modelo para solicitar un lista de excursiones
+      * @return
+      */
      public ArrayList<D0_Federacion> mostrarFederaciones(){
+
          return datos.mostrarFederaciones();
      }
 
