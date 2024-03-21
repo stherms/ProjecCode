@@ -16,7 +16,7 @@ public class Datos {
     private ArrayList<B2_SocioFederado> sociosFederados;
     private ArrayList<B3_SocioInfantil> sociosInfantiles;
     private ArrayList<F0_Inscripciones> cargaInscripciones;
-
+    private ArrayList<C0_Seguro> seguros;
 
     public Datos() {
         this.federaciones = new ArrayList<>();
@@ -25,6 +25,7 @@ public class Datos {
         this.sociosFederados = new ArrayList<>();
         this.sociosInfantiles = new ArrayList<>();
         this.cargaInscripciones = new ArrayList<>();
+        this.seguros = new ArrayList<>();
 
 
     }
@@ -52,6 +53,11 @@ public class Datos {
 
         basico = new C0_Seguro(C0_Seguro.tipoSeguro.BASICO, 15);
         completo = new C0_Seguro(C0_Seguro.tipoSeguro.COMPLETO, 30);
+    }
+
+    public void cargarSegurosArray() {
+        seguros.add(new C0_Seguro(C0_Seguro.tipoSeguro.BASICO, 15));
+        seguros.add(new C0_Seguro(C0_Seguro.tipoSeguro.COMPLETO, 30));
     }
 
     //CARGA INICIAL SOCIOS ESTANDAR
@@ -206,7 +212,11 @@ public class Datos {
         return federaciones;
     }
 
-
+//METODO SEGUROS
+    //Ver Seguros
+    public ArrayList<C0_Seguro> mostrarSeguros(){
+        return seguros;
+    }
 
     //METODOS DE SOCIOS
     //METODOS SOCIO FEDERADO

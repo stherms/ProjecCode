@@ -312,32 +312,32 @@ public class A_MenuInicial {
                 
                 System.out.println("- Nif:");
                 String nifEstandar = teclado.nextLine();
-                
-                System.out.println("- Tipo Seguro:");
-                C0_Seguro.tipoSeguro[] tipos = C0_Seguro.tipoSeguro.values();
-                for (int i = 0; i < tipos.length; i++) {
-                    System.out.println((i + 1) + ") " + tipos[i]);
+                System.out.println("- Seguros disponibles:");
+
+                ArrayList<C0_Seguro> seguros = controlador.mostrarSeguros();
+
+                for(int x = 0; x<seguros.size(); x++){
+                    System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
                 }
-                
                 int eleccionSeguro = teclado.nextInt();
                     teclado.nextLine();
-                
-                while (eleccionSeguro < 1 || eleccionSeguro > tipos.length) {
-                    for (int i = 0; i < tipos.length; i++) {
-                        System.out.println((i + 1) + ") " + tipos[i]);
+
+                while(eleccionSeguro<=0 || eleccionSeguro>seguros.size()){
+                    System.out.println("- Seguros disponibles:");
+                    
+                    for(int x = 0; x<seguros.size(); x++){
+                        System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
                     }
                     eleccionSeguro = teclado.nextInt();
                         teclado.nextLine();
-                    }
-                
-                C0_Seguro.tipoSeguro tipoSeguro = tipos[eleccionSeguro - 1];
-                
-                
-                System.out.println("- Precio del seguro:");
-                double precio =  teclado.nextDouble();
-            
-                C0_Seguro seguro = new C0_Seguro(tipoSeguro, precio); 
+                }
 
+                C0_Seguro.tipoSeguro tipoSeguro = seguros.get(eleccionSeguro-1).getTipoSeguro();
+                double precios = seguros.get(eleccionSeguro-1).getPrecioSeguro();
+                
+                System.out.println("elemento escogido " + tipoSeguro + " con precio " + precios);
+                C0_Seguro seguro = new C0_Seguro(tipoSeguro, precios); 
+                
                 controlador.CrearSocioEstandar(numEstandar, nombreEstandar, nifEstandar, seguro);
                 
                 System.out.println("Socio Estandar " + nombreEstandar + " con numero " + numEstandar + " ha sido creado");
@@ -500,5 +500,6 @@ public class A_MenuInicial {
         controlador.cargaInicialSociosInfantiles();
         controlador.cargaInicialExcursiones();
         controlador.cargaInicialInscripciones();
+        controlador.cargarSegurosArray();
     }
 }
