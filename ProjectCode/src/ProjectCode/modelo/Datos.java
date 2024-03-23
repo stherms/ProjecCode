@@ -182,6 +182,13 @@ public class Datos {
         return excusionesFiltradas;
 
     }
+    
+    //MOSTRAR EXCURSIONES
+    //Ver excursiones
+    public ArrayList<E0_Excursiones> mostrarExcursiones(){
+        return excursiones;
+    }
+    
     //BORRAR EXCURSION
 
     /**
@@ -288,5 +295,43 @@ public class Datos {
      */
     public ArrayList<B3_SocioInfantil> mostrarSocioInfantil(){
         return sociosInfantiles;
+    }
+
+public void CrearInscripcion(int numInscripcion, B0_Socio socio, E0_Excursiones excursion){
+
+        cargaInscripciones.add(new F0_Inscripciones(numInscripcion, socio, excursion));
+    }
+
+    /**
+     * Devuelve la lista de inscripciones
+     * @return lista con todas las incripciones
+     */
+    public ArrayList<F0_Inscripciones> mostrarInscripciones(){
+        return cargaInscripciones;
+    }
+
+    //BORRAR EXCURSION
+
+
+    /**
+     * Elimina una inscripcion de la lista
+     * @param numeroInscripcion numero de inscripcion a eliminar
+     */
+    public boolean eliminarInscripcion(int numeroInscripcion) {
+        //creamos iterador para la lista de inscripciones
+        Iterator<F0_Inscripciones> iterador = cargaInscripciones.iterator();
+        //mientras queden elementos..
+        while (iterador.hasNext()) {
+
+            F0_Inscripciones inscripcionActual = iterador.next();//Almacenamos el siguiente elemento de la lista
+
+            // si el codigo del elemento actual es igual al codigoExcursion iterator elimina ese elemento.
+            if (inscripcionActual.getNumInscripcion() == numeroInscripcion) {
+                iterador.remove();// borramos el elemento del iterador
+                return true; // salimos del bucle si el elemento ha sido ya eliminado
+            }
+        }
+
+        return false;
     }
 }
