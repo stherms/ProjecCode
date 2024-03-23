@@ -113,4 +113,17 @@ class DatosTest {
         assertEquals(4, excursionesFiltradas.size());
     }
 
+     @Test
+    void eliminarInscripciones(){
+        Datos datos = new Datos();
+        datos.cargaInicialExcursiones();
+        datos.cargaInicialSociosEstandar();
+        datos.cargaInicialSociosFederados();
+        datos.cargaInicialInscripciones();
+        datos.eliminarInscripcion(1);
+
+        assertEquals(1, datos.mostrarInscripciones().size());
+        assertEquals(2, datos.mostrarInscripciones().get(0).getNumInscripcion());
+    }
+
 }
