@@ -449,14 +449,83 @@ public class A_MenuInicial {
         }
 
         switch (eleccion) {
-            case 1:
-                System.out.println("funcion MostrarInscripciones()");
+             case 1:
+                ArrayList<F0_Inscripciones> inscripciones = controlador.mostrarInscripciones();
+                System.out.println("LISTADO DE INSCRIPCIONES:");
+                mostrar(inscripciones);
+                menuInscripciones();
                 break;
             case 2:
-                System.out.println("funcion CrearInscripciones()");
+                //Capturamos posible excepción en caso que el valor introducido por teclado no sea numérico
+                try {
+                    System.out.println("- Numero Inscripcion:");
+                    int numInscripcion = teclado.nextInt();
+                    teclado.nextLine();
+
+                    //Nif socio
+                    ArrayList<B1_SocioEstandar> socioEstandar = controlador.mostrarSocioEstandar();
+                    System.out.println("LISTADO DE SOCIOS ESTANDAR:");
+                    mostrarDatosSocioEstandar(socioEstandar);
+                    ArrayList<B2_SocioFederado> socioFederados = controlador.mostrarSocioFederados();
+                    System.out.println("LISTADO DE SOCIOS FEDERADOS:");
+                    mostrarDatosSocioFederado(socioFederados);
+                    System.out.println("- Numero Socio:");
+                    int numSocio = teclado.nextInt();
+                    teclado.nextLine();
+
+                    //Buscar el socio en ambas listas
+                    B0_Socio encontrado = controlador.buscarSocio(socioEstandar, socioFederados, numSocio);
+
+                    //Si el socio se ha encontrado
+                    if (encontrado != null) {
+                        ArrayList<E0_Excursiones> excursiones = controlador.mostrarExcursiones();
+                        System.out.println("LISTADO DE EXCURSIONES:");
+                        mostrarDatosExcursiones(excursiones);
+
+                        System.out.println("- Codigo excursion:");
+                        String codigoExcursion = teclado.nextLine();
+
+                        E0_Excursiones excursion = controlador.buscarExcursion(excursiones, codigoExcursion);
+
+                        if (excursion != null) {
+                            //Creamos incripcion
+                            controlador.CrearInscripcion(numInscripcion, encontrado, excursion);
+
+                            System.out.println("Inscripción insertada correctamente");
+                        } else {
+                            System.out.println("No existe una excursion con el codigo: " + codigoExcursion);
+                        }
+                    } else {
+                        System.out.println("No existe un socio con el numero: " + numSocio);
+                    }
+                }
+                //Tipo de excepción cuando el valor introducido por teclado no cuadra con el tipo de dato que
+                //intenta leer el Scanner
+                catch (InputMismatchException ex){
+                    System.out.println("Error valor no numerico");
+                    teclado.nextLine();
+                }
+                menuInscripciones();
                 break;
             case 3:
-                System.out.println("funcion EliminarInscripciones()");
+                //ELIMINAR INSCRIPCION
+                try {
+                    System.out.println("Introduce el numero de la inscripcion a eliminar");
+                    int numeroEliminar = this.teclado.nextInt();
+                    boolean borrado = controlador.eliminarInscripcion(numeroEliminar);
+
+                    if (borrado) {
+                        System.out.println("Inscripción borrada correctamente");
+                    } else {
+                        System.out.println("No existe una inscripcion con el numero: " + numeroEliminar);
+                    }
+                }
+                catch (InputMismatchException ex){
+                    System.out.println("Error valor no numerico");
+                    teclado.nextLine();
+                }
+
+                menuInscripciones();
                 break;
             case 4:
                 inicio();
@@ -501,6 +570,27 @@ public class A_MenuInicial {
         for (T elemento : datosMostrar) {
 
             System.out.println(elemento.toString());
+        }
+    }
+
+    public void mostrarDatosSocioEstandar(ArrayList<B1_SocioEstandar> datosMostrar) {
+        for (B1_SocioEstandar elemento : datosMostrar) {
+            System.out.println("-----------------------");
+            System.out.println(elemento.getNumSocio() + "-" + elemento.getNombre());
+        }
+    }
+
+    public void mostrarDatosSocioFederado(ArrayList<B2_SocioFederado> datosMostrar) {
+        for (B2_SocioFederado elemento : datosMostrar) {
+            System.out.println("-----------------------");
+            System.out.println(elemento.getNumSocio() + "-" + elemento.getNombre());
+        }
+    }
+
+    public void mostrarDatosExcursiones(ArrayList<E0_Excursiones> datosMostrar) {
+        for (E0_Excursiones elemento : datosMostrar) {
+            System.out.println("-----------------------");
+            System.out.println(elemento.getCodigo() + "-" + elemento.getDescripcion());
         }
     }
 
