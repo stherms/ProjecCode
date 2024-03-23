@@ -69,9 +69,10 @@ public class F0_Inscripciones {
      * método que muestra los datos de las excursiones
      * @return datos del objeto inscripción en una cadena de texto
      */
-    @Override
+     @Override
     public String toString() {
-        return "Inscripcion " +
-                "Numero de inscripcion: " + numInscripcion; 
+        return "Numero de inscripcion: " + numInscripcion +
+                "\nSocio: " + socio.toString() +
+                "\nExcursion: " + excursion.toString();
     }
 }
