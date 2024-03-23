@@ -258,4 +258,63 @@
          socioInfantil = datos.mostrarSocioInfantil();
          return socioInfantil;
      }
+ public B0_Socio buscarSocio(ArrayList<B1_SocioEstandar> socioEstandars, ArrayList<B2_SocioFederado> socioFederados, int numeroSocio) {
+         B0_Socio encontrado = null;
+
+         //Buscamos en la lista estandar
+         for (int i = 0; i < socioEstandars.size() && encontrado == null; i++){
+
+             if (socioEstandars.get(i).getNumSocio() == numeroSocio){
+                 encontrado = socioEstandars.get(i);
+             }
+         }
+
+         //Si no lo he encontrado en la lista estandar, lo busco en la de federado
+         if (encontrado == null){
+             //Buscamos en la lista federados
+             for (int i = 0; i < socioFederados.size() && encontrado == null; i++){
+
+                 if (socioFederados.get(i).getNumSocio() == numeroSocio){
+                     encontrado = socioFederados.get(i);
+                 }
+             }
+         }
+
+         return encontrado;
+     }
+
+     //INSCRIPCIONES
+
+     /**
+      * Metodo que crea una nueva inscripcion
+      * @param numInscripcion numero de la nueva inscripcion
+      * @param socio Objeto socio asociado a la inscripcion
+      * @param excursion Objeto excursion asociado a la inscripcion
+      */
+     public void CrearInscripcion(int numInscripcion, B0_Socio socio, E0_Excursiones excursion){
+
+         datos.CrearInscripcion(numInscripcion, socio, excursion);
+     }
+
+     /**
+      * Metodo que muestra todas las inscripciones
+      * @return lista con todas las inscripciones
+      */
+     public ArrayList<F0_Inscripciones> mostrarInscripciones(){
+         ArrayList<F0_Inscripciones> inscripciones = new ArrayList<>();
+         inscripciones = datos.mostrarInscripciones();
+         return inscripciones;
+     }
+
+     /**
+      * Metodo que elimina una inscripcion
+      * @param numeroInscripcion numero de la inscripcion a borrar
+      */
+     public boolean eliminarInscripcion(int numeroInscripcion){
+
+         return datos.eliminarInscripcion(numeroInscripcion);
+
+     }
  }
+ 
+ 
