@@ -189,23 +189,25 @@
      //Mostrar federaciones
 
      /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para solicitar un lista de excursiones
-      * @return
+      * Interactua con el metodo de datos de la clase Datos del modelo para solicitar un lista de Federaciones
+      * @return Una lista de Federaciones.
       */
      public ArrayList<D0_Federacion> mostrarFederaciones(){
 
          return datos.mostrarFederaciones();
      }
-
-
-//METODO SEGUROS
-    //Ver Seguros
+     //METODO SEGUROS
+     //Ver Seguros
+     /**
+      * Interactua con el metodo de datos de la clase Datos del modelo para solicitar un lista de Seguros
+      * @return Una lista de Seguros.
+      */
     public ArrayList<C0_Seguro> mostrarSeguros(){
 
          return datos.mostrarSeguros();
     }
- //METODOS SOCIOS
-     //METODOS SOCIOS FEDERADOS
+    //METODOS SOCIOS
+     // METODOS SOCIOS FEDERADOS
  
      /**
       * Interactua con el metodo de datos de la clase Datos del modelo para añadir nuevos socios Federados
@@ -293,25 +295,8 @@
     public B0_Socio buscarSocio(ArrayList<B1_SocioEstandar> socioEstandars, ArrayList<B2_SocioFederado> socioFederados, int numeroSocio) {
         B0_Socio encontrado = null;
 
-        //Buscamos en la lista estandar
-        for (int i = 0; i < socioEstandars.size() && encontrado == null; i++){
 
-            if (socioEstandars.get(i).getNumSocio() == numeroSocio){
-                encontrado = socioEstandars.get(i);
-            }
-        }
-
-        //Si no lo he encontrado en la lista estandar, lo busco en la de federado
-        if (encontrado == null){
-            //Buscamos en la lista federados
-            for (int i = 0; i < socioFederados.size() && encontrado == null; i++){
-
-                if (socioFederados.get(i).getNumSocio() == numeroSocio){
-                    encontrado = socioFederados.get(i);
-                }
-            }
-        }
-
+        encontrado = datos.buscarSocio(socioEstandars,socioFederados,numeroSocio);
         return encontrado;
     }
 
