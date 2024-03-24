@@ -135,32 +135,33 @@
      }
  
      /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para solicitar un lista de excursiones
-      * comprendidas entre dos fechas.
-      *
-      * @param fechaIni Fecha de inicio que queremos visualizar
-      * @param fechafin Fecha de Fin que queremos visualizar
-      * @return una lista de Excursiones filtrada por fechas
-      */
- 
-     public ArrayList<E0_Excursiones> filtrarExcursiones(LocalDate fechaIni, LocalDate fechafin){
- 
-         ArrayList<E0_Excursiones> excursiones= new ArrayList<>();
- 
-         excursiones = datos.filtrarExcursiones(fechaIni,fechafin);
- 
-         return  excursiones;
-     }
- 
-     /**
-      * Interactua con el metodo de datos de la clase Datos del modelo para eliminar una excursion.
-      * @param codigoExcursion El codigo de la excursion a eliminar
-      */
-     public void eliminarExcursion(String codigoExcursion){
- 
-         datos.eliminarExcursion(codigoExcursion);
- 
-     }
+     * Interactua con el metodo de datos de la clase Datos del modelo para solicitar la lista de excursiones
+     * @return lista de todas las excursiones
+     */
+    public ArrayList<E0_Excursiones> mostrarExcursiones(){
+
+        return datos.mostrarExcursiones();
+    }
+
+    /**
+     * Busca la excursion en la lista de excursiones a partir del codigo
+     * @param excursiones lista de excursiones
+     * @param codigoExcursion codigo de excursion
+     * @return objeto Excursion a partir del codigo
+     */
+    public E0_Excursiones buscarExcursion(ArrayList<E0_Excursiones> excursiones, String codigoExcursion) {
+        E0_Excursiones encontrado = null;
+
+        //Buscamos en la lista de excursiones
+        for (int i = 0; i < excursiones.size() && encontrado == null; i++){
+
+            if (excursiones.get(i).getCodigo().equals(codigoExcursion)){
+                encontrado = excursiones.get(i);
+            }
+        }
+
+        return encontrado;
+    }
  
      //METODO FEDERACIONES
      //Mostrar federaciones
@@ -258,63 +259,81 @@
          socioInfantil = datos.mostrarSocioInfantil();
          return socioInfantil;
      }
- public B0_Socio buscarSocio(ArrayList<B1_SocioEstandar> socioEstandars, ArrayList<B2_SocioFederado> socioFederados, int numeroSocio) {
-         B0_Socio encontrado = null;
-
-         //Buscamos en la lista estandar
-         for (int i = 0; i < socioEstandars.size() && encontrado == null; i++){
-
-             if (socioEstandars.get(i).getNumSocio() == numeroSocio){
-                 encontrado = socioEstandars.get(i);
-             }
-         }
-
-         //Si no lo he encontrado en la lista estandar, lo busco en la de federado
-         if (encontrado == null){
-             //Buscamos en la lista federados
-             for (int i = 0; i < socioFederados.size() && encontrado == null; i++){
-
-                 if (socioFederados.get(i).getNumSocio() == numeroSocio){
-                     encontrado = socioFederados.get(i);
-                 }
-             }
-         }
-
-         return encontrado;
-     }
-
-     //INSCRIPCIONES
 
      /**
-      * Metodo que crea una nueva inscripcion
-      * @param numInscripcion numero de la nueva inscripcion
-      * @param socio Objeto socio asociado a la inscripcion
-      * @param excursion Objeto excursion asociado a la inscripcion
-      */
-     public void CrearInscripcion(int numInscripcion, B0_Socio socio, E0_Excursiones excursion){
+     * Busca el socio en las listas de socios estandar y socios federados a partir del numero de socio
+     * @param socioEstandars lista de socios estandar
+     * @param socioFederados lista de socios federados
+     * @param numeroSocio numero de socio a buscar
+     * @return objeto Socio según el numero de socio buscado
+     */
+    public B0_Socio buscarSocio(ArrayList<B1_SocioEstandar> socioEstandars, ArrayList<B2_SocioFederado> socioFederados, int numeroSocio) {
+        B0_Socio encontrado = null;
 
-         datos.CrearInscripcion(numInscripcion, socio, excursion);
-     }
+        //Buscamos en la lista estandar
+        for (int i = 0; i < socioEstandars.size() && encontrado == null; i++){
 
-     /**
-      * Metodo que muestra todas las inscripciones
-      * @return lista con todas las inscripciones
-      */
-     public ArrayList<F0_Inscripciones> mostrarInscripciones(){
-         ArrayList<F0_Inscripciones> inscripciones = new ArrayList<>();
-         inscripciones = datos.mostrarInscripciones();
-         return inscripciones;
-     }
+            if (socioEstandars.get(i).getNumSocio() == numeroSocio){
+                encontrado = socioEstandars.get(i);
+            }
+        }
 
-     /**
-      * Metodo que elimina una inscripcion
-      * @param numeroInscripcion numero de la inscripcion a borrar
-      */
-     public boolean eliminarInscripcion(int numeroInscripcion){
+        //Si no lo he encontrado en la lista estandar, lo busco en la de federado
+        if (encontrado == null){
+            //Buscamos en la lista federados
+            for (int i = 0; i < socioFederados.size() && encontrado == null; i++){
 
-         return datos.eliminarInscripcion(numeroInscripcion);
+                if (socioFederados.get(i).getNumSocio() == numeroSocio){
+                    encontrado = socioFederados.get(i);
+                }
+            }
+        }
 
-     }
- }
+        return encontrado;
+    }
+
+    //INSCRIPCIONES
+
+    /**
+     * Metodo que crea una nueva inscripcion
+     * @param numInscripcion numero de la nueva inscripcion
+     * @param socio Objeto socio asociado a la inscripcion
+     * @param excursion Objeto excursion asociado a la inscripcion
+     */
+    public void CrearInscripcion(int numInscripcion, B0_Socio socio, E0_Excursiones excursion){
+
+        datos.CrearInscripcion(numInscripcion, socio, excursion);
+    }
+
+    /**
+     * Metodo que muestra las inscripciones por un socio
+     * @return lista con todas las inscripciones para ese socio
+     */
+    public ArrayList<F0_Inscripciones> mostrarInscripcionesPorSocio(int numSocio){
+        ArrayList<F0_Inscripciones> inscripciones = new ArrayList<>();
+        inscripciones = datos.mostrarInscripcionesPorSocio(numSocio);
+        return inscripciones;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public ArrayList<F0_Inscripciones> mostrarInscripcionesPorFechas(LocalDate fechaIni, LocalDate fechaFin){
+        ArrayList<F0_Inscripciones> inscripciones = new ArrayList<>();
+        inscripciones = datos.mostrarInscripcionesPorFechas(fechaIni, fechaFin);
+        return inscripciones;
+    }
+
+    /**
+     * Metodo que elimina una inscripcion
+     * @param numeroInscripcion numero de la inscripcion a borrar
+     */
+    public boolean eliminarInscripcion(int numeroInscripcion){
+
+        return datos.eliminarInscripcion(numeroInscripcion);
+
+    }
+}
  
  
