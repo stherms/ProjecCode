@@ -297,17 +297,46 @@ public class Datos {
         return sociosInfantiles;
     }
 
-public void CrearInscripcion(int numInscripcion, B0_Socio socio, E0_Excursiones excursion){
+    public void CrearInscripcion(int numInscripcion, B0_Socio socio, E0_Excursiones excursion){
 
         cargaInscripciones.add(new F0_Inscripciones(numInscripcion, socio, excursion));
     }
 
     /**
-     * Devuelve la lista de inscripciones
-     * @return lista con todas las incripciones
+     * Devuelve la lista de inscripciones según el numero de socio
+     * @return lista con todas las incripciones según el numero de socio
      */
-    public ArrayList<F0_Inscripciones> mostrarInscripciones(){
-        return cargaInscripciones;
+    public ArrayList<F0_Inscripciones> mostrarInscripcionesPorSocio(int numSocio){
+
+        ArrayList<F0_Inscripciones> listaFiltrada = new ArrayList<>();
+
+        for (int i = 0; i < cargaInscripciones.size(); i++) {
+            if (cargaInscripciones.get(i).getSocio().getNumSocio() == numSocio){
+                listaFiltrada.add(cargaInscripciones.get(i));
+            }
+        }
+
+        return listaFiltrada;
+    }
+
+    /**
+     * Devuelve la lista de inscripciones según el numero de socio
+     * @return lista con todas las incripciones según el numero de socio
+     */
+    public ArrayList<F0_Inscripciones> mostrarInscripcionesPorFechas(LocalDate fechaIni, LocalDate fechaFin){
+
+        ArrayList<F0_Inscripciones> listaFiltrada = new ArrayList<>();
+
+        for (int i = 0; i < cargaInscripciones.size(); i++) {
+            if ((cargaInscripciones.get(i).getExcursion().getFecha().isAfter(fechaIni) ||
+                cargaInscripciones.get(i).getExcursion().getFecha().isEqual(fechaIni)) &&
+                (cargaInscripciones.get(i).getExcursion().getFecha().isBefore(fechaFin) ||
+                cargaInscripciones.get(i).getExcursion().getFecha().isEqual(fechaFin))) {
+                listaFiltrada.add(cargaInscripciones.get(i));
+            }
+        }
+
+        return listaFiltrada;
     }
 
     //BORRAR EXCURSION
@@ -326,7 +355,8 @@ public void CrearInscripcion(int numInscripcion, B0_Socio socio, E0_Excursiones 
             F0_Inscripciones inscripcionActual = iterador.next();//Almacenamos el siguiente elemento de la lista
 
             // si el codigo del elemento actual es igual al codigoExcursion iterator elimina ese elemento.
-            if (inscripcionActual.getNumInscripcion() == numeroInscripcion) {
+            if (inscripcionActual.getNumInscripcion() == numeroInscripcion
+                && LocalDate.now().isBefore(inscripcionActual.getExcursion().getFecha())) {
                 iterador.remove();// borramos el elemento del iterador
                 return true; // salimos del bucle si el elemento ha sido ya eliminado
             }
