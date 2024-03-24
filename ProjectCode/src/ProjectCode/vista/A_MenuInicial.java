@@ -170,13 +170,57 @@ public class A_MenuInicial {
                 String codigo = this.teclado.nextLine();
                 System.out.println("introduce la descripción");
                 String descr = this.teclado.nextLine();
-                LocalDate fecha = obtenerFecha(teclado, "");// llama al método validar fecha correcta
-                System.out.println("introduce el numero de dias");
-                int dias = this.teclado.nextInt();
-                teclado.nextLine();
-                System.out.println("introduce el precio");
-                double precio = this.teclado.nextDouble();
-                teclado.nextLine();
+
+                //ATRIBUTOS
+                boolean controlFecha = true;
+                LocalDate fecha;
+                int dias = 0;
+                boolean controldias = false;
+                boolean controlPrecio = false;
+                double precio = 0.0;
+
+                //Controla que la fecha de la excursión añadida no sea anterior a la fecha actual
+                do{
+                    fecha = obtenerFecha(teclado, "");// llama al método validar fecha correcta
+
+                    if(fecha.isBefore(LocalDate.now())){
+                      controlFecha = false;
+                      System.out.println("La fecha de la excursión no puede ser anterior a la fecha actual");
+
+                    }
+                    else{
+                        controlFecha = true;
+                    }
+
+                }while(!controlFecha);
+
+                //Controla que el valor introducido sea de tipo entero.
+                while(!controldias) {
+                    try {
+                        System.out.println("introduce el numero de dias");
+                        dias = this.teclado.nextInt();
+                        controldias = true;
+                    } catch (InputMismatchException e) {
+                        System.out.println("El valor debe ser numerico de tipo entero");
+                        teclado.nextLine();
+
+                    }
+                }
+
+                teclado.nextLine();// limpia buffer
+                //Controla que el valor introducido sea de tipo doble y admite el limitar decimal "." o "," .
+                while(!controlPrecio) {
+                    try {
+                        System.out.println("introduce el precio");
+                        String input = teclado.nextLine().replace(',', '.');
+                        precio = Double.parseDouble(input);
+                        controlPrecio = true;
+                    } catch (NumberFormatException e) {
+                        System.out.println("El valor debe ser numerico  ");
+
+                    }
+                }
+
                 controlador.añadirExcursion(codigo, descr, fecha, dias, precio);
                 menuExcursiones();
                 break;
