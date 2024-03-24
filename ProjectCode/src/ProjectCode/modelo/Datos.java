@@ -198,6 +198,7 @@ public class Datos {
      */
 
     public void eliminarExcursion(String codigoExcursion) {
+        int contador = 0;
         //creamos iterador para la lista de excursiones
         Iterator<E0_Excursiones> iterador = excursiones.iterator();
         //mientras queden elementos..
@@ -207,9 +208,16 @@ public class Datos {
             // si el codigo del elemento actual es igual al codigoExcursion iterator elimina ese elemento.
             if (excursionActual.getCodigo().equals(codigoExcursion)) {
                 iterador.remove();// borramos el elemento
+                contador++;
                 break; // salimos del bucle si el elemento ha sido ya eliminado
             }
+
         }
+
+        if(contador ==0){
+            System.out.println("No se ha encontrado el codio de excusion a buscar");
+        }
+            System.out.println("Se han eliminado "+contador +" excursiones");
 
     }
 

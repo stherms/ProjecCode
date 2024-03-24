@@ -174,10 +174,7 @@ public class A_MenuInicial {
                 //ATRIBUTOS
                 boolean controlFecha = true;
                 LocalDate fecha;
-                int dias = 0;
-                boolean controldias = false;
-                boolean controlPrecio = false;
-                double precio = 0.0;
+
 
                 //Controla que la fecha de la excursión añadida no sea anterior a la fecha actual
                 do{
@@ -193,33 +190,13 @@ public class A_MenuInicial {
                     }
 
                 }while(!controlFecha);
-
-                //Controla que el valor introducido sea de tipo entero.
-                while(!controldias) {
-                    try {
-                        System.out.println("introduce el numero de dias");
-                        dias = this.teclado.nextInt();
-                        controldias = true;
-                    } catch (InputMismatchException e) {
-                        System.out.println("El valor debe ser numerico de tipo entero");
-                        teclado.nextLine();
-
-                    }
-                }
+                //Controla que el valor introducido sea de tipo entero y mayor que 0.
+                int dias = obtenerEnteroPositivo(teclado,"introduce el numero de dias");
 
                 teclado.nextLine();// limpia buffer
                 //Controla que el valor introducido sea de tipo doble y admite el limitar decimal "." o "," .
-                while(!controlPrecio) {
-                    try {
-                        System.out.println("introduce el precio");
-                        String input = teclado.nextLine().replace(',', '.');
-                        precio = Double.parseDouble(input);
-                        controlPrecio = true;
-                    } catch (NumberFormatException e) {
-                        System.out.println("El valor debe ser numerico  ");
 
-                    }
-                }
+                double precio = obtenerDoublePositivo(teclado,"Introduce los dias de duración");
 
                 controlador.añadirExcursion(codigo, descr, fecha, dias, precio);
                 menuExcursiones();
@@ -267,29 +244,30 @@ public class A_MenuInicial {
                 break;
             // CREAR SOCIO FEDERADO
             case 2:
-                System.out.println(" - Numero Socio: ");
-                int numFederado = teclado.nextInt();
+                int numFederado = obtenerEnteroPositivo(teclado," - Numero Socio: ");
                     teclado.nextLine();
                 System.out.println("- Nombre: ");
                 String nombreFederado = teclado.nextLine();
                 System.out.println("- Nif: ");
                 String nifFederado = teclado.nextLine();
-                System.out.println("- Selecciona una Federacion:");
+                System.out.println("Del siguiente listado:");
                 ArrayList<D0_Federacion> federaciones = controlador.mostrarFederaciones();
 
                 for(int b=0; b<federaciones.size();b++){
                     System.out.println("    "+(b+1)+") "+federaciones.get(b).getNombre());
                 }
-
-                int eleccionFederacion = teclado.nextInt();
-                    teclado.nextLine();
+                int eleccionFederacion = obtenerEnteroPositivo(teclado,"- Selecciona una Federacion:");
+                teclado.nextLine();
 
                 while(eleccionFederacion<=0 || eleccionFederacion>federaciones.size()){
+                    System.out.println("Opcion no valida");
                     for(int b=0; b<federaciones.size();b++){
+
                         System.out.println("    "+(b+1)+") "+federaciones.get(b).getNombre());
                     }
+
     
-                    eleccionFederacion = teclado.nextInt();
+                    eleccionFederacion = obtenerEnteroPositivo(teclado,"- Selecciona una Federacion:");
                         teclado.nextLine();
                 }
 
@@ -304,8 +282,8 @@ public class A_MenuInicial {
                 break;
             //CREAR SOCIO INFANTIL
             case 3:
-                System.out.println("- Numero socio: ");
-                int numInfantil = teclado.nextInt();
+
+                int numInfantil = obtenerEnteroPositivo(teclado,"- Numero socio: ");
                     teclado.nextLine();
                 System.out.println("- Nombre: ");
                 String nombreInfantil = teclado.nextLine();
@@ -319,17 +297,17 @@ public class A_MenuInicial {
                     System.out.println("    "+ (a+1) + ") "+socioEstandar.get(a).getNombre()+" - " + socioEstandar.get(a).getNumSocio());
                 }
 
-                System.out.println("Cual es el padre o madre del socio infantil?");
-                int eleccion_padreInfantil = teclado.nextInt();
+
+                int eleccion_padreInfantil =obtenerEnteroPositivo(teclado,"Cual es el padre o madre del socio infantil?");
                     teclado.nextLine();
 
                 while(eleccion_padreInfantil<=0 || eleccion_padreInfantil>socioEstandar.size()){
+                    System.out.println("Opcion no valida");
                     for(int a = 0; a<socioEstandar.size(); a++){
                         System.out.println("    "+ (a+1) + ") "+socioEstandar.get(a).getNombre()+" - " + socioEstandar.get(a).getNumSocio());
                     }
 
-                    System.out.println("Cual es el padre o madre del socio infantil?");
-                    eleccion_padreInfantil = teclado.nextInt();
+                    eleccion_padreInfantil =obtenerEnteroPositivo(teclado,"Cual es el padre o madre del socio infantil?");
                         teclado.nextLine();
                 }
 
@@ -343,8 +321,8 @@ public class A_MenuInicial {
                 break;
             //CREAR SOCIO ESTANDAR
             case 4:               
-                System.out.println("- Numero Socio:");
-                int numEstandar = teclado.nextInt();
+
+                int numEstandar = obtenerEnteroPositivo(teclado,"- Numero Socio:");
                 teclado.nextLine();
                 
                 System.out.println("- Nombre: ");
@@ -352,23 +330,24 @@ public class A_MenuInicial {
                 
                 System.out.println("- Nif:");
                 String nifEstandar = teclado.nextLine();
-                System.out.println("- Seguros disponibles:");
+                System.out.println("Selecciona el siguiente listado:");
 
                 ArrayList<C0_Seguro> seguros = controlador.mostrarSeguros();
 
                 for(int x = 0; x<seguros.size(); x++){
                     System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
                 }
-                int eleccionSeguro = teclado.nextInt();
+                int eleccionSeguro = obtenerEnteroPositivo(teclado,"- Seguros disponibles:");
                     teclado.nextLine();
 
                 while(eleccionSeguro<=0 || eleccionSeguro>seguros.size()){
+                    System.out.println("Opcion no valida");
                     System.out.println("- Seguros disponibles:");
                     
                     for(int x = 0; x<seguros.size(); x++){
                         System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
                     }
-                    eleccionSeguro = teclado.nextInt();
+                    eleccionSeguro = obtenerEnteroPositivo(teclado,"- Seguros disponibles:");
                         teclado.nextLine();
                 }
 
@@ -690,6 +669,66 @@ public class A_MenuInicial {
         } while (!formatoFecha);
 
         return fecha;
+    }
+
+    /**
+     * Devuelve un numero validado como entero y mayor que 0
+     *
+     * @param teclado Un teclado para introducir el valor
+     * @param mensaje El mensaje a mostrar como entrada
+     * @return Un entero
+     */
+    public int obtenerEnteroPositivo(Scanner teclado,String mensaje){
+        int numero = 0;
+        boolean esValido = false;
+        while(!esValido) {
+            try {
+                System.out.println(mensaje);
+                numero = this.teclado.nextInt();
+                if(numero > 0) {
+                    esValido= true;
+                }
+                else{
+                    System.out.println("Error debe ser un valor mayor a 0");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("El valor debe ser numerico de tipo entero");
+                teclado.nextLine();
+
+            }
+        }
+        return numero;
+
+    }
+
+    /**
+     *
+     * @param teclado Un teclado para introducir el valor
+     * @param mensaje El mensaje a mostrar como entrada
+     * @return Un Double
+     */
+    public double obtenerDoublePositivo(Scanner teclado, String mensaje){
+        double numero = 0.0;
+        boolean esValido = false;
+
+        while(!esValido) {
+            try {
+                System.out.println(mensaje);
+                String input = teclado.nextLine().replace(',', '.');
+                numero = Double.parseDouble(input);
+                if(numero > 0) {
+                    esValido= true;
+                }
+                else{
+                    System.out.println("Error debe ser un valor mayor a 0");
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("El valor debe ser númerico  ");
+
+            }
+        }
+        return numero;
     }
     // OTROS METODOS
     /**
