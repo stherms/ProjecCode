@@ -450,9 +450,28 @@ public class A_MenuInicial {
 
         switch (eleccion) {
              case 1:
-                ArrayList<F0_Inscripciones> inscripciones = controlador.mostrarInscripciones();
-                System.out.println("LISTADO DE INSCRIPCIONES:");
-                mostrar(inscripciones);
+                 System.out.println("LISTADO DE INSCRIPCIONES:");
+                 System.out.println("1. Filtrar por socio:");
+                 System.out.println("2. Filtrar por fecha");
+                 int filtrado = teclado.nextInt();
+
+                 if (filtrado == 1){
+                     System.out.println("- Numero Socio:");
+                     int numSocio = teclado.nextInt();
+                     ArrayList<F0_Inscripciones> inscripciones = controlador.mostrarInscripcionesPorSocio(numSocio);
+                     mostrar(inscripciones);
+                 }
+                 else if (filtrado == 2){
+                     teclado.nextLine();
+                     LocalDate fechaIni = obtenerFecha(teclado, "FechaIni");
+                     LocalDate fechaFin = obtenerFecha(teclado, "FechaFin");
+                     ArrayList<F0_Inscripciones> inscripciones = controlador.mostrarInscripcionesPorFechas(fechaIni, fechaFin);
+                     mostrar(inscripciones);
+                 }
+                 else {
+                     System.out.println("Opción incorrecta");
+                 }
+
                 menuInscripciones();
                 break;
             case 2:
@@ -476,27 +495,99 @@ public class A_MenuInicial {
                     //Buscar el socio en ambas listas
                     B0_Socio encontrado = controlador.buscarSocio(socioEstandar, socioFederados, numSocio);
 
-                    //Si el socio se ha encontrado
-                    if (encontrado != null) {
-                        ArrayList<E0_Excursiones> excursiones = controlador.mostrarExcursiones();
-                        System.out.println("LISTADO DE EXCURSIONES:");
-                        mostrarDatosExcursiones(excursiones);
+                    //Si no se ha encontrado socio
+                    if (encontrado == null) {
+                        System.out.println("- Nombre: ");
+                        String nombre = teclado.nextLine();
 
-                        System.out.println("- Codigo excursion:");
-                        String codigoExcursion = teclado.nextLine();
+                        System.out.println("- Nif:");
+                        String nif = teclado.nextLine();
 
-                        E0_Excursiones excursion = controlador.buscarExcursion(excursiones, codigoExcursion);
+                        System.out.println("Tipo de Socio.");
+                        System.out.println("1. Socio federado:");
+                        System.out.println("2. Socio estandar");
+                        int tipoSocio = teclado.nextInt();
 
-                        if (excursion != null) {
-                            //Creamos incripcion
-                            controlador.CrearInscripcion(numInscripcion, encontrado, excursion);
+                        if (tipoSocio == 1){
+                            System.out.println("- Selecciona una Federacion:");
+                            ArrayList<D0_Federacion> federaciones = controlador.mostrarFederaciones();
 
-                            System.out.println("Inscripción insertada correctamente");
-                        } else {
-                            System.out.println("No existe una excursion con el codigo: " + codigoExcursion);
+                            for(int b=0; b<federaciones.size();b++){
+                                System.out.println("    "+(b+1)+") "+federaciones.get(b).getNombre());
+                            }
+
+                            int eleccionFederacion = teclado.nextInt();
+                            teclado.nextLine();
+
+                            while(eleccionFederacion<=0 || eleccionFederacion>federaciones.size()){
+                                for(int b=0; b<federaciones.size();b++){
+                                    System.out.println("    "+(b+1)+") "+federaciones.get(b).getNombre());
+                                }
+
+                                eleccionFederacion = teclado.nextInt();
+                                teclado.nextLine();
+                            }
+
+                            String nomFederacion = federaciones.get(eleccionFederacion-1).getNombre();
+                            String codigoFederacion = federaciones.get(eleccionFederacion-1).getCodigo();
+
+                            controlador.CrearSocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion);
+
+                            System.out.println("Socio federado " + nombre + " con numero " + numSocio + " ha sido creado");
+
                         }
+                        else if (tipoSocio == 2){
+                            System.out.println("- Seguros disponibles:");
+
+                            ArrayList<C0_Seguro> seguros = controlador.mostrarSeguros();
+
+                            for(int x = 0; x<seguros.size(); x++){
+                                System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
+                            }
+                            int eleccionSeguro = teclado.nextInt();
+                            teclado.nextLine();
+
+                            while(eleccionSeguro<=0 || eleccionSeguro>seguros.size()){
+                                System.out.println("- Seguros disponibles:");
+
+                                for(int x = 0; x<seguros.size(); x++){
+                                    System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
+                                }
+                                eleccionSeguro = teclado.nextInt();
+                                teclado.nextLine();
+                            }
+
+                            C0_Seguro.tipoSeguro tipoSeguro = seguros.get(eleccionSeguro-1).getTipoSeguro();
+                            double precios = seguros.get(eleccionSeguro-1).getPrecioSeguro();
+
+                            System.out.println("elemento escogido " + tipoSeguro + " con precio " + precios);
+                            C0_Seguro seguro = new C0_Seguro(tipoSeguro, precios);
+
+                            controlador.CrearSocioEstandar(numSocio, nombre, nif, seguro);
+                            System.out.println("Socio Estandar " + nombre + " con numero " + numSocio + " ha sido creado");
+                        }
+
+                        //Buscar nuevo el socio porque ahora ya se dio de alta
+                        encontrado = controlador.buscarSocio(socioEstandar, socioFederados, numSocio);
+                    }
+
+                    //Si el socio se ha encontrado
+                    ArrayList<E0_Excursiones> excursiones = controlador.mostrarExcursiones();
+                    System.out.println("LISTADO DE EXCURSIONES:");
+                    mostrarDatosExcursiones(excursiones);
+
+                    System.out.println("- Codigo excursion:");
+                    String codigoExcursion = teclado.nextLine();
+
+                    E0_Excursiones excursion = controlador.buscarExcursion(excursiones, codigoExcursion);
+
+                    if (excursion != null) {
+                        //Creamos incripcion
+                        controlador.CrearInscripcion(numInscripcion, encontrado, excursion);
+
+                        System.out.println("Inscripción insertada correctamente");
                     } else {
-                        System.out.println("No existe un socio con el numero: " + numSocio);
+                        System.out.println("No existe una excursion con el codigo: " + codigoExcursion);
                     }
                 }
                 //Tipo de excepción cuando el valor introducido por teclado no cuadra con el tipo de dato que
@@ -515,9 +606,9 @@ public class A_MenuInicial {
                     boolean borrado = controlador.eliminarInscripcion(numeroEliminar);
 
                     if (borrado) {
-                        System.out.println("Inscripción borrada correctamente");
+                        System.out.println("Inscripción eliminada correctamente");
                     } else {
-                        System.out.println("No existe una inscripcion con el numero: " + numeroEliminar);
+                        System.out.println("No se ha podido eliminar la inscripcion con el numero: " + numeroEliminar);
                     }
                 }
                 catch (InputMismatchException ex){
@@ -535,7 +626,7 @@ public class A_MenuInicial {
                 break;
         }
     }
-
+    
     //EXCEPCIONES
     /**
      * Devuelve una fecha validada con formato AAA-MM-DD corrrecto.
@@ -593,7 +684,7 @@ public class A_MenuInicial {
             System.out.println(elemento.getCodigo() + "-" + elemento.getDescripcion());
         }
     }
-
+    
     /**
      * Carga Inicial de datos con valores por defecto.
      */
