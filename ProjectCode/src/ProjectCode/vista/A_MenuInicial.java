@@ -365,8 +365,49 @@ public class A_MenuInicial {
 
                 inicio();
                 break;
+            //24-4-24
             case 5:
-                System.out.println("funcion EliminarSocio()");
+                
+                System.out.println("ELIMINAR SOCIOS");
+                ArrayList<B1_SocioEstandar> socioEstandarE = controlador.mostrarSocioEstandar();
+                ArrayList<B2_SocioFederado> socioFederadosE = controlador.mostrarSocioFederados();
+                ArrayList<B3_SocioInfantil> socioInfantilE = controlador.mostrarSocioInfantil();
+                
+                System.out.println("Socios Estándar:");
+                mostrar(socioEstandarE);
+                System.out.println("Socios Federados:");
+                mostrar(socioFederadosE);
+                System.out.println("Socios Infantiles:");
+                mostrar(socioInfantilE);
+            
+                
+                // Solicitar al usuario que ingrese el número de socio a eliminar
+                System.out.println("Introduce el número de socio a eliminar:");
+                int numSocio = teclado.nextInt();
+                teclado.nextLine(); // Limpiar el buffer
+
+                
+            
+                // Verificar si el socio está inscrito en alguna excursión
+                ArrayList<F0_Inscripciones> inscripciones = controlador.mostrarInscripcionesPorSocio(numSocio);
+                if (!inscripciones.isEmpty()) {
+                    System.out.println("El socio con número " + numSocio + " está inscrito en las siguientes excursiones:");
+                    for (F0_Inscripciones inscripcion : inscripciones) {
+                        System.out.println("Excursión: " + inscripcion.getExcursion().getDescripcion());
+                    }
+                    System.out.println("No se puede eliminar al socio porque está inscrito en una o más excursiones.");
+                } else {
+                    // Intentar eliminar al socio
+                       boolean eliminado = controlador.eliminarSocio(numSocio);
+            
+                    if (eliminado) {
+                        System.out.println("El socio con número " + numSocio + " ha sido eliminado correctamente.");
+                    } else {
+                        System.out.println("No se pudo encontrar un socio con el número " + numSocio + ".");
+                    }
+                }
+            
+                inicio();
                 break;
             case 6:
                 System.out.println("funcion ModificarSeguroSocioEstandar()");

@@ -315,6 +315,12 @@
         return encontrado;
     }
 
+    //ELIMINAR SOCIOS //24-4-24
+        public boolean eliminarSocio(int numSocio){
+          return datos.eliminarSocio(numSocio);
+    }
+
+
     //INSCRIPCIONES
 
     /**

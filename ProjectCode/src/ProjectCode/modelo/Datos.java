@@ -307,6 +307,43 @@ public class Datos {
         return sociosInfantiles;
     }
 
+     //ELIMINAR SOCIOS 24-04-24
+      public boolean eliminarSocio(int numSocio){
+      Iterator<B2_SocioFederado> iterador = sociosFederados.iterator();
+      Iterator<B1_SocioEstandar> iterador1 = sociosEstandars.iterator();
+      Iterator<B3_SocioInfantil> iterador2 = sociosInfantiles.iterator();
+      Iterator<B2_SocioFederado> iteradorFederado = sociosFederados.iterator();
+      while (iteradorFederado.hasNext()) {
+          B2_SocioFederado socioFederado = iteradorFederado.next();
+          if (socioFederado.getNumSocio() == numSocio) {
+              iteradorFederado.remove();
+              return true; // Socio encontrado y eliminado
+          }
+      }
+  
+      // Iterar sobre la lista de socios estándar
+      Iterator<B1_SocioEstandar> iteradorEstandar = sociosEstandars.iterator();
+      while (iteradorEstandar.hasNext()) {
+          B1_SocioEstandar socioEstandar = iteradorEstandar.next();
+          if (socioEstandar.getNumSocio() == numSocio) {
+              iteradorEstandar.remove();
+              return true; // Socio encontrado y eliminado
+          }
+      }
+  
+      // Iterar sobre la lista de socios infantiles
+      Iterator<B3_SocioInfantil> iteradorInfantil = sociosInfantiles.iterator();
+      while (iteradorInfantil.hasNext()) {
+          B3_SocioInfantil socioInfantil = iteradorInfantil.next();
+          if (socioInfantil.getNumSocio() == numSocio) {
+              iteradorInfantil.remove();
+              return true; // Socio encontrado y eliminado
+          }
+      }
+  
+      return false;
+  }
+
     public void CrearInscripcion(int numInscripcion, B0_Socio socio, E0_Excursiones excursion){
 
         cargaInscripciones.add(new F0_Inscripciones(numInscripcion, socio, excursion));
