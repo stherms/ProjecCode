@@ -216,12 +216,14 @@ public class Datos {
 //METODO FEDERACIONES
     //Ver federaciones
     public ArrayList<D0_Federacion> mostrarFederaciones(){
+
         return federaciones;
     }
 
 //METODO SEGUROS
     //Ver Seguros
     public ArrayList<C0_Seguro> mostrarSeguros(){
+
         return seguros;
     }
 

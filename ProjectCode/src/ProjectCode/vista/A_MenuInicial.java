@@ -9,15 +9,11 @@
 package ProjectCode.vista;
 
 import ProjectCode.controlador.Controlador;
-import ProjectCode.modelo.B1_SocioEstandar;
-import ProjectCode.modelo.B2_SocioFederado;
-import ProjectCode.modelo.B3_SocioInfantil;
-import ProjectCode.modelo.C0_Seguro;
-import ProjectCode.modelo.D0_Federacion;
-import ProjectCode.modelo.E0_Excursiones;
+import ProjectCode.modelo.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class A_MenuInicial {

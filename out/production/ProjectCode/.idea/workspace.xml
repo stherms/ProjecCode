@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc8c0d34-c182-457c-9e05-ec8eaa180a94" name="Changes" comment="Pruebas de Test con JUNIT">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectCode.iml" afterDir="false" />
+    <list default="true" id="fc8c0d34-c182-457c-9e05-ec8eaa180a94" name="Changes" comment="Pruebas de Test con JUNIT 2">
+      <change beforePath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/controlador/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/controlador/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/Datos.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/Datos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/vista/A_MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/vista/A_MenuInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/controlador/Controlador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/Datos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/F0_Inscripciones.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/vista/A_MenuInicial.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +33,7 @@
         <option name="title" value="All" />
       </GitPushTagMode>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -66,7 +71,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.A_MenuInicial.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;JUnit.A_MenuInicialTest.addMenuInscripciones.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.DatosTest.executor&quot;: &quot;Run&quot;,
@@ -278,7 +283,31 @@
       <option name="project" value="LOCAL" />
       <updated>1711049080698</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Pruebas de Test con JUNIT 2">
+      <option name="closed" value="true" />
+      <created>1711134558289</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1711134558289</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Pruebas de Test con JUNIT 2">
+      <option name="closed" value="true" />
+      <created>1711134568410</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1711134568410</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Pruebas de Test con JUNIT 2">
+      <option name="closed" value="true" />
+      <created>1711134571373</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1711134571373</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -301,6 +330,7 @@
     <MESSAGE value="Documento los metodos y constructores creados hasta ahora." />
     <MESSAGE value="Añado la opcion de eliminar excursion" />
     <MESSAGE value="Pruebas de Test con JUNIT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pruebas de Test con JUNIT" />
+    <MESSAGE value="Pruebas de Test con JUNIT 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pruebas de Test con JUNIT 2" />
   </component>
 </project>

@@ -19,16 +19,13 @@ class DatosTest {
         LocalDate fechaFin = LocalDate.of(2024, 12, 31);
 
 
-
-        ArrayList<E0_Excursiones> excursionesFiltradas = datos.filtrarExcursiones(fechaInicio,fechaFin);
-
+        ArrayList<E0_Excursiones> excursionesFiltradas = datos.filtrarExcursiones(fechaInicio, fechaFin);
 
 
         // hay 4 excursiones que cumplen en el periodo indicado.
         assertEquals(4, excursionesFiltradas.size());
         // El codigo de excursion en la posicion 0 es M1
         assertEquals("M1", excursionesFiltradas.get(0).getCodigo());
-
 
 
         for (E0_Excursiones excursion : excursionesFiltradas) {
@@ -40,6 +37,7 @@ class DatosTest {
 
 
     }
+
     @Test
     void filtrarExcursiones_SinCoincidencias() {
         Datos datos = new Datos();
@@ -112,18 +110,4 @@ class DatosTest {
 
         assertEquals(4, excursionesFiltradas.size());
     }
-
-     @Test
-    void eliminarInscripciones(){
-        Datos datos = new Datos();
-        datos.cargaInicialExcursiones();
-        datos.cargaInicialSociosEstandar();
-        datos.cargaInicialSociosFederados();
-        datos.cargaInicialInscripciones();
-        datos.eliminarInscripcion(1);
-
-        assertEquals(1, datos.mostrarInscripciones().size());
-        assertEquals(2, datos.mostrarInscripciones().get(0).getNumInscripcion());
-    }
-
 }

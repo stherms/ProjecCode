@@ -4,15 +4,8 @@
 
  package ProjectCode.controlador;
 
- import ProjectCode.modelo.B1_SocioEstandar;
- import ProjectCode.modelo.B2_SocioFederado;
- import ProjectCode.modelo.B3_SocioInfantil;
- import ProjectCode.modelo.C0_Seguro;
- import ProjectCode.modelo.D0_Federacion;
- import ProjectCode.modelo.Datos;
- import ProjectCode.modelo.E0_Excursiones;
+ import ProjectCode.modelo.*;
  import ProjectCode.vista.A_MenuInicial;
- 
  import java.time.LocalDate;
  import java.util.ArrayList;
  
@@ -133,7 +126,36 @@
  
          datos.añadirExcursion(codigo,descr,fecha,dias,precio);
      }
- 
+
+     /**
+      * Interactua con el metodo de datos de la clase Datos del modelo para solicitar un lista de excursiones
+      * comprendidas entre dos fechas.
+      *
+      * @param fechaIni Fecha de inicio que queremos visualizar
+      * @param fechafin Fecha de Fin que queremos visualizar
+      * @return una lista de Excursiones filtrada por fechas
+      */
+
+     public ArrayList<E0_Excursiones> filtrarExcursiones(LocalDate fechaIni, LocalDate fechafin){
+
+         ArrayList<E0_Excursiones> excursiones= new ArrayList<>();
+
+         excursiones = datos.filtrarExcursiones(fechaIni,fechafin);
+
+         return  excursiones;
+     }
+
+     /**
+      * Interactua con el metodo de datos de la clase Datos del modelo para eliminar una excursion.
+      * @param codigoExcursion El codigo de la excursion a eliminar
+      */
+     public void eliminarExcursion(String codigoExcursion){
+
+         datos.eliminarExcursion(codigoExcursion);
+
+     }
+
+
      /**
      * Interactua con el metodo de datos de la clase Datos del modelo para solicitar la lista de excursiones
      * @return lista de todas las excursiones
@@ -179,7 +201,8 @@
 //METODO SEGUROS
     //Ver Seguros
     public ArrayList<C0_Seguro> mostrarSeguros(){
-        return datos.mostrarSeguros();
+
+         return datos.mostrarSeguros();
     }
  //METODOS SOCIOS
      //METODOS SOCIOS FEDERADOS
