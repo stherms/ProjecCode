@@ -307,7 +307,7 @@ public class A_MenuInicial {
                         System.out.println("    "+ (a+1) + ") "+socioEstandar.get(a).getNombre()+" - " + socioEstandar.get(a).getNumSocio());
                     }
 
-                    eleccion_padreInfantil =obtenerEnteroPositivo(teclado,"Cual es el padre o madre del socio infantil?");
+                    eleccion_padreInfantil = obtenerEnteroPositivo(teclado,"Cual es el padre o madre del socio infantil?");
                         teclado.nextLine();
                 }
 
