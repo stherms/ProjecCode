@@ -541,31 +541,36 @@ public class A_MenuInicial {
                     int numInscripcion = teclado.nextInt();
                     teclado.nextLine();
 
-                    //Nif socio
-                    ArrayList<B1_SocioEstandar> socioEstandar = controlador.mostrarSocioEstandar();
+                    //NIF socio
+                    List<?extends B0_Socio> socioEstandar = controlador.mostrarSocioEstandar();
                     System.out.println("LISTADO DE SOCIOS ESTANDAR:");
-                    mostrarDatosSocioEstandar(socioEstandar);
-                    ArrayList<B2_SocioFederado> socioFederados = controlador.mostrarSocioFederados();
+                    mostrarDatosSocioSimplificado(socioEstandar);
+                    List<?extends B0_Socio> socioFederados = controlador.mostrarSocioFederados();
                     System.out.println("LISTADO DE SOCIOS FEDERADOS:");
-                    mostrarDatosSocioFederado(socioFederados);
+                    mostrarDatosSocioSimplificado(socioFederados);
+                    List<?extends B0_Socio> socioInfantil = controlador.mostrarSocioInfantil();
+                    System.out.println("LISTADO DE SOCIOS INFANTILES:");
+                    mostrarDatosSocioSimplificado(socioInfantil);
+
                     System.out.println("- Numero Socio:");
                     int numSocio = teclado.nextInt();
                     teclado.nextLine();
 
                     //Buscar el socio en ambas listas
-                    B0_Socio encontrado = controlador.buscarSocio(socioEstandar, socioFederados, numSocio);
+                    B0_Socio encontrado = controlador.buscarSocio(socioEstandar, socioFederados, socioInfantil, numSocio);
 
                     //Si no se ha encontrado socio
                     if (encontrado == null) {
                         System.out.println("- Nombre: ");
                         String nombre = teclado.nextLine();
 
-                        System.out.println("- Nif:");
+                        System.out.println("- NIF:");
                         String nif = teclado.nextLine();
 
                         System.out.println("Tipo de Socio.");
                         System.out.println("1. Socio federado:");
                         System.out.println("2. Socio estandar");
+                        System.out.println("3. Socio infantil");
                         int tipoSocio = teclado.nextInt();
 
                         if (tipoSocio == 1){
@@ -642,6 +647,23 @@ public class A_MenuInicial {
                     E0_Excursiones excursion = controlador.buscarExcursion(excursiones, codigoExcursion);
 
                     if (excursion != null) {
+
+                         //Clonar para no modificar los datos originales
+                        E0_Excursiones copiaExcursion = new E0_Excursiones(excursion.getCodigo(), excursion.getDescripcion(),
+                                                        excursion.getFecha(), excursion.getNumDias(), excursion.getPrecio());
+
+                        //Aplicar descuento o recargos
+                        if (encontrado instanceof B1_SocioEstandar) {
+                            //Si es socio estandar el precio final sera el precio de la excursion mas
+                            //el precio del seguro contratado
+                            copiaExcursion.setPrecio(excursion.getPrecio() + ((B1_SocioEstandar) encontrado).getSeguro().getPrecioSeguro());
+                        }
+                        else if (encontrado instanceof B2_SocioFederado){
+                            //Si el socio es federado el precio final será el precio de la excursion menos el
+                            //10% de descuento
+                            copiaExcursion.setPrecio(excursion.getPrecio() - (excursion.getPrecio()) * 0.10);
+                        }
+                        
                         //Creamos incripcion
                         controlador.CrearInscripcion(numInscripcion, encontrado, excursion);
 
