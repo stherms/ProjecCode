@@ -411,8 +411,7 @@ public class Datos {
         return listaFiltrada;
     }
 
-    //BORRAR EXCURSION
-
+    //BORRAR INSCRIPCION
 
     /**
      * Elimina una inscripcion de la lista
