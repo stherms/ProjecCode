@@ -392,8 +392,8 @@ public class Datos {
     }
 
     /**
-     * Devuelve la lista de inscripciones según el numero de socio
-     * @return lista con todas las incripciones según el numero de socio
+     * Devuelve la lista de inscripciones según la fecha
+     * @return lista con todas las incripciones según la fecha
      */
     public ArrayList<F0_Inscripciones> mostrarInscripcionesPorFechas(LocalDate fechaIni, LocalDate fechaFin){
 
