@@ -292,11 +292,11 @@
      * @param numeroSocio numero de socio a buscar
      * @return objeto Socio según el numero de socio buscado
      */
-    public B0_Socio buscarSocio(ArrayList<B1_SocioEstandar> socioEstandars, ArrayList<B2_SocioFederado> socioFederados, int numeroSocio) {
+    public B0_Socio buscarSocio(List<?extends B0_Socio> socioEstandars, List<?extends B0_Socio> socioFederados, List<?extends B0_Socio> socioInfantil, int numeroSocio) {
         B0_Socio encontrado = null;
 
 
-        encontrado = datos.buscarSocio(socioEstandars,socioFederados,numeroSocio);
+        encontrado = datos.buscarSocio(socioEstandars,socioFederados, socioInfantil, numeroSocio);
         return encontrado;
     }
 
