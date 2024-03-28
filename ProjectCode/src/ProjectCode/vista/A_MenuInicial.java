@@ -15,6 +15,7 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.List;
 
 public class A_MenuInicial {
     Scanner teclado;
@@ -684,7 +685,7 @@ public class A_MenuInicial {
                 //ELIMINAR INSCRIPCION
                 try {
                     System.out.println("Introduce el numero de la inscripcion a eliminar");
-                    numInscripcion = this.teclado.nextInt();
+                    int numInscripcion = this.teclado.nextInt();
                     boolean borrado = this.controlador.eliminarInscripcion(numInscripcion);
                     if (borrado) {
                         System.out.println("Inscripción eliminada correctamente");
