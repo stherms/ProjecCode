@@ -343,7 +343,9 @@ public class Datos {
   
       return false;
   }
-    public B0_Socio buscarSocio(ArrayList<B1_SocioEstandar> socioEstandars, ArrayList<B2_SocioFederado> socioFederados, int numeroSocio) {
+
+    
+ public B0_Socio buscarSocio(List<?extends B0_Socio> socioEstandars, List<?extends B0_Socio> socioFederados, List<?extends B0_Socio> socioInfantil, int numeroSocio) {
 
         B0_Socio encontrado = null;
 
@@ -365,8 +367,19 @@ public class Datos {
                 }
             }
         }
-        return encontrado;
 
+        //Si no lo he encontrado en la lista federado, lo busco en la de infantil
+        if (encontrado == null) {
+            //Buscamos en la lista federados
+            for (int i = 0; i < socioInfantil.size() && encontrado == null; i++) {
+
+                if (socioInfantil.get(i).getNumSocio() == numeroSocio) {
+                    encontrado = socioInfantil.get(i);
+                }
+            }
+        }
+
+        return encontrado;
     }
 
     public void CrearInscripcion(int numInscripcion, B0_Socio socio, E0_Excursiones excursion){
