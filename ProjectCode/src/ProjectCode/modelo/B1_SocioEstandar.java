@@ -17,6 +17,8 @@ import java.util.ArrayList;
  */
 public class B1_SocioEstandar extends B0_Socio {
 
+    private double DES_CUOTA_MENSUAL=1;
+    private int cuota=100;
     private String nif;
     private C0_Seguro seguro;
     private static ArrayList<B1_SocioEstandar> SociosEstandar = new ArrayList<>();
@@ -78,6 +80,29 @@ public class B1_SocioEstandar extends B0_Socio {
      *
      * @return Muestra por pantalla el Socio Estandar con el seguro.
      */
+
+    public void setCuota(int cuota){
+    this.cuota=cuota;
+
+    }
+
+    public int getCuota(){
+        return cuota;   
+
+    }
+
+
+    public void setDescuento(double DES_CUOTA_MENSUAL){
+        this.DES_CUOTA_MENSUAL=DES_CUOTA_MENSUAL;
+    
+        }
+    
+        public double getDescuento(){
+            return DES_CUOTA_MENSUAL;   
+    
+        }
+
+
 
     @Override
     public String toString() {

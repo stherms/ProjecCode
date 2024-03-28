@@ -12,9 +12,10 @@ import java.util.ArrayList;
  *@version 1.0
  */
 public class B3_SocioInfantil extends B0_Socio {
-
+    
+    private int cuota=100;
     private int numSocioPadre;
-    private final double DESCUENTO = 50.0;
+    private final double DESCUENTO = 0.5;
     private static ArrayList<B3_SocioInfantil> SociosInfantiles = new ArrayList<>();
 
     /**
@@ -61,6 +62,16 @@ public class B3_SocioInfantil extends B0_Socio {
         return DESCUENTO;
     }
 
+
+    public void setCuota(int cuota){
+        this.cuota=cuota;
+    
+        }
+    
+        public int getCuota(){
+            return cuota;   
+    
+        }
     /**
      * Obtiene los datos del Socio infantil
      *

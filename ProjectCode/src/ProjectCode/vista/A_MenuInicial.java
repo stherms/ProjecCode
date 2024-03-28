@@ -450,9 +450,57 @@ public class A_MenuInicial {
                 
                 inicio();
                 break;
+             //FUNCION FACTURA 28-3-24   
+            case 7:           
                 
-            case 7:
-                System.out.println("funcion MostrarFacturas()");
+                System.out.println("Selecciona tipo de socio a mostrar:\n 1)Federado\n 2)Estandar\n 3)Infantil");
+
+                int tipDeSocio = teclado.nextInt();
+                teclado.nextLine(); 
+                
+                switch (tipDeSocio) {
+                    case 1:
+                        ArrayList<B2_SocioFederado> socioFederadosFac = controlador.mostrarSocioFederados();
+
+                        for(int a = 0; a<socioFederadosFac.size(); a++){
+                            System.out.println((a+1) + ")  "+socioFederadosFac.get(a).getNumSocio()+" - " + socioFederadosFac.get(a).getNombre());
+                        }
+                        int tipDeSocioFed = teclado.nextInt();
+                        teclado.nextLine(); 
+                        
+                        int cuota=socioFederadosFac.get(tipDeSocioFed-1).getCuota();
+                        double descuento=socioFederadosFac.get(tipDeSocioFed-1).getDES_CUOTA_MENSUAL();
+                        double descuentoFinalF=cuota-cuota*descuento;
+
+                        break;
+                    case 2:
+                        ArrayList<B1_SocioEstandar> socioEstandarFac = controlador.mostrarSocioEstandar();
+
+                        for(int a = 0; a<socioEstandarFac.size(); a++){
+                            System.out.println((a+1) + ")  "+socioEstandarFac.get(a).getNumSocio()+" - " + socioEstandarFac.get(a).getNombre());
+                        }
+                        int tipDeSocioEst = teclado.nextInt();
+                        teclado.nextLine(); 
+                        
+                        int cuotaE=socioEstandarFac.get(tipDeSocioEst-1).getCuota();
+                        break;
+
+                    default:
+                        ArrayList<B3_SocioInfantil> socioInfantilFac = controlador.mostrarSocioInfantil();
+
+                        for(int a = 0; a<socioInfantilFac.size(); a++){
+                            System.out.println((a+1) + ")  "+socioInfantilFac.get(a).getNumSocio()+" - " + socioInfantilFac.get(a).getNombre());
+                        }
+                        int tipDeSocioInf = teclado.nextInt();
+                        teclado.nextLine(); 
+                        
+                        int cuotaF=socioInfantilFac.get(tipDeSocioInf-1).getCuota();
+                        double descuentoInf=socioInfantilFac.get(tipDeSocioInf-1).getDESCUENTO();
+                        double descuentoFinalInf=cuotaF-cuotaF*descuentoInf;
+                        break;
+                }
+
+                inicio();
                 break;
             case 8:
                 inicio();

@@ -3,9 +3,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class B2_SocioFederado extends B0_Socio {
+    private int cuota=100;
     private String nif;
-    private final double DES_CUOTA_MENSUAL = 5.0;
-    private final double DES_PRECIO_EXCURSION = 10.0;
+    private final double DES_CUOTA_MENSUAL = 0.05;
+    private final double DES_PRECIO_EXCURSION = 0.1;
     private D0_Federacion federacion;
     private static ArrayList<B2_SocioFederado> SociosFederados = new ArrayList<>();
 
@@ -39,6 +40,16 @@ public class B2_SocioFederado extends B0_Socio {
     public D0_Federacion getFederacion() {
         return federacion;
     }
+
+    public void setCuota(int cuota){
+        this.cuota=cuota;
+    
+        }
+    
+        public int getCuota(){
+            return cuota;   
+    
+        }
 
     @Override
     public String toString() {
