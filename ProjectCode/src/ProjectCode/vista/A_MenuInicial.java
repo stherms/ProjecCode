@@ -818,6 +818,13 @@ public class A_MenuInicial {
         }
     }
 
+    public void mostrarDatosSocioSimplificado(List<?extends B0_Socio> datosMostrar) {
+        for (B0_Socio elemento : datosMostrar) {
+            System.out.println("-----------------------");
+            System.out.println(elemento.getNumSocio() + "-" + elemento.getNombre());
+        }
+    }
+
     public void mostrarDatosExcursiones(ArrayList<E0_Excursiones> datosMostrar) {
         for (E0_Excursiones elemento : datosMostrar) {
             System.out.println("-----------------------");
