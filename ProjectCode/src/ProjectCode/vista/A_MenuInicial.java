@@ -331,24 +331,24 @@ public class A_MenuInicial {
                 
                 System.out.println("- Nif:");
                 String nifEstandar = teclado.nextLine();
-                System.out.println("Selecciona el siguiente listado:");
+                System.out.println("Seguros disponibles:");
 
                 ArrayList<C0_Seguro> seguros = controlador.mostrarSeguros();
 
                 for(int x = 0; x<seguros.size(); x++){
                     System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
                 }
-                int eleccionSeguro = obtenerEnteroPositivo(teclado,"- Seguros disponibles:");
+                int eleccionSeguro = obtenerEnteroPositivo(teclado,"Selecciona un seguro:");
                     teclado.nextLine();
 
                 while(eleccionSeguro<=0 || eleccionSeguro>seguros.size()){
                     System.out.println("Opcion no valida");
-                    System.out.println("- Seguros disponibles:");
+                    System.out.println("- Selecciona un seguro:");
                     
                     for(int x = 0; x<seguros.size(); x++){
                         System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
                     }
-                    eleccionSeguro = obtenerEnteroPositivo(teclado,"- Seguros disponibles:");
+                    eleccionSeguro = obtenerEnteroPositivo(teclado,"- Selecciona un seguro:");
                         teclado.nextLine();
                 }
 
@@ -410,9 +410,47 @@ public class A_MenuInicial {
             
                 inicio();
                 break;
+
+            // 28-03-24
             case 6:
-                System.out.println("funcion ModificarSeguroSocioEstandar()");
+            ArrayList<B1_SocioEstandar> socioEstandarS = controlador.mostrarSocioEstandar();
+            
+            for(int a = 0; a<socioEstandarS.size(); a++){
+                System.out.println((a+1) + ")  "+socioEstandarS.get(a).getNumSocio()+" - " + socioEstandarS.get(a).getNombre()+
+               " - " + socioEstandarS.get(a).getSeguro().getTipoSeguro());
+            }
+               System.out.println("Introduce el número de socio:");
+               int numSocioS = teclado.nextInt();
+               teclado.nextLine(); 
+
+               String NifSeguro=socioEstandarS.get(numSocioS-1).getNif();
+               int NumSocioSeguro=socioEstandarS.get(numSocioS-1).getNumSocio();
+               String NombreSocioSeguro=socioEstandarS.get(numSocioS-1).getNombre(); 
+               
+               System.out.println("Seguros disponibles:");
+
+                ArrayList<C0_Seguro> segurosS = controlador.mostrarSeguros();
+
+                for(int x = 0; x<segurosS.size(); x++){
+                    System.out.println("    "+(x +1)+") " + segurosS.get(x).getTipoSeguro() + " - " + segurosS.get(x).getPrecioSeguro());
+                }
+                int eleccionSeguroS = obtenerEnteroPositivo(teclado,"Selecciona un seguro:");
+                    teclado.nextLine();
+                    C0_Seguro.tipoSeguro tipoSeguroS = segurosS.get(eleccionSeguroS-1).getTipoSeguro();
+                    double preciosS = segurosS.get(eleccionSeguroS-1).getPrecioSeguro();
+                    
+                    System.out.println("elemento escogido " + tipoSeguroS + " con precio " + preciosS);
+                    C0_Seguro seguroS = new C0_Seguro(tipoSeguroS, preciosS);
+    
+                    controlador.eliminarSocio(NumSocioSeguro);
+                    
+                    controlador.CrearSocioEstandar(NumSocioSeguro, NombreSocioSeguro, NifSeguro, seguroS); 
+                    
+                    System.out.println("Se le ha cambiado el seguro al socio " + NombreSocioSeguro);
+                
+                inicio();
                 break;
+                
             case 7:
                 System.out.println("funcion MostrarFacturas()");
                 break;
