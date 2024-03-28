@@ -42,7 +42,7 @@ public class F0_Inscripciones {
     }
 
     /**
-     * setter socio que se incribe
+     * setter socio que se inscribe
      * @param socio: datos del socio que se inscribe
      */
     public void setSocio(B0_Socio socio) {
