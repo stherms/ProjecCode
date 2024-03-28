@@ -535,170 +535,139 @@ public class A_MenuInicial {
                 menuInscripciones();
                 break;
             case 2:
-                //Capturamos posible excepción en caso que el valor introducido por teclado no sea numérico
                 try {
                     System.out.println("- Numero Inscripcion:");
-                    int numInscripcion = teclado.nextInt();
-                    teclado.nextLine();
-
-                    //NIF socio
-                    List<?extends B0_Socio> socioEstandar = controlador.mostrarSocioEstandar();
+                    numInscripcion = this.teclado.nextInt();
+                    this.teclado.nextLine();
+                    socioEstandar = this.controlador.mostrarSocioEstandar();
                     System.out.println("LISTADO DE SOCIOS ESTANDAR:");
-                    mostrarDatosSocioSimplificado(socioEstandar);
-                    List<?extends B0_Socio> socioFederados = controlador.mostrarSocioFederados();
+                    this.mostrarDatosSocioSimplificado(socioEstandar);
+                    socioFederados = this.controlador.mostrarSocioFederados();
                     System.out.println("LISTADO DE SOCIOS FEDERADOS:");
-                    mostrarDatosSocioSimplificado(socioFederados);
-                    List<?extends B0_Socio> socioInfantil = controlador.mostrarSocioInfantil();
+                    this.mostrarDatosSocioSimplificado(socioFederados);
+                    List<? extends B0_Socio> socioInfantil = this.controlador.mostrarSocioInfantil();
                     System.out.println("LISTADO DE SOCIOS INFANTILES:");
-                    mostrarDatosSocioSimplificado(socioInfantil);
-
+                    this.mostrarDatosSocioSimplificado(socioInfantil);
                     System.out.println("- Numero Socio:");
-                    int numSocio = teclado.nextInt();
-                    teclado.nextLine();
-
-                    //Buscar el socio en ambas listas
-                    B0_Socio encontrado = controlador.buscarSocio(socioEstandar, socioFederados, socioInfantil, numSocio);
-
-                    //Si no se ha encontrado socio
+                    int numSocio = this.teclado.nextInt();
+                    this.teclado.nextLine();
+                    B0_Socio encontrado = this.controlador.buscarSocio(socioEstandar, socioFederados, socioInfantil, numSocio);
+                    String nif;
                     if (encontrado == null) {
                         System.out.println("- Nombre: ");
-                        String nombre = teclado.nextLine();
-
+                        String nombre = this.teclado.nextLine();
                         System.out.println("- NIF:");
-                        String nif = teclado.nextLine();
-
+                        nif = this.teclado.nextLine();
                         System.out.println("Tipo de Socio.");
                         System.out.println("1. Socio federado:");
                         System.out.println("2. Socio estandar");
                         System.out.println("3. Socio infantil");
-                        int tipoSocio = teclado.nextInt();
-
-                        if (tipoSocio == 1){
+                        int tipoSocio = this.teclado.nextInt();
+                        ArrayList seguros;
+                        int eleccionSeguro;
+                        int x;
+                        if (tipoSocio == 1) {
                             System.out.println("- Selecciona una Federacion:");
-                            ArrayList<D0_Federacion> federaciones = controlador.mostrarFederaciones();
+                            seguros = this.controlador.mostrarFederaciones();
 
-                            for(int b=0; b<federaciones.size();b++){
-                                System.out.println("    "+(b+1)+") "+federaciones.get(b).getNombre());
+                            for(eleccionSeguro = 0; eleccionSeguro < seguros.size(); ++eleccionSeguro) {
+                                System.out.println("    " + (eleccionSeguro + 1) + ") " + ((D0_Federacion)seguros.get(eleccionSeguro)).getNombre());
                             }
 
-                            int eleccionFederacion = teclado.nextInt();
-                            teclado.nextLine();
+                            eleccionSeguro = this.teclado.nextInt();
+                            this.teclado.nextLine();
 
-                            while(eleccionFederacion<=0 || eleccionFederacion>federaciones.size()){
-                                for(int b=0; b<federaciones.size();b++){
-                                    System.out.println("    "+(b+1)+") "+federaciones.get(b).getNombre());
+                            while(eleccionSeguro <= 0 || eleccionSeguro > seguros.size()) {
+                                for(x = 0; x < seguros.size(); ++x) {
+                                    System.out.println("    " + (x + 1) + ") " + ((D0_Federacion)seguros.get(x)).getNombre());
                                 }
 
-                                eleccionFederacion = teclado.nextInt();
-                                teclado.nextLine();
+                                eleccionSeguro = this.teclado.nextInt();
+                                this.teclado.nextLine();
                             }
 
-                            String nomFederacion = federaciones.get(eleccionFederacion-1).getNombre();
-                            String codigoFederacion = federaciones.get(eleccionFederacion-1).getCodigo();
-
-                            controlador.CrearSocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion);
-
+                            String nomFederacion = ((D0_Federacion)seguros.get(eleccionSeguro - 1)).getNombre();
+                            String codigoFederacion = ((D0_Federacion)seguros.get(eleccionSeguro - 1)).getCodigo();
+                            this.controlador.CrearSocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion);
                             System.out.println("Socio federado " + nombre + " con numero " + numSocio + " ha sido creado");
-
-                        }
-                        else if (tipoSocio == 2){
+                        } else if (tipoSocio == 2) {
                             System.out.println("- Seguros disponibles:");
+                            seguros = this.controlador.mostrarSeguros();
 
-                            ArrayList<C0_Seguro> seguros = controlador.mostrarSeguros();
-
-                            for(int x = 0; x<seguros.size(); x++){
-                                System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
+                            for(eleccionSeguro = 0; eleccionSeguro < seguros.size(); ++eleccionSeguro) {
+                                System.out.println("    " + (eleccionSeguro + 1) + ") " + String.valueOf(((C0_Seguro)seguros.get(eleccionSeguro)).getTipoSeguro()) + " - " + ((C0_Seguro)seguros.get(eleccionSeguro)).getPrecioSeguro());
                             }
-                            int eleccionSeguro = teclado.nextInt();
-                            teclado.nextLine();
 
-                            while(eleccionSeguro<=0 || eleccionSeguro>seguros.size()){
+                            eleccionSeguro = this.teclado.nextInt();
+                            this.teclado.nextLine();
+
+                            while(eleccionSeguro <= 0 || eleccionSeguro > seguros.size()) {
                                 System.out.println("- Seguros disponibles:");
 
-                                for(int x = 0; x<seguros.size(); x++){
-                                    System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
+                                for(x = 0; x < seguros.size(); ++x) {
+                                    System.out.println("    " + (x + 1) + ") " + String.valueOf(((C0_Seguro)seguros.get(x)).getTipoSeguro()) + " - " + ((C0_Seguro)seguros.get(x)).getPrecioSeguro());
                                 }
-                                eleccionSeguro = teclado.nextInt();
-                                teclado.nextLine();
+
+                                eleccionSeguro = this.teclado.nextInt();
+                                this.teclado.nextLine();
                             }
 
-                            C0_Seguro.tipoSeguro tipoSeguro = seguros.get(eleccionSeguro-1).getTipoSeguro();
-                            double precios = seguros.get(eleccionSeguro-1).getPrecioSeguro();
-
-                            System.out.println("elemento escogido " + tipoSeguro + " con precio " + precios);
+                            C0_Seguro.tipoSeguro tipoSeguro = ((C0_Seguro)seguros.get(eleccionSeguro - 1)).getTipoSeguro();
+                            double precios = ((C0_Seguro)seguros.get(eleccionSeguro - 1)).getPrecioSeguro();
+                            PrintStream var10000 = System.out;
+                            String var10001 = String.valueOf(tipoSeguro);
+                            var10000.println("elemento escogido " + var10001 + " con precio " + precios);
                             C0_Seguro seguro = new C0_Seguro(tipoSeguro, precios);
-
-                            controlador.CrearSocioEstandar(numSocio, nombre, nif, seguro);
+                            this.controlador.CrearSocioEstandar(numSocio, nombre, nif, seguro);
                             System.out.println("Socio Estandar " + nombre + " con numero " + numSocio + " ha sido creado");
                         }
 
-                        //Buscar nuevo el socio porque ahora ya se dio de alta
-                        encontrado = controlador.buscarSocio(socioEstandar, socioFederados, numSocio);
+                        encontrado = this.controlador.buscarSocio(socioEstandar, socioFederados, socioInfantil, numSocio);
                     }
 
-                    //Si el socio se ha encontrado
-                    ArrayList<E0_Excursiones> excursiones = controlador.mostrarExcursiones();
+                    ArrayList<E0_Excursiones> excursiones = this.controlador.mostrarExcursiones();
                     System.out.println("LISTADO DE EXCURSIONES:");
-                    mostrarDatosExcursiones(excursiones);
-
+                    this.mostrarDatosExcursiones(excursiones);
                     System.out.println("- Codigo excursion:");
-                    String codigoExcursion = teclado.nextLine();
-
-                    E0_Excursiones excursion = controlador.buscarExcursion(excursiones, codigoExcursion);
-
+                    nif = this.teclado.nextLine();
+                    E0_Excursiones excursion = this.controlador.buscarExcursion(excursiones, nif);
                     if (excursion != null) {
-
-                         //Clonar para no modificar los datos originales
-                        E0_Excursiones copiaExcursion = new E0_Excursiones(excursion.getCodigo(), excursion.getDescripcion(),
-                                                        excursion.getFecha(), excursion.getNumDias(), excursion.getPrecio());
-
-                        //Aplicar descuento o recargos
+                        E0_Excursiones copiaExcursion = new E0_Excursiones(excursion.getCodigo(), excursion.getDescripcion(), excursion.getFecha(), excursion.getNumDias(), excursion.getPrecio());
                         if (encontrado instanceof B1_SocioEstandar) {
-                            //Si es socio estandar el precio final sera el precio de la excursion mas
-                            //el precio del seguro contratado
-                            copiaExcursion.setPrecio(excursion.getPrecio() + ((B1_SocioEstandar) encontrado).getSeguro().getPrecioSeguro());
+                            copiaExcursion.setPrecio(excursion.getPrecio() + ((B1_SocioEstandar)encontrado).getSeguro().getPrecioSeguro());
+                        } else if (encontrado instanceof B2_SocioFederado) {
+                            copiaExcursion.setPrecio(excursion.getPrecio() - excursion.getPrecio() * 0.1);
                         }
-                        else if (encontrado instanceof B2_SocioFederado){
-                            //Si el socio es federado el precio final será el precio de la excursion menos el
-                            //10% de descuento
-                            copiaExcursion.setPrecio(excursion.getPrecio() - (excursion.getPrecio()) * 0.10);
-                        }
-                        
-                        //Creamos incripcion
-                        controlador.CrearInscripcion(numInscripcion, encontrado, excursion);
 
+                        this.controlador.CrearInscripcion(numInscripcion, encontrado, copiaExcursion);
                         System.out.println("Inscripción insertada correctamente");
                     } else {
-                        System.out.println("No existe una excursion con el codigo: " + codigoExcursion);
+                        System.out.println("No existe una excursion con el codigo: " + nif);
                     }
-                }
-                //Tipo de excepción cuando el valor introducido por teclado no cuadra con el tipo de dato que
-                //intenta leer el Scanner
-                catch (InputMismatchException ex){
+                } catch (InputMismatchException var20) {
                     System.out.println("Error valor no numerico");
-                    teclado.nextLine();
+                    this.teclado.nextLine();
                 }
-                menuInscripciones();
+
+                this.menuInscripciones();
                 break;
             case 3:
                 //ELIMINAR INSCRIPCION
                 try {
                     System.out.println("Introduce el numero de la inscripcion a eliminar");
-                    int numeroEliminar = this.teclado.nextInt();
-                    boolean borrado = controlador.eliminarInscripcion(numeroEliminar);
-
+                    numInscripcion = this.teclado.nextInt();
+                    boolean borrado = this.controlador.eliminarInscripcion(numInscripcion);
                     if (borrado) {
                         System.out.println("Inscripción eliminada correctamente");
                     } else {
-                        System.out.println("No se ha podido eliminar la inscripcion con el numero: " + numeroEliminar);
+                        System.out.println("No se ha podido eliminar la inscripcion con el numero: " + numInscripcion);
                     }
-                }
-                catch (InputMismatchException ex){
+                } catch (InputMismatchException var19) {
                     System.out.println("Error valor no numerico");
-                    teclado.nextLine();
+                    this.teclado.nextLine();
                 }
 
-                menuInscripciones();
+                this.menuInscripciones();
                 break;
             case 4:
                 inicio();
