@@ -18,38 +18,66 @@ public class B2_SocioFederado extends B0_Socio {
     }
 
     public B2_SocioFederado() {
-        // Constructor vacío
+        
     }
 
+    /**
+     * 
+     * @return string
+     */
     public String getNif() {
         return nif;
     }
 
+    /**
+     * 
+     * @param nif
+     */
     public void setNif(String nif) {
         this.nif = nif;
     }
 
+    /**
+     * 
+     * @return double
+     */
     public double getDES_CUOTA_MENSUAL() {
         return DES_CUOTA_MENSUAL;
     }
 
+    /**
+     * 
+     * @return double
+     */
     public double getDES_PRECIO_EXCURSION() {
         return DES_PRECIO_EXCURSION;
     }
 
+    /**
+     * 
+     * @return D0_Federacion
+     */
     public D0_Federacion getFederacion() {
         return federacion;
     }
 
+    /**
+     * 
+     * @param cuota
+     */
     public void setCuota(int cuota){
         this.cuota=cuota;
     
         }
     
-        public int getCuota(){
-            return cuota;   
+    /**
+     * 
+     * @return int
+     */
+    public int getCuota(){
+        return cuota;   
     
-        }
+    }
 
     @Override
     public String toString() {

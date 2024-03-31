@@ -105,7 +105,13 @@ public class E0_Excursiones {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-
+    /**
+     * 
+     * @return String
+    */
+    public String nombreExcursion() {
+        return  "- " + descripcion;
+    }
     /**
      * método que muestra los datos de las excursiones
      * @return datos del objeto excursiones en una cadena de texto

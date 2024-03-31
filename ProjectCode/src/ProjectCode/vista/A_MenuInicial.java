@@ -182,9 +182,8 @@ public class A_MenuInicial {
                     fecha = obtenerFecha(teclado, "");// llama al método validar fecha correcta
 
                     if(fecha.isBefore(LocalDate.now())){
-                      controlFecha = false;
-                      System.out.println("La fecha de la excursión no puede ser anterior a la fecha actual");
-
+                        controlFecha = false;
+                        System.out.println("La fecha de la excursión no puede ser anterior a la fecha actual");
                     }
                     else{
                         controlFecha = true;
@@ -197,7 +196,7 @@ public class A_MenuInicial {
                 teclado.nextLine();// limpia buffer
                 //Controla que el valor introducido sea de tipo doble y admite el limitar decimal "." o "," .
 
-                double precio = obtenerDoublePositivo(teclado,"Introduce los dias de duración");
+                double precio = obtenerDoublePositivo(teclado,"Introduce precio por dia");
 
                 controlador.añadirExcursion(codigo, descr, fecha, dias, precio);
                 menuExcursiones();
@@ -251,7 +250,7 @@ public class A_MenuInicial {
                 String nombreFederado = teclado.nextLine();
                 System.out.println("- Nif: ");
                 String nifFederado = teclado.nextLine();
-                System.out.println("Del siguiente listado:");
+                System.out.println("Elige una federacion del siguiente listado:");
                 ArrayList<D0_Federacion> federaciones = controlador.mostrarFederaciones();
 
                 for(int b=0; b<federaciones.size();b++){
@@ -295,7 +294,7 @@ public class A_MenuInicial {
                 System.out.println("Socios Estándar existentes:");
                 
                 for(int a = 0; a<socioEstandar.size(); a++){
-                    System.out.println("    "+ (a+1) + ") "+socioEstandar.get(a).getNombre()+" - " + socioEstandar.get(a).getNumSocio());
+                    System.out.println("    "+ (a+1) + ") "+socioEstandar.get(a).getNombre());
                 }
 
 
@@ -366,21 +365,24 @@ public class A_MenuInicial {
 
                 inicio();
                 break;
-            //24-4-24
+            //FUNCION ELIMINAR SOCIO 
             case 5:
-                
-                System.out.println("ELIMINAR SOCIOS");
                 ArrayList<B1_SocioEstandar> socioEstandarE = controlador.mostrarSocioEstandar();
                 ArrayList<B2_SocioFederado> socioFederadosE = controlador.mostrarSocioFederados();
                 ArrayList<B3_SocioInfantil> socioInfantilE = controlador.mostrarSocioInfantil();
                 
-                System.out.println("Socios Estándar:");
-                mostrar(socioEstandarE);
-                System.out.println("Socios Federados:");
-                mostrar(socioFederadosE);
-                System.out.println("Socios Infantiles:");
-                mostrar(socioInfantilE);
-            
+                System.out.println("///////////////<SOCIOS FEDERADOS>///////////////");
+                for(int x=0; x<socioFederadosE.size();x++){
+                    System.out.println(socioFederadosE.get(x).getNumSocio()+" - " + socioFederadosE.get(x).getNombre());
+                }
+                System.out.println("///////////////<SOCIOS ESTANDAR>///////////////");
+                for(int x=0; x<socioEstandarE.size();x++){
+                    System.out.println(socioEstandarE.get(x).getNumSocio()+" - " + socioEstandarE.get(x).getNombre());
+                }
+                System.out.println("///////////////<SOCIOS INFANTILES>///////////////");
+                for(int x=0; x<socioInfantilE.size();x++){
+                    System.out.println(socioInfantilE.get(x).getNumSocio()+" - " + socioInfantilE.get(x).getNombre());
+                }
                 
                 // Solicitar al usuario que ingrese el número de socio a eliminar
                 System.out.println("Introduce el número de socio a eliminar:");
@@ -397,9 +399,10 @@ public class A_MenuInicial {
                         System.out.println("Excursión: " + inscripcion.getExcursion().getDescripcion());
                     }
                     System.out.println("No se puede eliminar al socio porque está inscrito en una o más excursiones.");
-                } else {
-                    // Intentar eliminar al socio
-                       boolean eliminado = controlador.eliminarSocio(numSocio);
+                } 
+                else {
+
+                    boolean eliminado = controlador.eliminarSocio(numSocio);
             
                     if (eliminado) {
                         System.out.println("El socio con número " + numSocio + " ha sido eliminado correctamente.");
@@ -411,23 +414,24 @@ public class A_MenuInicial {
                 inicio();
                 break;
 
-            // 28-03-24
+            //FUNCION CAMBIAR SEGURO
             case 6:
             ArrayList<B1_SocioEstandar> socioEstandarS = controlador.mostrarSocioEstandar();
             
             for(int a = 0; a<socioEstandarS.size(); a++){
-                System.out.println((a+1) + ")  "+socioEstandarS.get(a).getNumSocio()+" - " + socioEstandarS.get(a).getNombre()+
-               " - " + socioEstandarS.get(a).getSeguro().getTipoSeguro());
+                System.out.println((a+1) + ")  "+ socioEstandarS.get(a).getNombre()+
+                " - " + socioEstandarS.get(a).getSeguro().getTipoSeguro());
             }
-               System.out.println("Introduce el número de socio:");
-               int numSocioS = teclado.nextInt();
-               teclado.nextLine(); 
 
-               String NifSeguro=socioEstandarS.get(numSocioS-1).getNif();
-               int NumSocioSeguro=socioEstandarS.get(numSocioS-1).getNumSocio();
-               String NombreSocioSeguro=socioEstandarS.get(numSocioS-1).getNombre(); 
-               
-               System.out.println("Seguros disponibles:");
+            System.out.println("Introduce el número de socio:");
+            int numSocioS = teclado.nextInt();
+            teclado.nextLine(); 
+
+            String NifSeguro=socioEstandarS.get(numSocioS-1).getNif();
+            int NumSocioSeguro=socioEstandarS.get(numSocioS-1).getNumSocio();
+            String NombreSocioSeguro=socioEstandarS.get(numSocioS-1).getNombre(); 
+    
+            System.out.println("Seguros disponibles:");
 
                 ArrayList<C0_Seguro> segurosS = controlador.mostrarSeguros();
 
@@ -450,7 +454,8 @@ public class A_MenuInicial {
                 
                 inicio();
                 break;
-             //FUNCION FACTURA 28-3-24   
+
+             //FUNCION FACTURA 
             case 7:           
                 
                 System.out.println("Selecciona tipo de socio a mostrar:\n 1)Federado\n 2)Estandar\n 3)Infantil");
@@ -459,52 +464,336 @@ public class A_MenuInicial {
                 teclado.nextLine(); 
                 
                 switch (tipDeSocio) {
+                    //FACTURA SOCIO FEDERADO
                     case 1:
-                        ArrayList<B2_SocioFederado> socioFederadosFac = controlador.mostrarSocioFederados();
+                    ArrayList<B2_SocioFederado> socioFederadosFac = controlador.mostrarSocioFederados();
+                    
+                    for(int a = 0; a < socioFederadosFac.size(); a++){
+                        System.out.println((a+1)+")"+ socioFederadosFac.get(a).getNombre());
+                    }
+                    
+                    System.out.println("Selecciona una opcion:");
+                    int eleccionNumSocioFed = teclado.nextInt();
+                    teclado.nextLine(); 
+                    int numSocioFed = socioFederadosFac.get(eleccionNumSocioFed-1).getNumSocio();
+                    
 
-                        for(int a = 0; a<socioFederadosFac.size(); a++){
-                            System.out.println((a+1) + ")  "+socioFederadosFac.get(a).getNumSocio()+" - " + socioFederadosFac.get(a).getNombre());
+
+                    // Verificar si el número de socio seleccionado existe
+                    boolean encontrado = false;
+                    for (B2_SocioFederado socio : socioFederadosFac) {
+                        if (socio.getNumSocio() == numSocioFed) {
+                            encontrado = true;
+                            break;
                         }
-                        int tipDeSocioFed = teclado.nextInt();
-                        teclado.nextLine(); 
+                    }
+                    
+                    if (encontrado) {
+                        B2_SocioFederado socioSeleccionado = null;
+                        // Buscar el socio seleccionado
+                        for (B2_SocioFederado socio : socioFederadosFac) {
+                            if (socio.getNumSocio() == numSocioFed) {
+                                socioSeleccionado = socio;
+                                break;
+                            }
+                        }
                         
-                        int cuota=socioFederadosFac.get(tipDeSocioFed-1).getCuota();
-                        double descuento=socioFederadosFac.get(tipDeSocioFed-1).getDES_CUOTA_MENSUAL();
-                        double descuentoFinalF=cuota-cuota*descuento;
+                        LocalDate fechaInicio = null;
+                        boolean fechaInicioValida = false;
+                        while (!fechaInicioValida) {
+                            try {
+                                System.out.println("Introduce la fecha de inicio (YYYY-MM-DD):");
+                                fechaInicio = LocalDate.parse(teclado.nextLine());
+                                fechaInicioValida = true;
+                            } catch (DateTimeParseException e) {
+                                System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
+                            }
+                        }
+                        
+                        LocalDate fechaFin = null;
+                        boolean fechaFinValida = false;
+                        while (!fechaFinValida) {
+                            try {
+                                System.out.println("Introduce la fecha de fin (YYYY-MM-DD):");
+                                fechaFin = LocalDate.parse(teclado.nextLine());
+                                fechaFinValida = true;
+                            } catch (DateTimeParseException e) {
+                                System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
+                            }
+                        }
+                        
+                        // Verificar si la fecha de fin es posterior a la fecha de inicio
+                        if (fechaInicio.isAfter(fechaFin)) {
+                            System.out.println("La fecha de fin debe ser posterior a la fecha de inicio. Por favor, introduzca fechas válidas.");
 
-                        break;
+                        } else {
+                            // Lógica para calcular la factura mensual basada en el rango de fechas seleccionado
+                            double facturaMensual = 0.0;
+                            LocalDate fechaActual = fechaInicio;
+
+                            while (!fechaActual.isAfter(fechaFin)) {
+                            // Calcula la factura mensual para el mes actual y lo suma al total
+                                facturaMensual += controlador.mostrarFacturaMensualSocioFederado(socioSeleccionado, fechaActual);
+                                fechaActual = fechaActual.plusMonths(1);
+                            }
+
+                            ArrayList<F0_Inscripciones> inscripcioness = controlador.mostrarInscripcionesPorSocio(numSocioFed);                        
+                            ArrayList<F0_Inscripciones> excursionesMensuales = new ArrayList<>(); // Cambié el nombre de la lista
+                    
+                            for (int j = 0; j < inscripcioness.size(); j++) {
+                                LocalDate fechaExcursion = inscripcioness.get(j).getExcursion().getFecha();
+                            
+                                if (fechaExcursion.isAfter(fechaInicio) && fechaExcursion.isBefore(fechaFin)) {
+                                    excursionesMensuales.add(inscripcioness.get(j)); 
+                                }
+                            }
+                            double precioFinal = 0.0;
+
+                            for (int r = 0; r < excursionesMensuales.size(); r++) {
+                                double precioExcursion = excursionesMensuales.get(r).getExcursion().getPrecio();
+                                double descuentoExcursion = socioFederadosFac.get(eleccionNumSocioFed-1).getDES_PRECIO_EXCURSION();
+                                double precioConDescuento= precioExcursion-(precioExcursion*descuentoExcursion);
+                                precioFinal += precioConDescuento;
+                                
+                                
+                            } 
+                            double facturaFinalFed = facturaMensual+precioFinal;
+                            System.out.println("///////////////////////////////////");
+                            System.out.println("La cuota del socio federado es: \n  " + facturaMensual + "e");                            
+                            System.out.println("El seguro del socio federado es: \n   0" );
+                            System.out.println("Excursiones del socio federado:");
+                            for (int q = 0; q < excursionesMensuales.size(); q++) {
+                                System.out.println(excursionesMensuales.get(q).getExcursion().nombreExcursion());                               
+                                
+                            } 
+
+                            System.out.println("El coste de las excursiones para el socio federado es: \n   " + precioFinal + "e");
+                            System.out.println("Coste de la factura final socio federado es: \n   " + facturaFinalFed + "e");
+                            System.out.println("///////////////////////////////////");
+                        }
+                    } else {
+                        System.out.println("Número de socio inválido. Por favor, seleccione un número de socio válido.");
+                    }
+                        
+                    inicio();
+                    break;
+                    //FACTURA SOCIO ESTANDAR
                     case 2:
                         ArrayList<B1_SocioEstandar> socioEstandarFac = controlador.mostrarSocioEstandar();
 
                         for(int a = 0; a<socioEstandarFac.size(); a++){
-                            System.out.println((a+1) + ")  "+socioEstandarFac.get(a).getNumSocio()+" - " + socioEstandarFac.get(a).getNombre());
+                            System.out.println((a+1)+")"+ socioEstandarFac.get(a).getNombre());
                         }
-                        int tipDeSocioEst = teclado.nextInt();
+                        System.out.println("Selecciona una opcion:");
+                        int eleccionNumSocioEst = teclado.nextInt();
                         teclado.nextLine(); 
-                        
-                        int cuotaE=socioEstandarFac.get(tipDeSocioEst-1).getCuota();
-                        break;
+                        int tipoSocioEst = socioEstandarFac.get(eleccionNumSocioEst-1).getNumSocio();
 
+                        // Verificar si el número de socio seleccionado existe
+                        boolean encontradoE = false;
+                        for (B1_SocioEstandar socio : socioEstandarFac) {
+                            if (socio.getNumSocio() == tipoSocioEst) {
+                                encontradoE = true;
+                                break;
+                            }
+                        }
+                        
+                        if (encontradoE) {
+                            B1_SocioEstandar socioSeleccionado = null;
+                            // Buscar el socio seleccionado
+                            for (B1_SocioEstandar socio : socioEstandarFac) {
+                                if (socio.getNumSocio() == tipoSocioEst) {
+                                    socioSeleccionado = socio;
+                                    break;
+
+                                }
+                            }
+                            double seguroAnualE=socioSeleccionado.getSeguro().getPrecioSeguro();
+                            
+                            LocalDate fechaInicio = null;
+                            boolean fechaInicioValida = false;
+                            while (!fechaInicioValida) {
+                                try {
+                                    System.out.println("Introduce la fecha de inicio (YYYY-MM-DD):");
+                                    fechaInicio = LocalDate.parse(teclado.nextLine());
+                                    fechaInicioValida = true;
+                                } catch (DateTimeParseException e) {
+                                    System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
+                                }
+                            }
+                            
+                            LocalDate fechaFin = null;
+                            boolean fechaFinValida = false;
+                            while (!fechaFinValida) {
+                                try {
+                                    System.out.println("Introduce la fecha de fin (YYYY-MM-DD):");
+                                    fechaFin = LocalDate.parse(teclado.nextLine());
+                                    fechaFinValida = true;
+                                } catch (DateTimeParseException e) {
+                                    System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
+                                }
+                            }
+                            
+                            // Verificar si la fecha de fin es posterior a la fecha de inicio
+                            if (fechaInicio.isAfter(fechaFin)) {
+                                System.out.println("La fecha de fin debe ser posterior a la fecha de inicio. Por favor, introduzca fechas válidas.");
+                                // Aquí podrías volver a pedir al usuario que ingrese las fechas
+                            } else {
+                                // Lógica para calcular la factura mensual basada en el rango de fechas seleccionado
+                                double facturaMensual = 0.0;
+                                LocalDate fechaActual = fechaInicio;
+                                while (!fechaActual.isAfter(fechaFin)) {                                    
+                                    facturaMensual += controlador.mostrarFacturaMensualSocioEstandar(socioSeleccionado, fechaActual);
+                                    fechaActual = fechaActual.plusMonths(1);
+                                }
+                                ArrayList<F0_Inscripciones> inscripcioness = controlador.mostrarInscripcionesPorSocio(tipoSocioEst);                        
+                                ArrayList<F0_Inscripciones> excursionesMensuales = new ArrayList<>(); 
+                    
+                                for (int j = 0; j < inscripcioness.size(); j++) {
+                                    LocalDate fechaExcursion = inscripcioness.get(j).getExcursion().getFecha();
+                            
+                                if (fechaExcursion.isAfter(fechaInicio) && fechaExcursion.isBefore(fechaFin)) {
+                                    excursionesMensuales.add(inscripcioness.get(j)); 
+                                }
+                            }
+                                double precioFinal = 0.0;
+
+                                for (int r = 0; r < excursionesMensuales.size(); r++) {
+                                    double precioExcursion = excursionesMensuales.get(r).getExcursion().getPrecio();
+                                    precioFinal += precioExcursion;                                
+                                
+                                    } 
+                                
+                                System.out.println("///////////////////////////////////");
+                                System.out.println("La cuota del socio estandar es: \n  " + facturaMensual + "e");                            
+                                System.out.println("El seguro del socio estandar es:\n  "+ seguroAnualE + "e" );
+                                System.out.println("Excursiones del socio estandar:");
+
+                                for (int q = 0; q < excursionesMensuales.size(); q++) {
+                                    System.out.println(excursionesMensuales.get(q).getExcursion().nombreExcursion());                                  
+                                } 
+                            double facturaFinalFed = facturaMensual+precioFinal+seguroAnualE;
+                            System.out.println("El coste de las excursiones para el socio estandar es: \n  " + precioFinal + "e");
+                            System.out.println("Coste de la factura final socio estandar es: \n  " + facturaFinalFed + "e");
+                            System.out.println("///////////////////////////////////");
+                            }
+                        } 
+                        else {
+                            System.out.println("Numero de socio invalido. Por favor, seleccione un numero de socio valido.");
+                        }
+                        inicio();
+                        break;
+                    //FACTURAS SOCIO INFANTIL
                     default:
                         ArrayList<B3_SocioInfantil> socioInfantilFac = controlador.mostrarSocioInfantil();
 
                         for(int a = 0; a<socioInfantilFac.size(); a++){
-                            System.out.println((a+1) + ")  "+socioInfantilFac.get(a).getNumSocio()+" - " + socioInfantilFac.get(a).getNombre());
+                            System.out.println((a+1)+")"+ socioInfantilFac.get(a).getNombre());
                         }
-                        int tipDeSocioInf = teclado.nextInt();
+                        System.out.println("Selecciona una opcion:");
+                        int eleccionNumSocioInf = teclado.nextInt();
                         teclado.nextLine(); 
+                        int tipDeSocioInf = socioInfantilFac.get(eleccionNumSocioInf-1).getNumSocio();
+
+                        // Verificar si el número de socio seleccionado existe
+                        boolean encontradoInf = false;
+                        for (B3_SocioInfantil socio : socioInfantilFac) {
+                            if (socio.getNumSocio() == tipDeSocioInf) {
+                                encontradoInf = true;
+                                break;
+                            }
+                        }
                         
-                        int cuotaF=socioInfantilFac.get(tipDeSocioInf-1).getCuota();
-                        double descuentoInf=socioInfantilFac.get(tipDeSocioInf-1).getDESCUENTO();
-                        double descuentoFinalInf=cuotaF-cuotaF*descuentoInf;
+                        if (encontradoInf) {
+                            B3_SocioInfantil socioSeleccionado = null;
+                            // Buscar el socio seleccionado
+                            for (B3_SocioInfantil socio : socioInfantilFac) {
+                                if (socio.getNumSocio() ==tipDeSocioInf) {
+                                    socioSeleccionado = socio;
+                                    break;
+                                }
+                            }
+                            
+                            LocalDate fechaInicio = null;
+                            boolean fechaInicioValida = false;
+                            while (!fechaInicioValida) {
+                                try {
+                                    System.out.println("Introduce la fecha de inicio (YYYY-MM-DD):");
+                                    fechaInicio = LocalDate.parse(teclado.nextLine());
+                                    fechaInicioValida = true;
+                                } catch (DateTimeParseException e) {
+                                    System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
+                                }
+                            }
+                            
+                            LocalDate fechaFin = null;
+                            boolean fechaFinValida = false;
+                            while (!fechaFinValida) {
+                                try {
+                                    System.out.println("Introduce la fecha de fin (YYYY-MM-DD):");
+                                    fechaFin = LocalDate.parse(teclado.nextLine());
+                                    fechaFinValida = true;
+                                } catch (DateTimeParseException e) {
+                                    System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
+                                }
+                            }
+                            
+                            // Verificar si la fecha de fin es posterior a la fecha de inicio
+                            if (fechaInicio.isAfter(fechaFin)) {
+                                System.out.println("La fecha de fin debe ser posterior a la fecha de inicio. Por favor, introduzca fechas válidas.");
+                                // Aquí podrías volver a pedir al usuario que ingrese las fechas
+                            } else {
+                                // Lógica para calcular la factura mensual basada en el rango de fechas seleccionado
+                                double facturaMensual = 0.0;
+                                LocalDate fechaActual = fechaInicio;
+                                while (!fechaActual.isAfter(fechaFin)) {
+                                    facturaMensual += controlador.mostrarFacturaMensualSocioInfantil(socioSeleccionado, fechaActual);
+                                    fechaActual = fechaActual.plusMonths(1);
+                                }
+
+                                ArrayList<F0_Inscripciones> inscripcioness = controlador.mostrarInscripcionesPorSocio(tipDeSocioInf);                        
+                                ArrayList<F0_Inscripciones> excursionesMensuales = new ArrayList<>(); // Cambié el nombre de la lista
+
+                                for (int j = 0; j < inscripcioness.size(); j++) {
+                                    LocalDate fechaExcursion = inscripcioness.get(j).getExcursion().getFecha();
+                            
+                                if (fechaExcursion.isAfter(fechaInicio) && fechaExcursion.isBefore(fechaFin)) {
+                                    excursionesMensuales.add(inscripcioness.get(j)); 
+                                }
+                            }
+                                double precioFinal = 0.0;
+
+                            for (int r = 0; r < excursionesMensuales.size(); r++) {
+                                double precioExcursion = excursionesMensuales.get(r).getExcursion().getPrecio();
+                                precioFinal += precioExcursion;                                
+                            } 
+                            
+                            double facturaFinalFed = facturaMensual+precioFinal;
+                            System.out.println("///////////////////////////////////");
+                            System.out.println("La cuota del socio infantil es: \n  " + facturaMensual + "e");                            
+                            System.out.println("El seguro del socio infantil es de 0 Euros");
+                            System.out.println("Excuriones del socio infantil:");
+
+                            for (int q = 0; q < excursionesMensuales.size(); q++) {
+                                System.out.println(excursionesMensuales.get(q).getExcursion().nombreExcursion());                                        
+                            } 
+
+                            System.out.println("El coste de las excursiones para el socio infantil es: \n  " + precioFinal + "e");
+                            System.out.println("Coste de la factura final socio infantil es: \n  " + facturaFinalFed + "e");
+                            System.out.println("///////////////////////////////////");
+                        } 
+                        } 
+                        else {
+                            System.out.println("Numero de socio invalido. Por favor, seleccione un numero de socio valido.");
+                        }
+                        inicio();
                         break;
                 }
+                    break;
+                case 8:
+                inicio();
+                break;
 
-                inicio();
-                break;
-            case 8:
-                inicio();
-                break;
             default:
                 System.out.println("Cerrando programa...");
                 break;
@@ -537,10 +826,13 @@ public class A_MenuInicial {
                 ArrayList<B1_SocioEstandar> socioEstandarX = controlador.mostrarSocioEstandar();
                 ArrayList<B2_SocioFederado> socioFederadosX = controlador.mostrarSocioFederados();
                 ArrayList<B3_SocioInfantil> socioInfantilX = controlador.mostrarSocioInfantil();
-                System.out.println("FUNCIÓN MOSTRAR SOCIOS");
-                mostrar(socioEstandarX);
+                System.out.println("///////////////<SOCIOS FEDERADOS>///////////////");
                 mostrar(socioFederadosX);
+                System.out.println("///////////////<SOCIOS ESTANDAR>///////////////");
+                mostrar(socioEstandarX);
+                System.out.println("///////////////<SOCIOS INFANTILES>///////////////");
                 mostrar(socioInfantilX);
+                System.out.println("//////////////////////////////");
                 inicio();
                 break;
             //VER SOCIOS ESTANDAR

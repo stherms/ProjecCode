@@ -1,5 +1,4 @@
 package ProjectCode.modelo;
-/*clasessss */
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,60 +25,50 @@ public class Datos {
         this.sociosInfantiles = new ArrayList<>();
         this.cargaInscripciones = new ArrayList<>();
         this.seguros = new ArrayList<>();
-
-
     }
-    //CARGA INCIAL FEDERACIONES
 
     /**
      * Realiza una carga inicial de una lista de federaciones
      */
+    //CARGA INCIAL FEDERACIONES
     public void cargarFederaciones() {
-
         federaciones.add(new D0_Federacion("1", "Federacion española de montañistas"));
         federaciones.add(new D0_Federacion("2", "Asocioación de excursionistas"));
         federaciones.add(new D0_Federacion("3", "El club del senderismo"));
         federaciones.add(new D0_Federacion("4", "Federacion vive la naturaleza"));
-
-
     }
-
-    //CARGA DE SEGUROS
 
     /**
      * Crea los dos Seguros disponibles para los Socios Estandars basico y completo
      */
+    //CARGA DE SEGUROS
     public void cargarSeguros() {
 
         basico = new C0_Seguro(C0_Seguro.tipoSeguro.BASICO, 15);
         completo = new C0_Seguro(C0_Seguro.tipoSeguro.COMPLETO, 30);
     }
 
+    //CARGA DE SEGUROS
     public void cargarSegurosArray() {
         seguros.add(new C0_Seguro(C0_Seguro.tipoSeguro.BASICO, 15));
         seguros.add(new C0_Seguro(C0_Seguro.tipoSeguro.COMPLETO, 30));
     }
 
-    //CARGA INICIAL SOCIOS ESTANDAR
-
     /**
      * Realiza una carga inicial de una lista de Socios Estandar
      */
-
+    //CARGA INICIAL SOCIOS ESTANDAR
     public void cargaInicialSociosEstandar() {
 
         sociosEstandars.add(new B1_SocioEstandar(1, "Pedro Sanchez", "38456625-T", completo));
         sociosEstandars.add(new B1_SocioEstandar(2, "Antonio López", "30585524-z", completo));
         sociosEstandars.add(new B1_SocioEstandar(3, "Sonia Ruiz ", "35658623-V", basico));
-
-
     }
-    //CARGA INICIAL DE SOCIOS FEDERADOS
 
     /**
      * Realiza una carga inicial de una lista de Socios federados
      */
-
+    //CARGA INICIAL DE SOCIOS FEDERADOS
     public void cargaInicialSociosFederados() {
 
         sociosFederados.add(new B2_SocioFederado(4, "Andrew Skurka", "38525625-T", "1",
@@ -90,57 +79,39 @@ public class Datos {
                 "El club del senderismo"));
         sociosFederados.add(new B2_SocioFederado(7, "Earl Shaffer", "38525625-T", "4",
                 "Federacion vive la naturaleza"));
-
-
     }
-
-    //CARGA INICIAL DE SOCIOS INFANTILES
 
     /**
      * Realiza una carga inicial de una lista de Socios Infantiles
      */
-
+    //CARGA INICIAL DE SOCIOS INFANTILES
     public void cargaInicialSociosInfantiles() {
 
         sociosInfantiles.add(new B3_SocioInfantil(8, "Pedrito Sanchez", 1));
         sociosInfantiles.add(new B3_SocioInfantil(9, "Sandra Lopez", 2));
-
-
     }
-
-
-    //CARGA INICIAL EXCURSIONES
 
     /**
      * Realiza una carga inicial de Excursiones
      */
-
-
+    //CARGA INICIAL EXCURSIONES
     public void cargaInicialExcursiones() {
-
         excursiones.add(new E0_Excursiones("M1", "Excursión por el Montseny", LocalDate.parse("2024-04-19"), 2, 50.5));
         excursiones.add(new E0_Excursiones("A1", "Excursión por los Alpes", LocalDate.parse("2024-05-26"), 3, 220));
         excursiones.add(new E0_Excursiones("PE1", "Visita a los picos de Europa", LocalDate.parse("2024-08-22"), 5, 250));
         excursiones.add(new E0_Excursiones("E1", "Subida al Everest ", LocalDate.parse("2024-08-11"), 7, 1250));
-
-
     }
-    //CARGA INICIAL INSCRIPCIONES
 
     /**
      * Realiza una carga inicial de Inscripciones
      */
-
+    //CARGA INICIAL INSCRIPCIONES
     public void cargaInicialInscripciones() {
-
         cargaInscripciones.add(new F0_Inscripciones(1, sociosFederados.get(1), excursiones.get(1)));
         cargaInscripciones.add(new F0_Inscripciones(2, sociosEstandars.get(1), excursiones.get(0)));
-
-
     }
-    // METODOS DE EXCURSIONES
-    // AÑADIR EXCURSION
 
+// METODOS DE EXCURSIONES
     /**
      * Añade nuevas excursiones
      *
@@ -150,13 +121,10 @@ public class Datos {
      * @param dias   La cantidad de dias que dura la excursion
      * @param precio El precio de la excursión
      */
+    // AÑADIR EXCURSION
     public void añadirExcursion(String codigo, String descr, LocalDate fecha, int dias, double precio) {
-
         excursiones.add(new E0_Excursiones(codigo, descr, fecha, dias, precio));
-
     }
-
-    // FILTRAR EXCURSION POR INTERVALO DE FECHAS
 
     /**
      * Filtra las excursiones comprendidas entre dos fechas y las añade al ArrayList excursionesFiltradas
@@ -165,38 +133,30 @@ public class Datos {
      * @param fechafin Fecha de Fin que queremos visualizar
      * @return una lista de Excursiones filtrada por fechas
      */
-
+    //FUNCION FILTRAR EXCURSIONES POR RANGO DE FECHAS
     public ArrayList<E0_Excursiones> filtrarExcursiones(LocalDate fechaIni, LocalDate fechafin) {
-
         ArrayList<E0_Excursiones> excusionesFiltradas = new ArrayList<>();
-
         for (E0_Excursiones excursion : excursiones) {
-
-
             if ((excursion.getFecha().isAfter(fechaIni) || excursion.getFecha().isEqual(fechaIni))
                     && (excursion.getFecha().isBefore(fechafin) || excursion.getFecha().isEqual(fechafin))) {
                 excusionesFiltradas.add(excursion);
             }
-
         }
         return excusionesFiltradas;
-
     }
     
-    //MOSTRAR EXCURSIONES
-    //Ver excursiones
+    //FUNCION MOSTRAR EXCURSIONES
     public ArrayList<E0_Excursiones> mostrarExcursiones(){
         return excursiones;
     }
     
-    //BORRAR EXCURSION
-
     /**
      * Elimina la excursion con el codigo recivido como parametro.
      *
      * @param codigoExcursion El codigo de la excursion a eliminar
      */
 
+     //FUNCION ELIMINAR EXCURSION
     public void eliminarExcursion(String codigoExcursion) {
         int contador = 0;
         //creamos iterador para la lista de excursiones
@@ -211,32 +171,27 @@ public class Datos {
                 contador++;
                 break; // salimos del bucle si el elemento ha sido ya eliminado
             }
-
         }
-
         if(contador ==0){
             System.out.println("No se ha encontrado el codio de excusion a buscar");
         }
             System.out.println("Se han eliminado "+contador +" excursiones");
-
     }
 
 //METODO FEDERACIONES
     //Ver federaciones
     public ArrayList<D0_Federacion> mostrarFederaciones(){
-
         return federaciones;
     }
 
 //METODO SEGUROS
     //Ver Seguros
     public ArrayList<C0_Seguro> mostrarSeguros(){
-
         return seguros;
     }
 
-    //METODOS DE SOCIOS
-    //METODOS SOCIO FEDERADO
+//METODOS DE SOCIOS
+//METODOS SOCIO FEDERADO
     /**
      * añade nuevos socios Federados
      *
@@ -246,21 +201,22 @@ public class Datos {
      * @param codigoFederacion El codigo de la Federacion
      * @param nomFederacion El nombre de la Federación
      */
+    //FUNCION CREAR SOCIO FEDERADO
     public void CrearSocioFederado(int numSocio, String nombre, String nif, String codigoFederacion, String nomFederacion){
-
         sociosFederados.add(new B2_SocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion));
     }
+
     /**
      * Solicita la lista de Socios Federados
      *
      * @return Una lista de Socios Federados
      */
-
+    //FUNCION MOSTRAR SOCIOS FEDERADOS
     public ArrayList<B2_SocioFederado> mostrarsociosFederados(){
         return sociosFederados;
     }
 
-    //METODOS SOCIO ESTANDAR
+//METODOS SOCIO ESTANDAR
     /**
      * añade nuevos Socios Estandars
      *
@@ -269,18 +225,17 @@ public class Datos {
      * @param nif El nif del Socio Estandar
      * @param seguro El seguro obligatorio del Socio Estandar
      */
-
-
+    //FUNCION CREAR SOCIO ESTANDAR
     public void CrearSocioEstandar(int numSocio, String nombre, String nif, C0_Seguro seguro){
-
         sociosEstandars.add(new B1_SocioEstandar(numSocio, nombre,  nif, seguro));
     }
+
     /**
      * solicita la lista de Socios Estandar
      *
      * @return Una lista de Socios Estandar
      */
-
+     //FUNCION MOSTRAR SOCIO ESTANDAR
     public ArrayList<B1_SocioEstandar> mostrarSocioEstandar(){
         return sociosEstandars;
     }
@@ -288,7 +243,6 @@ public class Datos {
     //METODOS SOCIO INFANTIL
     /**
      * Añade nuevos Socios Infantiles.
-     *
      * @param numSocio El numero de Socio Infantil
      * @param nombre El nombre del Socio Infantil
      * @param numSocioPadre En numero del Socio de Padre/Madre del Socio Infantil
@@ -307,48 +261,57 @@ public class Datos {
         return sociosInfantiles;
     }
 
-     //ELIMINAR SOCIOS 24-04-24
-      public boolean eliminarSocio(int numSocio){
-      Iterator<B2_SocioFederado> iterador = sociosFederados.iterator();
-      Iterator<B1_SocioEstandar> iterador1 = sociosEstandars.iterator();
-      Iterator<B3_SocioInfantil> iterador2 = sociosInfantiles.iterator();
-      Iterator<B2_SocioFederado> iteradorFederado = sociosFederados.iterator();
-      while (iteradorFederado.hasNext()) {
-          B2_SocioFederado socioFederado = iteradorFederado.next();
-          if (socioFederado.getNumSocio() == numSocio) {
-              iteradorFederado.remove();
-              return true; // Socio encontrado y eliminado
-          }
-      }
-  
-      // Iterar sobre la lista de socios estándar
-      Iterator<B1_SocioEstandar> iteradorEstandar = sociosEstandars.iterator();
-      while (iteradorEstandar.hasNext()) {
-          B1_SocioEstandar socioEstandar = iteradorEstandar.next();
-          if (socioEstandar.getNumSocio() == numSocio) {
-              iteradorEstandar.remove();
-              return true; // Socio encontrado y eliminado
-          }
-      }
-  
-      // Iterar sobre la lista de socios infantiles
-      Iterator<B3_SocioInfantil> iteradorInfantil = sociosInfantiles.iterator();
-      while (iteradorInfantil.hasNext()) {
-          B3_SocioInfantil socioInfantil = iteradorInfantil.next();
-          if (socioInfantil.getNumSocio() == numSocio) {
-              iteradorInfantil.remove();
-              return true; // Socio encontrado y eliminado
-          }
-      }
-  
-      return false;
-  }
+    /**
+     * 
+     * @param numSocio
+     * @return boolean
+     */
+     //FUNCION ELIMINAR SOCIOS 
+    public boolean eliminarSocio(int numSocio){
+        Iterator<B2_SocioFederado> iteradorFederado = sociosFederados.iterator();
+        
+        while (iteradorFederado.hasNext()) {
+            B2_SocioFederado socioFederado = iteradorFederado.next();
+            if (socioFederado.getNumSocio() == numSocio) {
+                iteradorFederado.remove();
+                return true; // Socio encontrado y eliminado
+            }
+        }
+        // Iterar sobre la lista de socios estándar
+        Iterator<B1_SocioEstandar> iteradorEstandar = sociosEstandars.iterator();
 
-    
- public B0_Socio buscarSocio(List<?extends B0_Socio> socioEstandars, List<?extends B0_Socio> socioFederados, List<?extends B0_Socio> socioInfantil, int numeroSocio) {
+        while (iteradorEstandar.hasNext()) {
+            B1_SocioEstandar socioEstandar = iteradorEstandar.next();
+            if (socioEstandar.getNumSocio() == numSocio) {
+                iteradorEstandar.remove();
+                return true; // Socio encontrado y eliminado
+            }
+        }
 
+        // Iterar sobre la lista de socios infantiles
+        Iterator<B3_SocioInfantil> iteradorInfantil = sociosInfantiles.iterator();
+
+        while (iteradorInfantil.hasNext()) {
+            B3_SocioInfantil socioInfantil = iteradorInfantil.next();
+            if (socioInfantil.getNumSocio() == numSocio) {
+                iteradorInfantil.remove();
+                return true; // Socio encontrado y eliminado
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @param socioEstandars
+     * @param socioFederados
+     * @param socioInfantil
+     * @param numeroSocio
+     * @return B0_Socio
+     */
+    //FUNCION BUSCAR SOCIO
+    public B0_Socio buscarSocio(List<?extends B0_Socio> socioEstandars, List<?extends B0_Socio> socioFederados, List<?extends B0_Socio> socioInfantil, int numeroSocio) {
         B0_Socio encontrado = null;
-
         //Buscamos en la lista estandar
         for (int i = 0; i < socioEstandars.size() && encontrado == null; i++) {
 
@@ -367,7 +330,6 @@ public class Datos {
                 }
             }
         }
-
         //Si no lo he encontrado en la lista federado, lo busco en la de infantil
         if (encontrado == null) {
             //Buscamos en la lista federados
@@ -378,12 +340,11 @@ public class Datos {
                 }
             }
         }
-
         return encontrado;
     }
 
+    //FUNCION CREAR INSCRIPCION
     public void CrearInscripcion(int numInscripcion, B0_Socio socio, E0_Excursiones excursion){
-
         cargaInscripciones.add(new F0_Inscripciones(numInscripcion, socio, excursion));
     }
 
@@ -391,8 +352,8 @@ public class Datos {
      * Devuelve la lista de inscripciones según el numero de socio
      * @return lista con todas las incripciones según el numero de socio
      */
+    //FUNCION MOSTRAR INSCRIPCIONES POR NUMERO DE SOCIO
     public ArrayList<F0_Inscripciones> mostrarInscripcionesPorSocio(int numSocio){
-
         ArrayList<F0_Inscripciones> listaFiltrada = new ArrayList<>();
 
         for (int i = 0; i < cargaInscripciones.size(); i++) {
@@ -400,7 +361,6 @@ public class Datos {
                 listaFiltrada.add(cargaInscripciones.get(i));
             }
         }
-
         return listaFiltrada;
     }
 
@@ -408,8 +368,8 @@ public class Datos {
      * Devuelve la lista de inscripciones según la fecha
      * @return lista con todas las incripciones según la fecha
      */
+    //FUNCION MOSTRAR INSCRIPCIONES POR RANGO DE FECHAS
     public ArrayList<F0_Inscripciones> mostrarInscripcionesPorFechas(LocalDate fechaIni, LocalDate fechaFin){
-
         ArrayList<F0_Inscripciones> listaFiltrada = new ArrayList<>();
 
         for (int i = 0; i < cargaInscripciones.size(); i++) {
@@ -420,16 +380,15 @@ public class Datos {
                 listaFiltrada.add(cargaInscripciones.get(i));
             }
         }
-
         return listaFiltrada;
     }
 
-    //BORRAR INSCRIPCION
 
     /**
      * Elimina una inscripcion de la lista
      * @param numeroInscripcion numero de inscripcion a eliminar
      */
+    //BORRAR INSCRIPCION
     public boolean eliminarInscripcion(int numeroInscripcion) {
         //creamos iterador para la lista de inscripciones
         Iterator<F0_Inscripciones> iterador = cargaInscripciones.iterator();
@@ -441,11 +400,49 @@ public class Datos {
             // si el codigo del elemento actual es igual al codigoExcursion iterator elimina ese elemento.
             if (inscripcionActual.getNumInscripcion() == numeroInscripcion
                 && LocalDate.now().isBefore(inscripcionActual.getExcursion().getFecha())) {
-                iterador.remove();// borramos el elemento del iterador
-                return true; // salimos del bucle si el elemento ha sido ya eliminado
+                iterador.remove();
+                return true; 
             }
         }
-
         return false;
+    }
+
+//FUNCIONES FACTURAS
+    //FACTURA SOCIO FEDERADO
+    public double mostrarFacturaMensualSocioFederado(B2_SocioFederado socioFederado, LocalDate fechaActual) {
+        int cuotaBase = socioFederado.getCuota();
+        double descuentoCuota = socioFederado.getDES_CUOTA_MENSUAL();
+        double cuotaFinal = cuotaBase - (cuotaBase * descuentoCuota);
+                
+            return cuotaFinal;
+    }
+
+    /**
+     * 
+     * @param socioEstandar
+     * @param fechaActual
+     * @return double
+     */
+    //FACTURA SOCIO ESTANDAR
+    public double mostrarFacturaMensualSocioEstandar(B1_SocioEstandar socioEstandar, LocalDate fechaActual){
+        int cuotaBase= socioEstandar.getCuota();
+        double cuotaFinal= cuotaBase;
+        
+        return cuotaFinal;
+    }
+
+    /**
+     * 
+     * @param socioInfantil
+     * @param fechaActual
+     * @return double
+     */
+    //FACTURA SOCIO INFANTIL
+    public double mostrarFacturaMensualSocioInfantil(B3_SocioInfantil socioInfantil, LocalDate fechaActual){
+        int cuotaBase= socioInfantil.getCuota();
+        double descuentoCuota = socioInfantil.getDESCUENTO();
+        double cuotaFinal = cuotaBase - (cuotaBase * descuentoCuota);
+    
+        return cuotaFinal;
     }
 }

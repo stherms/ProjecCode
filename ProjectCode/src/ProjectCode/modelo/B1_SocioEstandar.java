@@ -1,12 +1,10 @@
 package ProjectCode.modelo;
 
-
 import java.util.Scanner;
-
 import ProjectCode.modelo.C0_Seguro.tipoSeguro;
 import ProjectCode.vista.A_MenuInicial;
-
 import java.util.ArrayList;
+
 /**
  *
  * La clase SocioEstandar representa un Socio Estandar que hereda de la clase Padre Socio, con atributos propios nif
@@ -86,23 +84,31 @@ public class B1_SocioEstandar extends B0_Socio {
 
     }
 
+    /**
+     * 
+     * @return
+     */
     public int getCuota(){
         return cuota;   
 
     }
 
-
+    /**
+     * 
+     * @param DES_CUOTA_MENSUAL
+     */
     public void setDescuento(double DES_CUOTA_MENSUAL){
         this.DES_CUOTA_MENSUAL=DES_CUOTA_MENSUAL;
     
         }
+    /**
+    * 
+    * @return double
+    */ 
+    public double getDescuento(){
+        return DES_CUOTA_MENSUAL;   
     
-        public double getDescuento(){
-            return DES_CUOTA_MENSUAL;   
-    
-        }
-
-
+    }
 
     @Override
     public String toString() {

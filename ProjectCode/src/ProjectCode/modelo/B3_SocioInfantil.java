@@ -62,7 +62,10 @@ public class B3_SocioInfantil extends B0_Socio {
         return DESCUENTO;
     }
 
-
+    /**
+     * 
+     * @param cuota
+     */
     public void setCuota(int cuota){
         this.cuota=cuota;
     
