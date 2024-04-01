@@ -47,13 +47,12 @@ public class A_MenuInicial {
         for (int i = 0; i < menuInicial.size(); i++) {
             mensajeInicio.append((i + 1) + ") " + menuInicial.get(i) + "\n");
         }
-        System.out.println("====================\n  MENU INICIAL\n" + mensajeInicio.toString() + "====================");
-        int eleccion = teclado.nextInt();
+
+        int eleccion = obtenerEnteroPositivo(teclado,"====================\n  MENU INICIAL\n" + mensajeInicio.toString() + "====================");
         teclado.nextLine();
         while (eleccion <= 0 || eleccion > menuInicial.size()) {
-            System.out.println("====================\n  MENU INICIAL\n" + mensajeInicio.toString() + "====================");
-            eleccion = teclado.nextInt();
-            teclado.nextLine();
+            eleccion = obtenerEnteroPositivo(teclado,"====================\n  MENU INICIAL\n" + mensajeInicio.toString() + "====================");
+
         }
         switch (eleccion) {
             case 1:
@@ -126,13 +125,13 @@ public class A_MenuInicial {
             mensajeExcursiones.append((i + 1) + ") " + menuExcursiones.get(i) + "\n");
         }
 
-        System.out.println("====================\n  MENU EXCURSIONES\n" + mensajeExcursiones.toString() + "====================");
-        int eleccion = teclado.nextInt();
+
+        int eleccion = obtenerEnteroPositivo(teclado,"====================\n  MENU EXCURSIONES\n" + mensajeExcursiones.toString() + "====================");
         teclado.nextLine();
 
         while (eleccion <= 0 || eleccion > menuExcursiones.size()) {
-            System.out.println("====================\n  MENU EXCURSIONES\n" + mensajeExcursiones.toString() + "====================");
-            eleccion = teclado.nextInt();
+
+            eleccion = obtenerEnteroPositivo(teclado,"====================\n  MENU EXCURSIONES\n" + mensajeExcursiones.toString() + "====================");
             teclado.nextLine();
         }
 
@@ -227,13 +226,13 @@ public class A_MenuInicial {
             mensajeSocios.append((i + 1) + ") " + menuSocios.get(i) + "\n");
         }
 
-        System.out.println("====================\n  MENU SOCIOS\n" + mensajeSocios.toString() + "====================");
-        int eleccion = teclado.nextInt();
+
+        int eleccion = obtenerEnteroPositivo(teclado,"====================\n  MENU SOCIOS\n" + mensajeSocios.toString() + "====================");
         teclado.nextLine();
 
         while (eleccion <= 0 || eleccion > menuSocios.size()) {
-            System.out.println("====================\n  MENU SOCIOS\n" + mensajeSocios.toString() + "====================");
-            eleccion = teclado.nextInt();
+
+            eleccion = obtenerEnteroPositivo(teclado,"====================\n  MENU SOCIOS\n" + mensajeSocios.toString() + "====================");
             teclado.nextLine();
         }
 
@@ -385,8 +384,8 @@ public class A_MenuInicial {
                 }
                 
                 // Solicitar al usuario que ingrese el número de socio a eliminar
-                System.out.println("Introduce el número de socio a eliminar:");
-                int numSocio = teclado.nextInt();
+
+                int numSocio = obtenerEnteroPositivo(teclado,"Introduce el número de socio a eliminar:");
                 teclado.nextLine(); // Limpiar el buffer
 
                 
@@ -423,9 +422,13 @@ public class A_MenuInicial {
                 " - " + socioEstandarS.get(a).getSeguro().getTipoSeguro());
             }
 
-            System.out.println("Introduce el número de socio:");
-            int numSocioS = teclado.nextInt();
-            teclado.nextLine(); 
+
+            int numSocioS = obtenerEnteroPositivo(teclado,"Introduce el número de socio:");
+            teclado.nextLine();
+            while(numSocioS <= 0 || numSocioS > socioEstandarS.size()){
+                System.out.println("opcion incorrecta");
+                numSocioS = obtenerEnteroPositivo(teclado,"Introduce el número de socio:");
+            }
 
             String NifSeguro=socioEstandarS.get(numSocioS-1).getNif();
             int NumSocioSeguro=socioEstandarS.get(numSocioS-1).getNumSocio();
@@ -440,6 +443,11 @@ public class A_MenuInicial {
                 }
                 int eleccionSeguroS = obtenerEnteroPositivo(teclado,"Selecciona un seguro:");
                     teclado.nextLine();
+
+                    while(eleccionSeguroS <= 0 || eleccionSeguroS > segurosS.size()){
+                        System.out.println("opcion incorrecta");
+                        eleccionSeguroS = obtenerEnteroPositivo(teclado,"Selecciona un seguro:");
+                    }
                     C0_Seguro.tipoSeguro tipoSeguroS = segurosS.get(eleccionSeguroS-1).getTipoSeguro();
                     double preciosS = segurosS.get(eleccionSeguroS-1).getPrecioSeguro();
                     
@@ -458,10 +466,15 @@ public class A_MenuInicial {
              //FUNCION FACTURA 
             case 7:           
                 
-                System.out.println("Selecciona tipo de socio a mostrar:\n 1)Federado\n 2)Estandar\n 3)Infantil");
 
-                int tipDeSocio = teclado.nextInt();
-                teclado.nextLine(); 
+
+                int tipDeSocio =obtenerEnteroPositivo(teclado,"Selecciona tipo de socio a mostrar:\n 1)Federado\n 2)Estandar\n 3)Infantil");
+                teclado.nextLine();
+                while(tipDeSocio <= 0 || tipDeSocio > 3){
+                    System.out.println("opcion incorrecta");
+                    tipDeSocio =obtenerEnteroPositivo(teclado,"Selecciona tipo de socio a mostrar:\n 1)Federado\n 2)Estandar\n 3)Infantil");
+                }
+
                 
                 switch (tipDeSocio) {
                     //FACTURA SOCIO FEDERADO
@@ -472,9 +485,15 @@ public class A_MenuInicial {
                         System.out.println((a+1)+")"+ socioFederadosFac.get(a).getNombre());
                     }
                     
-                    System.out.println("Selecciona una opcion:");
-                    int eleccionNumSocioFed = teclado.nextInt();
-                    teclado.nextLine(); 
+
+                    int eleccionNumSocioFed = obtenerEnteroPositivo(teclado,"Selecciona una opcion:");
+                    teclado.nextLine();
+                    while(eleccionNumSocioFed<=0 || eleccionNumSocioFed > socioFederadosFac.size()){
+                        System.out.println("opción no valida");
+                        eleccionNumSocioFed = obtenerEnteroPositivo(teclado,"Selecciona una opcion:");
+                        teclado.nextLine();
+
+                    }
                     int numSocioFed = socioFederadosFac.get(eleccionNumSocioFed-1).getNumSocio();
                     
 
@@ -497,7 +516,7 @@ public class A_MenuInicial {
                                 break;
                             }
                         }
-                        
+
                         LocalDate fechaInicio = null;
                         boolean fechaInicioValida = false;
                         while (!fechaInicioValida) {
@@ -509,7 +528,7 @@ public class A_MenuInicial {
                                 System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
                             }
                         }
-                        
+
                         LocalDate fechaFin = null;
                         boolean fechaFinValida = false;
                         while (!fechaFinValida) {
@@ -521,7 +540,7 @@ public class A_MenuInicial {
                                 System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
                             }
                         }
-                        
+
                         // Verificar si la fecha de fin es posterior a la fecha de inicio
                         if (fechaInicio.isAfter(fechaFin)) {
                             System.out.println("La fecha de fin debe ser posterior a la fecha de inicio. Por favor, introduzca fechas válidas.");
@@ -584,9 +603,15 @@ public class A_MenuInicial {
                         for(int a = 0; a<socioEstandarFac.size(); a++){
                             System.out.println((a+1)+")"+ socioEstandarFac.get(a).getNombre());
                         }
-                        System.out.println("Selecciona una opcion:");
-                        int eleccionNumSocioEst = teclado.nextInt();
-                        teclado.nextLine(); 
+
+                        int eleccionNumSocioEst = obtenerEnteroPositivo(teclado,"Selecciona una opcion:");
+                        teclado.nextLine();
+                        while(eleccionNumSocioEst<=0 || eleccionNumSocioEst > socioEstandarFac.size()){
+                            System.out.println("opción no valida");
+                            eleccionNumSocioEst = obtenerEnteroPositivo(teclado,"Selecciona una opcion:");
+                            teclado.nextLine();
+
+                        }
                         int tipoSocioEst = socioEstandarFac.get(eleccionNumSocioEst-1).getNumSocio();
 
                         // Verificar si el número de socio seleccionado existe
@@ -609,7 +634,7 @@ public class A_MenuInicial {
                                 }
                             }
                             double seguroAnualE=socioSeleccionado.getSeguro().getPrecioSeguro();
-                            
+
                             LocalDate fechaInicio = null;
                             boolean fechaInicioValida = false;
                             while (!fechaInicioValida) {
@@ -621,7 +646,7 @@ public class A_MenuInicial {
                                     System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
                                 }
                             }
-                            
+
                             LocalDate fechaFin = null;
                             boolean fechaFinValida = false;
                             while (!fechaFinValida) {
@@ -633,7 +658,7 @@ public class A_MenuInicial {
                                     System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
                                 }
                             }
-                            
+
                             // Verificar si la fecha de fin es posterior a la fecha de inicio
                             if (fechaInicio.isAfter(fechaFin)) {
                                 System.out.println("La fecha de fin debe ser posterior a la fecha de inicio. Por favor, introduzca fechas válidas.");
@@ -690,9 +715,15 @@ public class A_MenuInicial {
                         for(int a = 0; a<socioInfantilFac.size(); a++){
                             System.out.println((a+1)+")"+ socioInfantilFac.get(a).getNombre());
                         }
-                        System.out.println("Selecciona una opcion:");
-                        int eleccionNumSocioInf = teclado.nextInt();
-                        teclado.nextLine(); 
+
+                        int eleccionNumSocioInf = obtenerEnteroPositivo(teclado,"Selecciona una opcion:");
+                        teclado.nextLine();
+                        while(eleccionNumSocioInf<=0 || eleccionNumSocioInf > socioInfantilFac.size()){
+                            System.out.println("opción no valida");
+                            eleccionNumSocioInf = obtenerEnteroPositivo(teclado,"Selecciona una opcion:");
+                            teclado.nextLine();
+
+                        }
                         int tipDeSocioInf = socioInfantilFac.get(eleccionNumSocioInf-1).getNumSocio();
 
                         // Verificar si el número de socio seleccionado existe
@@ -713,7 +744,7 @@ public class A_MenuInicial {
                                     break;
                                 }
                             }
-                            
+
                             LocalDate fechaInicio = null;
                             boolean fechaInicioValida = false;
                             while (!fechaInicioValida) {
@@ -725,7 +756,7 @@ public class A_MenuInicial {
                                     System.out.println("Formato de fecha incorrecto. Por favor, introduzca una fecha en formato YYYY-MM-DD.");
                                 }
                             }
-                            
+
                             LocalDate fechaFin = null;
                             boolean fechaFinValida = false;
                             while (!fechaFinValida) {
@@ -810,13 +841,11 @@ public class A_MenuInicial {
             mensajesubSocios.append((i + 1) + ") " + submenuSocios.get(i) + "\n");
         }
 
-        System.out.println("====================\n MENU SOCIOS\n" + mensajesubSocios.toString() + "====================");
-        int eleccion = teclado.nextInt();
+        int eleccion = obtenerEnteroPositivo(teclado,"====================\n MENU SOCIOS\n" + mensajesubSocios.toString() + "====================");
         teclado.nextLine();
 
         while (eleccion <= 0 || eleccion > submenuSocios.size()) {
-            System.out.println("====================\n  MENU SOCIOS\n" + mensajesubSocios.toString() + "====================");
-            eleccion = teclado.nextInt();
+            eleccion = obtenerEnteroPositivo(teclado,"====================\n MENU SOCIOS\n" + mensajesubSocios.toString() + "====================");
             teclado.nextLine();
         }
 
@@ -877,35 +906,53 @@ public class A_MenuInicial {
             mensajeInscripciones.append((i + 1) + ") " + menuInscripciones.get(i) + "\n");
         }
 
-        System.out.println("====================\n MENU INSCRIPCIONES\n" + mensajeInscripciones.toString() + "====================");
-        int eleccion = teclado.nextInt();
+        System.out.println();
+        int eleccion = obtenerEnteroPositivo(teclado,"====================\n MENU INSCRIPCIONES\n" + mensajeInscripciones.toString() + "====================");
         teclado.nextLine();
 
         while (eleccion <= 0 || eleccion > menuInscripciones.size()) {
-            System.out.println("====================\n  MENU INSCRIPCIONES\n" + mensajeInscripciones.toString() + "====================");
-            eleccion = teclado.nextInt();
+            eleccion = obtenerEnteroPositivo(teclado,"====================\n MENU INSCRIPCIONES\n" + mensajeInscripciones.toString() + "====================");
             teclado.nextLine();
         }
 
         switch (eleccion) {
              case 1:
                  System.out.println("LISTADO DE INSCRIPCIONES:");
-                 System.out.println("1. Filtrar por socio:");
-                 System.out.println("2. Filtrar por fecha");
-                 int filtrado = teclado.nextInt();
+
+                 int filtrado = obtenerEnteroPositivo(teclado,"1. Filtrar por socio:\n2. Filtrar por fecha");
 
                  if (filtrado == 1){
-                     System.out.println("- Numero Socio:");
-                     int numSocio = teclado.nextInt();
+
+                     int numSocio = obtenerEnteroPositivo(teclado,"- Numero Socio:");
                      ArrayList<F0_Inscripciones> inscripciones = controlador.mostrarInscripcionesPorSocio(numSocio);
                      mostrar(inscripciones);
+                     if(inscripciones.isEmpty()){
+                         System.out.println("El socio numero "+numSocio+" no tiene ninguna inscripción");
+                     }
+
                  }
                  else if (filtrado == 2){
                      teclado.nextLine();
-                     LocalDate fechaIni = obtenerFecha(teclado, "FechaIni");
-                     LocalDate fechaFin = obtenerFecha(teclado, "FechaFin");
+                     LocalDate fechaIni;
+                     LocalDate fechaFin;
+                     boolean fechasCorrectas = true;
+                     do {
+                         fechaIni = obtenerFecha(teclado, "FechaIni");
+                         fechaFin = obtenerFecha(teclado, "FechaFin");
+                     //La fecha de inicio debe ser anterior o igual a la de fin
+                         if (fechaIni.isAfter(fechaFin)) {
+                             System.out.println("La fecha de inicio no puede ser posterior a la fecha de fin");
+                             fechasCorrectas = false;
+                         } else {
+                             fechasCorrectas = true;
+                         }
+                     } while (!fechasCorrectas);
+
                      ArrayList<F0_Inscripciones> inscripciones = controlador.mostrarInscripcionesPorFechas(fechaIni, fechaFin);
                      mostrar(inscripciones);
+                     if(inscripciones.isEmpty()){
+                         System.out.println("No hay inscripción en esas fechas");
+                     }
                  }
                  else {
                      System.out.println("Opción incorrecta");
@@ -914,10 +961,9 @@ public class A_MenuInicial {
                 menuInscripciones();
                 break;
             case 2:
-                //Capturamos posible excepción en caso que el valor introducido por teclado no sea numérico
-                try {
-                    System.out.println("- Numero Inscripcion:");
-                    int numInscripcion = teclado.nextInt();
+
+
+                    int numInscripcion = obtenerEnteroPositivo(teclado,"- Numero Inscripcion:");
                     teclado.nextLine();
 
                     //Nif socio
@@ -932,7 +978,7 @@ public class A_MenuInicial {
                     mostrarDatosSocioSimplificado(socioInfantil);
 
                     System.out.println("- Numero Socio:");
-                    int numSocio = teclado.nextInt();
+                    int numSocio = obtenerEnteroPositivo(teclado,"");
                     teclado.nextLine();
 
                     //Buscar el socio en ambas listas
@@ -940,80 +986,114 @@ public class A_MenuInicial {
 
                     //Si no se ha encontrado socio
                     if (encontrado == null) {
+                        System.out.println("El socio no existe se procede a crearlo");
                         System.out.println("- Nombre: ");
                         String nombre = teclado.nextLine();
 
                         System.out.println("- Nif:");
                         String nif = teclado.nextLine();
 
-                        System.out.println("Tipo de Socio.");
-                        System.out.println("1. Socio federado:");
-                        System.out.println("2. Socio estandar");
-                        System.out.println("3. Socio infantil");
-                        int tipoSocio = teclado.nextInt();
 
-                        if (tipoSocio == 1){
+                        int tipoSocio = obtenerEnteroPositivo(teclado, "Tipo de Socio.\n1. Socio federado\n2. Socio estandar\n3. Socio infantil");
+                        while (tipoSocio < 1 || tipoSocio > 3) {
+                            System.out.println("opcion incorrecta");
+                            tipoSocio = obtenerEnteroPositivo(teclado, "Tipo de Socio.\n1. Socio federado\n2. Socio estandar\n3. Socio infantil");
+
+                        }
+                        if (tipoSocio == 1) {
                             System.out.println("- Selecciona una Federacion:");
                             ArrayList<D0_Federacion> federaciones = controlador.mostrarFederaciones();
 
-                            for(int b=0; b<federaciones.size();b++){
-                                System.out.println("    "+(b+1)+") "+federaciones.get(b).getNombre());
+                            for (int b = 0; b < federaciones.size(); b++) {
+                                System.out.println("    " + (b + 1) + ") " + federaciones.get(b).getNombre());
                             }
 
-                            int eleccionFederacion = teclado.nextInt();
+                            int eleccionFederacion = obtenerEnteroPositivo(teclado, "");
                             teclado.nextLine();
 
-                            while(eleccionFederacion<=0 || eleccionFederacion>federaciones.size()){
-                                for(int b=0; b<federaciones.size();b++){
-                                    System.out.println("    "+(b+1)+") "+federaciones.get(b).getNombre());
+                            while (eleccionFederacion <= 0 || eleccionFederacion > federaciones.size()) {
+                                for (int b = 0; b < federaciones.size(); b++) {
+                                    System.out.println("    " + (b + 1) + ") " + federaciones.get(b).getNombre());
                                 }
 
-                                eleccionFederacion = teclado.nextInt();
+                                eleccionFederacion = obtenerEnteroPositivo(teclado, "");
                                 teclado.nextLine();
                             }
 
-                            String nomFederacion = federaciones.get(eleccionFederacion-1).getNombre();
-                            String codigoFederacion = federaciones.get(eleccionFederacion-1).getCodigo();
+                            String nomFederacion = federaciones.get(eleccionFederacion - 1).getNombre();
+                            String codigoFederacion = federaciones.get(eleccionFederacion - 1).getCodigo();
 
                             controlador.CrearSocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion);
 
                             System.out.println("Socio federado " + nombre + " con numero " + numSocio + " ha sido creado");
 
-                        }
-                        else if (tipoSocio == 2){
+                        } else if (tipoSocio == 2) {
                             System.out.println("- Seguros disponibles:");
 
                             ArrayList<C0_Seguro> seguros = controlador.mostrarSeguros();
 
-                            for(int x = 0; x<seguros.size(); x++){
-                                System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
+                            for (int x = 0; x < seguros.size(); x++) {
+                                System.out.println("    " + (x + 1) + ") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
                             }
-                            int eleccionSeguro = teclado.nextInt();
+                            int eleccionSeguro = obtenerEnteroPositivo(teclado, "");
                             teclado.nextLine();
 
-                            while(eleccionSeguro<=0 || eleccionSeguro>seguros.size()){
+                            while (eleccionSeguro <= 0 || eleccionSeguro > seguros.size()) {
                                 System.out.println("- Seguros disponibles:");
 
-                                for(int x = 0; x<seguros.size(); x++){
-                                    System.out.println("    "+(x +1)+") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
+                                for (int x = 0; x < seguros.size(); x++) {
+                                    System.out.println("    " + (x + 1) + ") " + seguros.get(x).getTipoSeguro() + " - " + seguros.get(x).getPrecioSeguro());
                                 }
-                                eleccionSeguro = teclado.nextInt();
+                                eleccionSeguro = obtenerEnteroPositivo(teclado, "");
                                 teclado.nextLine();
                             }
 
-                            C0_Seguro.tipoSeguro tipoSeguro = seguros.get(eleccionSeguro-1).getTipoSeguro();
-                            double precios = seguros.get(eleccionSeguro-1).getPrecioSeguro();
+                            C0_Seguro.tipoSeguro tipoSeguro = seguros.get(eleccionSeguro - 1).getTipoSeguro();
+                            double precios = seguros.get(eleccionSeguro - 1).getPrecioSeguro();
 
                             System.out.println("elemento escogido " + tipoSeguro + " con precio " + precios);
                             C0_Seguro seguro = new C0_Seguro(tipoSeguro, precios);
 
                             controlador.CrearSocioEstandar(numSocio, nombre, nif, seguro);
                             System.out.println("Socio Estandar " + nombre + " con numero " + numSocio + " ha sido creado");
+                        } else if (tipoSocio == 3) {
+
+
+                            socioEstandar = controlador.mostrarSocioEstandar();
+
+                            System.out.println("=====================================");
+                            System.out.println("Socios Estándar existentes:");
+
+                            for (int a = 0; a < socioEstandar.size(); a++) {
+                                System.out.println("    " + (a + 1) + ") " + socioEstandar.get(a).getNombre());
+                            }
+
+
+                            int eleccion_padreInfantil = obtenerEnteroPositivo(teclado, "Cual es el padre o madre del socio infantil?");
+                            teclado.nextLine();
+
+                            while (eleccion_padreInfantil <= 0 || eleccion_padreInfantil > socioEstandar.size()) {
+                                System.out.println("Opcion no valida");
+                                for (int a = 0; a < socioEstandar.size(); a++) {
+                                    System.out.println("    " + (a + 1) + ") " + socioEstandar.get(a).getNombre() + " - " + socioEstandar.get(a).getNumSocio());
+                                }
+
+                                eleccion_padreInfantil = obtenerEnteroPositivo(teclado, "Cual es el padre o madre del socio infantil?");
+                                teclado.nextLine();
+                            }
+
+                            int numSocioEstandarInfantil = socioEstandar.get(eleccion_padreInfantil - 1).getNumSocio();
+
+                            controlador.CrearSocioInfantil(numSocio, nombre, numSocioEstandarInfantil);
+
+                            System.out.println("Socio infantil " + nombre + " con numero " + numSocio + " ha sido creado");
+
                         }
 
                         //Buscar nuevo el socio porque ahora ya se dio de alta
                         encontrado = controlador.buscarSocio(socioEstandar, socioFederados, socioInfantil, numSocio);
                     }
+                    else{
 
                     //Si el socio se ha encontrado
                     ArrayList<E0_Excursiones> excursiones = controlador.mostrarExcursiones();
@@ -1051,29 +1131,22 @@ public class A_MenuInicial {
                         System.out.println("No existe una excursion con el codigo: " + codigoExcursion);
                     }
                 }
-                //Tipo de excepción cuando el valor introducido por teclado no cuadra con el tipo de dato que
-                //intenta leer el Scanner
-                catch (InputMismatchException ex){
-                    System.out.println("Error valor no numerico");
-                    teclado.nextLine();
-                }
+
+
                 menuInscripciones();
                 break;
             case 3:
                 //ELIMINAR INSCRIPCION
-                try {
-                    System.out.println("Introduce el numero de la inscripcion a eliminar");
-                    int numInscripcion = this.teclado.nextInt();
-                    boolean borrado = this.controlador.eliminarInscripcion(numInscripcion);
+
+
+                    numInscripcion = obtenerEnteroPositivo(teclado,"Introduce el numero de la inscripcion a eliminar");
+                    boolean borrado = controlador.eliminarInscripcion(numInscripcion);
                     if (borrado) {
                         System.out.println("Inscripción eliminada correctamente");
                     } else {
                         System.out.println("No se ha podido eliminar la inscripcion con el numero: " + numInscripcion);
                     }
-                } catch (InputMismatchException var19) {
-                    System.out.println("Error valor no numerico");
-                    this.teclado.nextLine();
-                }
+
 
                 this.menuInscripciones();
                 break;

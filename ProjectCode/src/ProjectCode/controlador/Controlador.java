@@ -326,7 +326,7 @@ public class Controlador {
      * @return lista con todas las inscripciones para ese socio
      */
     public ArrayList<F0_Inscripciones> mostrarInscripcionesPorSocio(int numSocio){
-        ArrayList<F0_Inscripciones> inscripciones = new ArrayList<>();
+        ArrayList<F0_Inscripciones> inscripciones;
         inscripciones = datos.mostrarInscripcionesPorSocio(numSocio);
         return inscripciones;
     }
@@ -336,7 +336,7 @@ public class Controlador {
      * @return lista con las inscripciones para las fechas indicadas
      */
     public ArrayList<F0_Inscripciones> mostrarInscripcionesPorFechas(LocalDate fechaIni, LocalDate fechaFin){
-        ArrayList<F0_Inscripciones> inscripciones = new ArrayList<>();
+        ArrayList<F0_Inscripciones> inscripciones;
         inscripciones = datos.mostrarInscripcionesPorFechas(fechaIni, fechaFin);
         return inscripciones;
     }
