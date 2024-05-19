@@ -2,21 +2,24 @@ package ProjectCode;
 
 
 import ProjectCode.controlador.Controlador;
+import ProjectCode.modelo.ConexionHibernate;
 import ProjectCode.modelo.Datos;
-import ProjectCode.vista.A_MenuInicial;
-
-
 
 
 public class Main {
     public static void main(String[] args) {
 
-        Datos datos = new Datos();
-        Controlador controlador = new Controlador(datos);
-        A_MenuInicial prog = new A_MenuInicial(controlador);
+        try {
+            Datos datos = new Datos();
+            ConexionHibernate conexion = new ConexionHibernate();
+            Controlador controlador = new Controlador(datos, conexion);
+            A_MenuInicial prog = new A_MenuInicial(controlador);
 
-        prog.cargadatos();
-        prog.inicio();
+            prog.cargadatos();
+            prog.inicio();
+        }
+        catch (Exception ex){
+           ex.printStackTrace();
+        }
     }
 }
-

@@ -2,7 +2,7 @@ package ProjectCode.modelo;
 
 import java.util.Scanner;
 import ProjectCode.modelo.C0_Seguro.tipoSeguro;
-import ProjectCode.vista.A_MenuInicial;
+
 import java.util.ArrayList;
 
 /**
@@ -18,9 +18,11 @@ public class B1_SocioEstandar extends B0_Socio {
     private double DES_CUOTA_MENSUAL=1;
     private int cuota=100;
     private String nif;
-    private C0_Seguro seguro;
+    private String seguro;
     private static ArrayList<B1_SocioEstandar> SociosEstandar = new ArrayList<>();
 
+    public B1_SocioEstandar() {
+    }
 
     /**
      *
@@ -30,7 +32,7 @@ public class B1_SocioEstandar extends B0_Socio {
      *
      */
 
-    public B1_SocioEstandar(int numSocio, String nombre, String nif, C0_Seguro seguro) {
+    public B1_SocioEstandar(int numSocio, String nombre, String nif, String seguro) {
 
         super(numSocio, nombre);
         this.nif = nif;
@@ -38,10 +40,6 @@ public class B1_SocioEstandar extends B0_Socio {
         SociosEstandar.add(this);
     }
 
-
-    public B1_SocioEstandar() {
-
-    }
 
     /**
      * Obtiene el nif del Socio Estandar.
@@ -69,7 +67,7 @@ public class B1_SocioEstandar extends B0_Socio {
      * @return El seguro del socio Estandar.
      */
 
-    public C0_Seguro getSeguro() {
+    public String getSeguro() {
         return seguro;
     }
 
@@ -78,10 +76,8 @@ public class B1_SocioEstandar extends B0_Socio {
      *
      * @return Muestra por pantalla el Socio Estandar con el seguro.
      */
-
-    public void setCuota(int cuota){
-    this.cuota=cuota;
-
+    public void setSeguro(String seguro) {
+        this.seguro = seguro;
     }
 
     /**

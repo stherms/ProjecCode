@@ -5,7 +5,9 @@
 package ProjectCode.controlador;
 
 import ProjectCode.modelo.*;
-import ProjectCode.vista.A_MenuInicial;
+import org.hibernate.Session;
+
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 public class Controlador {
     private Datos datos;
     private A_MenuInicial vista;
+    private ConexionHibernate conexion;
 
      //CONSTRUCTORES
      //recive/envia de vista y recive/envia a modelo
@@ -30,8 +33,9 @@ public class Controlador {
       * Constructor de la clase controlador.
       * @param datos instancia de la clase Datos
       */
-    public Controlador(Datos datos){
+    public Controlador(Datos datos, ConexionHibernate conexion){
         this.datos = datos;
+        this.conexion = conexion;
     }
 
      //METODOS CARGA DE DATOS
@@ -197,7 +201,12 @@ public class Controlador {
       * @param nomFederacion El nombre de la Federación
       */
     public void CrearSocioFederado(int numSocio, String nombre, String nif, String codigoFederacion, String nomFederacion){
-        datos.CrearSocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion);
+        try {
+            socioFederadoDAO.crearSocioFederado(numSocio, nombre, nif, codigoFederacion, nomFederacion, conexion);
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -207,7 +216,12 @@ public class Controlador {
       */
     public ArrayList<B2_SocioFederado> mostrarSocioFederados(){
         ArrayList<B2_SocioFederado> socioFederados = new ArrayList<>();
-        socioFederados = datos.mostrarsociosFederados();
+        try {
+            socioFederados = socioFederadoDAO.mostrarSocioFederado(conexion);
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
         return socioFederados;
     }
 
@@ -222,7 +236,12 @@ public class Controlador {
       */
 
     public void CrearSocioEstandar(int numSocio, String nombre, String nif, C0_Seguro seguro){
-        datos.CrearSocioEstandar(numSocio,  nombre, nif, seguro);
+        try {
+            socioEstandarDAO.crearSocioEstandar(numSocio, nombre, nif, seguro.getTipoSeguro().toString(), conexion);
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -233,7 +252,12 @@ public class Controlador {
 
     public ArrayList<B1_SocioEstandar> mostrarSocioEstandar(){
         ArrayList<B1_SocioEstandar> socioEstandars = new ArrayList<>();
-        socioEstandars = datos.mostrarSocioEstandar();
+        try {
+            socioEstandars = socioEstandarDAO.mostrarSocioEstandar(conexion);
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
         return socioEstandars;
     }
 
@@ -248,7 +272,12 @@ public class Controlador {
       */
     public void CrearSocioInfantil(int numSocio, String nombre, int numSocioPadre){
 
-        datos.CrearSocioInfantil(numSocio,  nombre, numSocioPadre);
+        try {
+            socioInfantilDAO.crearSocioInfantil(numSocio, nombre, numSocioPadre, conexion);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -257,7 +286,12 @@ public class Controlador {
       */
     public ArrayList<B3_SocioInfantil> mostrarSocioInfantil(){
         ArrayList<B3_SocioInfantil> socioInfantil = new ArrayList<>();
-        socioInfantil = datos.mostrarSocioInfantil();
+        try {
+            socioInfantil = socioInfantilDAO.mostrarSocioInfantil(conexion);
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
         return socioInfantil;
     }
 
@@ -278,7 +312,14 @@ public class Controlador {
 
     //ELIMINAR SOCIOS //24-3-24
     public boolean eliminarSocio(int numSocio){
-        return datos.eliminarSocio(numSocio);
+        try {
+            return socioDAO.eliminarSocio(numSocio);
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return false;
     }
 
 

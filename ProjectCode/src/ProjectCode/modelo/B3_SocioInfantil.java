@@ -20,7 +20,7 @@ public class B3_SocioInfantil extends B0_Socio {
 
     /**
      *
-     * @param numSocio El numero de Socio Infantil
+     * @param numSocioPadre El numero de Socio Infantil
      * @param nombre El nombre del Socio Infantil
      * @param numSocioPadre El numero de Socio de un padre
      */
@@ -38,10 +38,10 @@ public class B3_SocioInfantil extends B0_Socio {
      *
      * @return El numero de Socio del padre.
      */
-
     public int getNumSocioPadre() {
         return numSocioPadre;
     }
+
 
     /**
      * Establece el numero de Socio del padre.
@@ -57,14 +57,13 @@ public class B3_SocioInfantil extends B0_Socio {
      *
      * @return El porcentaje de descuento que tiene el Socio Infantil.
      */
-
     public double getDESCUENTO() {
-        return DESCUENTO;
+        return getDESCUENTO();
     }
 
     /**
-     * 
-     * @param cuota
+     * Establece la cuota del socio infantil
+     * @param cuota la cuota para el socio infantil
      */
     public void setCuota(int cuota){
         this.cuota=cuota;
@@ -89,4 +88,6 @@ public class B3_SocioInfantil extends B0_Socio {
         +"\n    DATOS CODIGO FAMILIAR:"
         +"\n        - Num socio familiar: " + getNumSocioPadre() +"\n";
     }
+
+
 }

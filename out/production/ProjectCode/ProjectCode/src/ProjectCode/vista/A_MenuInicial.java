@@ -20,6 +20,7 @@ import java.util.List;
 public class A_MenuInicial {
     Scanner teclado;
     private Controlador controlador;
+    private ConexionHibernate conexion;
     ArrayList<String> menuInicial = new ArrayList<>();
     ArrayList<String> menuExcursiones = new ArrayList<>();
     ArrayList<String> menuSocios = new ArrayList<>();
@@ -360,13 +361,11 @@ public class A_MenuInicial {
                 }
 
                 C0_Seguro.tipoSeguro tipoSeguro = seguros.get(eleccionSeguro-1).getTipoSeguro();
-                double precios = seguros.get(eleccionSeguro-1).getPrecioSeguro();
+                int precios = seguros.get(eleccionSeguro-1).getPrecioSeguro();
                 
                 System.out.println("elemento escogido " + tipoSeguro + " con precio " + precios);
                 C0_Seguro seguro = new C0_Seguro(tipoSeguro, precios);
 
-
-                
                 controlador.CrearSocioEstandar(numEstandar, nombreEstandar, nifEstandar, seguro);
                 
                 System.out.println("Socio Estandar " + nombreEstandar + " con numero " + numEstandar + " ha sido creado");
@@ -428,7 +427,7 @@ public class A_MenuInicial {
             
             for(int a = 0; a<socioEstandarS.size(); a++){
                 System.out.println((a+1) + ")  "+ socioEstandarS.get(a).getNombre()+
-                " - " + socioEstandarS.get(a).getSeguro().getTipoSeguro());
+                " - " + socioEstandarS.get(a).getSeguro());
             }
 
 
@@ -458,7 +457,7 @@ public class A_MenuInicial {
                         eleccionSeguroS = obtenerEnteroPositivo(teclado,"Selecciona un seguro:");
                     }
                     C0_Seguro.tipoSeguro tipoSeguroS = segurosS.get(eleccionSeguroS-1).getTipoSeguro();
-                    double preciosS = segurosS.get(eleccionSeguroS-1).getPrecioSeguro();
+                    int preciosS = segurosS.get(eleccionSeguroS-1).getPrecioSeguro();
                     
                     System.out.println("elemento escogido " + tipoSeguroS + " con precio " + preciosS);
                     C0_Seguro seguroS = new C0_Seguro(tipoSeguroS, preciosS);
@@ -642,7 +641,7 @@ public class A_MenuInicial {
 
                                 }
                             }
-                            double seguroAnualE=socioSeleccionado.getSeguro().getPrecioSeguro();
+                            double seguroAnualE= 0; //socioSeleccionado.getSeguro().getPrecioSeguro();
 
                             LocalDate fechaInicio = null;
                             boolean fechaInicioValida = false;
@@ -1058,7 +1057,7 @@ public class A_MenuInicial {
                             }
 
                             C0_Seguro.tipoSeguro tipoSeguro = seguros.get(eleccionSeguro - 1).getTipoSeguro();
-                            double precios = seguros.get(eleccionSeguro - 1).getPrecioSeguro();
+                            int precios = seguros.get(eleccionSeguro - 1).getPrecioSeguro();
 
                             System.out.println("elemento escogido " + tipoSeguro + " con precio " + precios);
                             C0_Seguro seguro = new C0_Seguro(tipoSeguro, precios);
@@ -1124,7 +1123,7 @@ public class A_MenuInicial {
                         if (encontrado instanceof B1_SocioEstandar) {
                             //Si es socio estandar el precio final sera el precio de la excursion mas
                             //el precio del seguro contratado
-                            copiaExcursion.setPrecio(excursion.getPrecio() + ((B1_SocioEstandar) encontrado).getSeguro().getPrecioSeguro());
+                            //copiaExcursion.setPrecio(excursion.getPrecio() + ((B1_SocioEstandar) encontrado).getSeguro().getPrecioSeguro());
                         }
                         else if (encontrado instanceof B2_SocioFederado){
                             //Si el socio es federado el precio final será el precio de la excursion menos el
@@ -1262,7 +1261,6 @@ public class A_MenuInicial {
 
     public <T> void mostrar(ArrayList<T> datosMostrar) {
         for (T elemento : datosMostrar) {
-
             System.out.println(elemento.toString());
         }
     }

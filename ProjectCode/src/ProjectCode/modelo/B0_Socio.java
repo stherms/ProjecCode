@@ -1,5 +1,8 @@
 package ProjectCode.modelo;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
  * La clase Socio representa una clases Abstracta con datos comunes de todos los socios, que son el numero de socio
@@ -11,7 +14,8 @@ package ProjectCode.modelo;
 
 public abstract class B0_Socio {
 
-    private int numSocio;
+    @Id
+    private Integer numSocio;
     private String nombre;
 
     //CONSTRUCTOR
@@ -23,7 +27,7 @@ public abstract class B0_Socio {
      * @param nombre El nombre del socio.
      */
 
-    public B0_Socio(int numSocio, String nombre) {
+    public B0_Socio(Integer numSocio, String nombre) {
         this.numSocio = numSocio;
         this.nombre = nombre;
     }
@@ -38,7 +42,7 @@ public abstract class B0_Socio {
      * @return El número de socio.
      */
 
-    public int getNumSocio() {
+    public Integer getNumSocio() {
         return numSocio;
     }
 
@@ -48,7 +52,7 @@ public abstract class B0_Socio {
      * @param numSocio El número de socio.
      */
 
-    public void setNumSocio(int numSocio) {
+    public void setNumSocio(Integer numSocio) {
         this.numSocio = numSocio;
     }
 

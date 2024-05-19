@@ -1,98 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc8c0d34-c182-457c-9e05-ec8eaa180a94" name="Changes" comment="CONTROL DE EXCEPCIONES">
+    <list default="true" id="387b205e-7879-41d1-a41d-3588a29b96a2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/ProjectCode.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_collections_3_2_1_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/dom4j_1_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/hibernate3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/hibernate_jpa_2_0_api_1_0_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javassist_3_29_2_GA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jta_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_api_1_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_log4j12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/ConexionDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/socioDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/socioEstandarDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/socioFederadoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/socioInfantilDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectCode/src/resources/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectCode/src/resources/socioEstandar.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectCode/FileContentIndex/bd987ae7-82e9-4720-a21b-298e7a55924e.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectCode/v17/.wsuo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectCode/v17/DocumentLayout.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectCode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/controlador/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/controlador/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/B1_SocioEstandar.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/B1_SocioEstandar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/B3_SocioInfantil.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/B3_SocioInfantil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/C0_Seguro.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/modelo/C0_Seguro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/vista/A_MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectCode/src/ProjectCode/vista/A_MenuInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/.idea/shelf/Uncommitted_changes_before_Update_at_31_03_2024_21_33__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/controlador/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/controlador/Controlador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/B0_Socio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/B0_Socio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/B1_SocioEstandar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/B1_SocioEstandar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/B2_SocioFederado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/B2_SocioFederado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/B3_SocioInfantil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/B3_SocioInfantil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/C0_Seguro$tipoSeguro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/C0_Seguro$tipoSeguro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/C0_Seguro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/C0_Seguro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/D0_Federacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/D0_Federacion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/Datos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/Datos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/E0_Excursiones.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/E0_Excursiones.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/F0_Inscripciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/modelo/F0_Inscripciones.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/src/ProjectCode/controlador/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/src/ProjectCode/controlador/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/src/ProjectCode/modelo/B1_SocioEstandar.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/src/ProjectCode/modelo/B1_SocioEstandar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/src/ProjectCode/modelo/B3_SocioInfantil.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/src/ProjectCode/modelo/B3_SocioInfantil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/src/ProjectCode/modelo/C0_Seguro.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/src/ProjectCode/modelo/C0_Seguro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/src/ProjectCode/vista/A_MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/src/ProjectCode/vista/A_MenuInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/vista/A_MenuInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectCode/ProjectCode/vista/A_MenuInicial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectCode/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ProjectCode/ProjectCode/modelo/DatosTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="JUnit5 Test Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--tags" />
-        <option name="title" value="All" />
-      </GitPushTagMode>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;JorgeGonSan&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="44504b89-f207-4dae-98be-b52ee3a808f0" />
-        <option name="url" value="https://github.com/JorgeGonSan/ProjectCode.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="JavaAutoRunManager">
-    <enabled-run-configurations>
-      <run-configuration type="JUnit" name="DatosTest.filtrarExcursiones" />
-    </enabled-run-configurations>
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2dPlmWyN2yvosAu5jPUP0inTDXf" />
+  <component name="ProjectId" id="2fCNDxUFO2EfNrxdkMJ9ams66ND" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.A_MenuInicial.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.A_MenuInicialTest.addMenuInscripciones.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DatosTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DatosTest.filtrarExcursiones.executor&quot;: &quot;Debug&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jordi/OneDrive/Escritorio/ProjectCode&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ProjectCode/src/resources" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Clases\2023-2024\Esther Mateo\POO Segundo semestre\Producto4\ProjectCode\src\resources" />
+      <recent name="F:\Clases\2023-2024\Esther Mateo\POO Segundo semestre\Producto4\ProjectCode\resources" />
     </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="ProjectCode.vista" />
-      <recent name="ProjectCode.modelo" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Clases\2023-2024\Esther Mateo\POO Segundo semestre\Producto4\ProjectCode\src" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -109,254 +106,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="A_MenuInicialTest.addMenuInscripciones" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectCode" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ProjectCode.vista.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ProjectCode.vista" />
-      <option name="MAIN_CLASS_NAME" value="ProjectCode.vista.A_MenuInicialTest" />
-      <option name="METHOD_NAME" value="addMenuInscripciones" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DatosTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ProjectCode.modelo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ProjectCode.modelo" />
-      <option name="MAIN_CLASS_NAME" value="ProjectCode.modelo.DatosTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DatosTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectCode" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ProjectCode.modelo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ProjectCode.modelo" />
-      <option name="MAIN_CLASS_NAME" value="ProjectCode.modelo.DatosTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DatosTest.filtrarExcursiones" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectCode" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ProjectCode.modelo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ProjectCode.modelo" />
-      <option name="MAIN_CLASS_NAME" value="ProjectCode.modelo.DatosTest" />
-      <option name="METHOD_NAME" value="filtrarExcursiones" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="javassist-3.29.2-GA.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/driver/javassist-3.29.2-GA.jar" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.DatosTest" />
-        <item itemvalue="JUnit.DatosTest (1)" />
-        <item itemvalue="JUnit.A_MenuInicialTest.addMenuInscripciones" />
-        <item itemvalue="JUnit.DatosTest.filtrarExcursiones" />
+        <item itemvalue="JAR Application.javassist-3.29.2-GA.jar" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fc8c0d34-c182-457c-9e05-ec8eaa180a94" name="Changes" comment="" />
-      <created>1709917755079</created>
+      <changelist id="387b205e-7879-41d1-a41d-3588a29b96a2" name="Changes" comment="" />
+      <created>1713300984640</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1709917755079</updated>
+      <updated>1713300984640</updated>
     </task>
-    <task id="LOCAL-00001" summary="He creado las classe Socio,SocioEstandar, SocioFederado y SocioInfantil, sale con algun error ya que los atributos seguro y federacion dependen de esas clases y aun no estan creadas.">
-      <option name="closed" value="true" />
-      <created>1710089095986</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1710089095986</updated>
-    </task>
-    <task id="LOCAL-00002" summary="He creado las classe Socio,SocioEstandar, SocioFederado y SocioInfantil, sale con algun error ya que los atributos seguro y federacion dependen de esas clases y aun no estan creadas.">
-      <option name="closed" value="true" />
-      <created>1710089445337</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1710089445337</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Modifico comentarios classe SocioEstandar">
-      <option name="closed" value="true" />
-      <created>1710170434239</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1710170434239</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Modifico comentarios classe SocioEstandar">
-      <option name="closed" value="true" />
-      <created>1710177139418</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1710177139419</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Modifico paquetes">
-      <option name="closed" value="true" />
-      <created>1710788166196</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1710788166196</updated>
-    </task>
-    <task id="LOCAL-00006" summary="He creado dos funcion en A_MenuInicial&#10;obeterFecha valida si una fecha tiene el formato correcto.&#10;mostrar muestra por pantalla el contenido del arrayList pasado como parametro.&#10;Por si necesitais usarlo.">
-      <option name="closed" value="true" />
-      <created>1710791230392</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1710791230392</updated>
-    </task>
-    <task id="LOCAL-00007" summary="He creado carga inicial de todos los campos, pendiente de realizar pruebas.">
-      <option name="closed" value="true" />
-      <created>1710878867422</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1710878867422</updated>
-    </task>
-    <task id="LOCAL-00008" summary="He creado carga inicial de todos los campos, pendiente de realizar pruebas.">
-      <option name="closed" value="true" />
-      <created>1710878899801</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1710878899801</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Documento los metodos y constructores creados hasta ahora.">
-      <option name="closed" value="true" />
-      <created>1710957502662</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1710957502662</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Documento los metodos y constructores creados hasta ahora.">
-      <option name="closed" value="true" />
-      <created>1710957597034</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1710957597034</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Añado la opcion de eliminar excursion">
-      <option name="closed" value="true" />
-      <created>1710961006191</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1710961006191</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Pruebas de Test con JUNIT">
-      <option name="closed" value="true" />
-      <created>1711049080698</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1711049080698</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Pruebas de Test con JUNIT 2">
-      <option name="closed" value="true" />
-      <created>1711134558289</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1711134558289</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Pruebas de Test con JUNIT 2">
-      <option name="closed" value="true" />
-      <created>1711134568410</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1711134568410</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Pruebas de Test con JUNIT 2">
-      <option name="closed" value="true" />
-      <created>1711134571373</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1711134571373</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Subo versión funcional">
-      <option name="closed" value="true" />
-      <created>1711270051885</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1711270051885</updated>
-    </task>
-    <task id="LOCAL-00017" summary="AÑADO EXCEPCIONES AL MENU EXCURSIONES">
-      <option name="closed" value="true" />
-      <created>1711275841476</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1711275841476</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Añado funciones de exepciones para enteros y dobles, adapto entrada de socios y menu excursiones a dichas exepciones">
-      <option name="closed" value="true" />
-      <created>1711297142447</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1711297142447</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Actualizo clase controlador y clase Datos">
-      <option name="closed" value="true" />
-      <created>1711308066231</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1711308066231</updated>
-    </task>
-    <task id="LOCAL-00020" summary="CONTROL DE EXCEPCIONES">
-      <option name="closed" value="true" />
-      <created>1711981309286</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1711981309287</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -369,22 +138,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="He creado las classe Socio,SocioEstandar, SocioFederado y SocioInfantil, sale con algun error ya que los atributos seguro y federacion dependen de esas clases y aun no estan creadas." />
-    <MESSAGE value="Modifico comentarios classe SocioEstandar" />
-    <MESSAGE value="Modifico paquetes" />
-    <MESSAGE value="He creado dos funcion en A_MenuInicial&#10;obeterFecha valida si una fecha tiene el formato correcto.&#10;mostrar muestra por pantalla el contenido del arrayList pasado como parametro.&#10;Por si necesitais usarlo." />
-    <MESSAGE value="He creado carga inicial de todos los campos, pendiente de realizar pruebas." />
-    <MESSAGE value="Documento los metodos y constructores creados hasta ahora." />
-    <MESSAGE value="Añado la opcion de eliminar excursion" />
-    <MESSAGE value="Pruebas de Test con JUNIT" />
-    <MESSAGE value="Pruebas de Test con JUNIT 2" />
-    <MESSAGE value="Subo versión funcional" />
-    <MESSAGE value="AÑADO EXCEPCIONES AL MENU EXCURSIONES" />
-    <MESSAGE value="Añado funciones de exepciones para enteros y dobles, adapto entrada de socios y menu excursiones a dichas exepciones" />
-    <MESSAGE value="Actualizo clase controlador y clase Datos" />
-    <MESSAGE value="CONTROL DE EXCEPCIONES" />
-    <option name="LAST_COMMIT_MESSAGE" value="CONTROL DE EXCEPCIONES" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

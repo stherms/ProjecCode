@@ -3,7 +3,7 @@ package ProjectCode.modelo;
 public class C0_Seguro {
     //ATRIBUTOS
     private tipoSeguro tipoSeguro;
-    private double precioSeguro;
+    private int precioSeguro;
 
     //ENUM Tipo de seguro
     public enum tipoSeguro{
@@ -16,7 +16,7 @@ public class C0_Seguro {
      * @param tipoSeguro
      * @param precioSeguro
      */
-    public C0_Seguro(tipoSeguro tipoSeguro, double precioSeguro) {
+    public C0_Seguro(tipoSeguro tipoSeguro, int precioSeguro) {
         this.tipoSeguro = tipoSeguro;
         this.precioSeguro = precioSeguro;
     }
@@ -45,14 +45,14 @@ public class C0_Seguro {
      * 
      * @param precioSeguro
      */
-    public void setPrecioSeguro(double precioSeguro){
+    public void setPrecioSeguro(int precioSeguro){
         this.precioSeguro = precioSeguro;
     }
     /**
      * 
      * @return double
      */
-    public double getPrecioSeguro(){
+    public int getPrecioSeguro(){
         return precioSeguro;
     }
 

@@ -60,9 +60,9 @@ public class Datos {
     //CARGA INICIAL SOCIOS ESTANDAR
     public void cargaInicialSociosEstandar() {
 
-        sociosEstandars.add(new B1_SocioEstandar(1, "Pedro Sanchez", "38456625-T", completo));
-        sociosEstandars.add(new B1_SocioEstandar(2, "Antonio López", "30585524-z", completo));
-        sociosEstandars.add(new B1_SocioEstandar(3, "Sonia Ruiz ", "35658623-V", basico));
+        sociosEstandars.add(new B1_SocioEstandar(1, "Pedro Sanchez", "38456625-T", completo.toString()));
+        sociosEstandars.add(new B1_SocioEstandar(2, "Antonio López", "30585524-z", completo.toString()));
+        sociosEstandars.add(new B1_SocioEstandar(3, "Sonia Ruiz ", "35658623-V", basico.toString()));
     }
 
     /**
@@ -227,7 +227,7 @@ public class Datos {
      */
     //FUNCION CREAR SOCIO ESTANDAR
     public void CrearSocioEstandar(int numSocio, String nombre, String nif, C0_Seguro seguro){
-        sociosEstandars.add(new B1_SocioEstandar(numSocio, nombre,  nif, seguro));
+        sociosEstandars.add(new B1_SocioEstandar(numSocio, nombre,  nif, seguro.toString()));
     }
 
     /**
